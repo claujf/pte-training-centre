@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Highlight incorrect words</title>
+	<h1>Highlight incorrect words</h1>
+	<link rel="stylesheet" href="../../css/style.css">
+	<a href="../../index.html" class="button">Home</a>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h3>You will hear a recording. Below is a transcription of the recording. Some words in the transcription differ from what the speaker(s) said. Please click on the words that are different.</h3>
+<audio controls>
+	<source src="hiw_audio/a8723b2c-e4d1-4b53-ad7c-87c1b243afa9.mp3" type="audio/mpeg">
+</audio>
+<br>
+<p class="sentence">It seems we now know more about outer space than we do about the Earth's core. This is because temperatures are so great at the centre of the Earth that human beings have not been able to take a close look at it. However; new techniques of analysis may soon change all that. The seismic waves formed by earthquakes and volcanic eruptions penetrate the Earth's layers at different speeds. It is now hoped that by studying these waves. scientists will be able to make new findings and solve some of the mysteries of the inside structure of the Earth.</p>
+<br>
+<script src="../../js/highlight.js"></script>
+<script src="../../js/popup.js"></script>
+
+<a href="hiw1.html" class="button">Previous</a>
+<a href="hiw3.html" class="button">Next</a>
+
+<br><br>
+
+<div class="popup" onclick="popupMsg()"> Answer 
+  <span class="popuptext" id="myPopup">1.great<br>2.techniques<br>3.formed<br>4.findings<br>5.inside</span>
+</div>
+
+<div class="popup" onclick="popupAns()"> Transcript 
+  <span class="popuptext" id="mySecondPopup">1)"high" at the centre..<br>
+  2)"methods" of analysis may..<br>
+  3)"created" by earthquakes..<br>
+  4)"discoveries" and solve some<br>
+  5)"internal" structure of the Earth
+  </span>
+</div>
+
+</body>
+</html>
