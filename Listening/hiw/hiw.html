@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Highlight incorrect words</title>
+	<h1>Highlight incorrect words</h1>
+	<link rel="stylesheet" href="../../css/style.css">
+	<a href="../../index.html" class="button">Home</a>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h3>You will hear a recording. Below is a transcription of the recording. Some words in the transcription differ from what the speaker(s) said. Please click on the words that are different.</h3>
+<audio controls>
+	<source src="hiw_audio/d61ea04b-05b4-4fbc-a0d4-5e7cad7fcf2c.mp3" type="audio/mpeg">
+</audio>
+<br>
+<p class="sentence">Leisure travel was. in a sense; a British invention. This was mostly due to economic and social factors; Britain was the first country to become fully industrialized, and industrial society offered greater numbers of people time for leisure. This, coupled with improvements in transport, especially the railways, meant that large numbers of people could get to holiday resorts in a very short time. Modern mass tourism of a sort we can easily recognize today began in 1841 when Thomas Cook organized the first packet tour; in which everything was included in the price - travel; hotel and entertainment. To cater for the large numbers of new holiday-makers, holiday camps were established, both on the coast and in the countryside; and they became immensely popular. Their popularity declined, however; with the rise of cheap overseas tours; which gave many people their first opportunity to travel about.</p>
+<br><br>
+
+<script src="../../js/highlight.js"></script>
+<script src="../../js/popup.js"></script>
+
+<a href="../../index.html" class="button">Previous</a>
+<a href="hiw1.html" class="button">Next</a>
+
+<br><br>
+
+<div class="popup" onclick="popupMsg()"> Answer 
+	<span class="popuptext" id="myPopup">1.mostly<br>2.greater<br>3.packet<br>4.price<br>5.about</span>
+</div>
+
+<div class="popup" onclick="popupAns()"> Transcript 
+	<span class="popuptext" id="mySecondPopup">1)"mainly" due to ecomomic...<br>2)society offered "growing" numbers...<br>3)the first "package" tour;...<br>4)the "cost" - travel;hotel and...<br>5)opportunity to travel "abroad".
+	</span>
+</div>
+</body>
+</html>

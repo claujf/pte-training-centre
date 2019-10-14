@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Summarize Written Text</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="../../css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Summarize Written Text</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <div class="speakingdd">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                <a href="../../Speaking/ra/ra.html">Read Aloud</a>
+                <a href="../../Speaking/di/di.html">Describe Image</a>
+                <a href="../../Speaking/rs/rs.html">Repeat Sentence</a>
+                <a href="../../Speaking/asq/asq.html">Answer Short Question</a>
+                <a href="../../Speaking/rl/rl.html">Re-tell Lecture</a>
+                </div>
+            </div>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <div class="readingdd">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+              <a href="../../r_fib/fib.html">Reading:Fill in the blanks</a>
+              <a href="../../rw_fib/fib.html">Reading&Writing:Fill in the blanks</a>
+              <a href="../../rp/rp.html">Reorder Paragraph</a>
+              <a href="../../r_mcma/r_mcma.html">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../../r_mcsa/r_mcsa.html">Reading:Multiple Choice Single Answer</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <div class="listeningdd">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <a href="../../Listening/hiw/hiw.html">Highlight Incorrect Words</a>
+                <a href="../../Listening/hcs/hcs.html">Highlight the Correct Summary</a>
+                <a href="../../Listening/l_fib/l_fib.html">Listening:Fill in the blanks</a>
+                <a href="../../Listening/l_mcma/l_mcma.html">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../../Listening/l_mcsa/l_mcsa.html">Listening:Multiple Choice Single Answer</a>
+                <a href="../../Listening/smw/smw.html">Select Missing Words</a>
+                <a href="../../Listening/sst/sst.html">Summarize Spoken Text</a>
+                <a href="../../Listening/wfd/wfd.html">Write From Dictation</a>
+              </div>
+            </div>
+          </li>
+          <li ckass="nav-item mx-0 mx-lg-1">
+            <div class="writingdd">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <a>Summarize Written Text</a>
+                <a href="../we/we.html">Write Essay</a>
+              </div>
+            </div>
+          </li>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+<body>
+<script scr="../../js/countdown.js"></script>
+<h2>Summarize written text</h2>
+<h3>Read the passage below and summarize it using one sentence. Type your response in the box at the bottom of the screen. You have 10 minutes to finish this task. Your response will be judged on the quality of your writing and on how well your response presents the key points in the passage.</h3>
+
+<p>UCLA neurology professor Paul Thompson and his colleagues scanned the brains of 23 sets of identical twins and 23 sets of fraternal twins. Since identical twins share the same genes while fraternal twins share about half their genes, the researchers were able to compare each group to show that myelin integrity was determined genetically in many parts of the brain that are key for intelligence. These include the parietal lobes, which are responsible for spatial reasoning, visual processing and logic, and the corpus callosum, which pulls together information from both sides of the body. The researchers used a faster version of a type of scanner called a HARDI (high-angular resolution diffusion imaging) — think of an MRI machine on steroids — that takes scans of the brain at a much higher resolution than a standard MRI. While an MRI scan shows the volume of different tissues in the brain by measuring the amount of water present, HARDI tracks how water diffuses through the brain's white matter — a way to measure the quality of its myelin. "HARDI measures water diffusion," said Thompson, who is also a member of the UCLA Laboratory of Neuro-Imaging. "If the water diffuses rapidly in a specific direction, it tells us that the brain has very fast connections. If it diffuses more broadly, that's an indication of slower signaling, and lower intelligence."</p>
+<!--  action page is where the input going to be send to  -->
+ <form action ="/action_page.php">
+Answer: <br>
+<textarea id="text" id="text" style="width:800px;height:250px"></textarea>
+<span id="wordCount">0</span> Character
+<script src="../../js/word_count.js"></script>
+<!--<div class="col-md-2 pull-right align-right">
+		<div id="div_writing_timer" style="">
+			<span id="writing_timer">
+				<time class="countdown-alt-1" datetime="PT00H00M00S">
+					<span class="item item-hh">
+						<span class="hh-1">0</span>
+						<span class="hh-2">0</span>
+					</span>
+					<span class="separator">:</span>
+					<span class="item item-mm">
+						<span class="mm-1">0</span>
+						<span class="mm-2">0</span>
+					</span>
+					<span class="separator">:</span>
+					<span class="item item-ss">
+						<span class="ss-1">0</span>
+						<span class="ss-2">0</span>
+					</span>
+				</time>
+			</span>
+		</div>
+	</div> -->
+</form>
+<a href="swt.html" class="button">Previous</a>
+<a href="swt2.html" class="button">Next</a>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PTE Practice</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="sst.css">
+<body>
+
+	<!-- Task and description -->
+<p>Summarize Spoken Text</p>
+<p>You will hear a short report. Write a summary for a fellow student who was not present. You should write 50-70 words. You have 10 minutes to finish this task.</p>
+
+  <!-- # Item number and item Title -->
+  
+  <!-- Timer -->
+  <div>Remaining 
+  <span id="time"></span> 
+  <script src="timer10_min.js"> </script>
+  </div>
+ 
+   <!-- Recording audio -->
+  <audio controls autoplay>
+  <source src="listening 1.mp3" type="audio/mpeg">
+  <source src="listening 2.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+  </audio>
+  
+  <!-- User input box -->
+  <form action="/sstdata.php">
+  <textarea id="myText" ></textarea>
+  </br> </br>
+ 
+  <!-- Word Count -->
+  <span id="wordCount">0</span> Character
+  <script src="word_count.js"></script>
+  </br></br>
+  </form>
+  
+  </body> 
+ 
+  <!-- Submit, next, previous button -->
+  <input type="submit" value="Submit"> 
+  <button class="btn w-100" type="button" ng-click="display = !display" >Answer</button> 
+  <a href="#" class="previous round">&#8249;</a>
+  <a href="#" class="next round">&#8250;</a>
+ 
+ <!-- Search question no -->
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Search</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#about">1</a>
+    <a href="#base">2</a>
+    <a href="#blog">3</a>
+  </div>
+  </div>
+<script src="search_btn.js"></script>
+  
+</head>
+</html>

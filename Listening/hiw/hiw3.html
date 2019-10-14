@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Highlight incorrect words</title>
+	<h1>Highlight incorrect words</h1>
+	<link rel="stylesheet" href="../../css/style.css">
+	<a href="../../index.html" class="button">Home</a>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h3>You will hear a recording. Below is a transcription of the recording. Some words in the transcription differ from what the speaker(s) said. Please click on the words that are different.</h3>
+<audio controls>
+	<source src="hiw_audio/cbc3997b-9863-4e01-b753-adfc1ef3e1f8.mp3" type="audio/mpeg">
+</audio>
+<br>
+<p class="sentence">Many species of birds cover long miles’ during their seasonal migration to warmer climates. But how successful are they and do birds that get lost on their route ever survive to find their way back? Much research has been done into how birds navigate and the results show that age is a significant reason. Young birds usually just carry on, if they lose their migratory path, and thus fail to achieve their destination, whereas older, more experienced birds will generally be able to find their first route and continue successfully on their journey.</p>
+<br>
+<script src="../../js/highlight.js"></script>
+<script src="../../js/popup.js"></script>
+
+<a href="hiw2.html" class="button">Previous</a>
+<a href="hiw4.html" class="button">Next</a>
+
+<br><br>
+
+<div class="popup" onclick="popupMsg()"> Answer 
+  <span class="popuptext" id="myPopup">
+    1.miles'<br>
+    2.survive<br>
+    3.done<br>
+    4.reason<br>
+    5.achieve<br>
+    6.first
+  </span>
+</div>
+
+<div class="popup" onclick="popupAns()"> Transcript 
+  <span class="popuptext" id="mySecondPopup">1)"distances" during their..<br>
+  2)"manage" to find their way..<br>
+  3)"conducted" into how birds..<br>
+  4)..is a significant "factor"<br>
+  5)"reach" their destination..<br>
+  6)"original" route and continue..
+  </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+a.button{
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+}
+
+
+  /* Prevent the text contents of draggable elements from being selectable. */
+  [draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  } 
+
+  .container{
+    float: left;
+    width: 500px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  .ans_container{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    font-family: 'Segoe UI';
+    line-height: 30px;
+
+    max-width: 100%;
+    display: inline-block;
+    width:60px;
+    height: 15px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #aaaaaa;
+  }
+
+  span{
+    cursor: grabbing;
+  }
+
+  span::before{content: " "}
+  span:first-child{text-transform: capitalize}
+  span:first-child:before{content:"";}

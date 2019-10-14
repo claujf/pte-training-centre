@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PTE Practice</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="sst.css">
+<body>
+	<!-- Task and description -->
+<p>Fill in the Blanks</p>
+<p>You will hear a recording. Type the missing words in each blank.</p>
+  <!-- # Item number and item Title -->
+  
+  <!-- Timer -->
+  <div>Remaining 
+  <span id="time"></span> 
+  <script src="timer60_sec.js"> </script>
+  </div>
+ 
+   <!-- Recording audio -->
+  <audio controls autoplay>
+  <source src="listening 1.mp3" type="audio/mpeg">
+  <source src="listening 2.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+  </audio>
+  
+  <!-- questions -->      
+<p>The capital of Palestine is 
+<input type="text" class="check003" id="input001" size="15" />
+<text class="button002" id="check001"></text>, and the capital of Jordan is 
+<input id="input002" size="15" />
+<text class="button002" id="check002"></text>, and the capital of England is 
+<input id="input003" size="15" /> 
+<text class="button002" id="check003"></text> and the capital of Brazil is 
+<input id="input004" size="15" />
+<text class="button002" id="check004"></text>, and the capital of Canada is 
+<input id="input005" size="15" />
+<text class="button002" id="check005"></text>.</p>
+                        
+    </body> 
+ 
+  <!-- Submit, next, previous button -->
+  <input type="submit" value="Submit"> 
+  <button class="btn w-100" type="button" ng-click="display = !display" >Answer</button> 
+  <a href="#" class="previous round">&#8249;</a>
+  <a href="#" class="next round">&#8250;</a>
+ 
+ <!-- Search question no -->
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Search</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#about">1</a>
+    <a href="#base">2</a>
+    <a href="#blog">3</a>
+  </div>
+  </div>
+<script src="search_btn.js"></script>
+  
+</head>
+</html>

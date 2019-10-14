@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PTE Practice</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="sst.css">
+<body>
+	<!-- Task and description -->
+<p>Select Missing Word</p>
+<p>Select Missing Word
+You will hear a recording about fiction writing. At the end of the recording the lost word or group of words has been reploced by a beep. Select the correct option to complete the recording.</p>
+  <!-- # Item number and item Title -->
+  
+  <!-- Timer -->
+  <div>Remaining 
+  <span id="time"></span> 
+  <script src="timer60_sec.js"> </script>
+  </div>
+ 
+   <!-- Recording audio -->
+  <audio controls autoplay>
+  <source src="listening 1.mp3" type="audio/mpeg">
+  <source src="listening 2.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+  </audio>
+  
+  <!-- questions -->
+  <p>Which languages you work on?</p>
+ 
+  <!-- options -->
+  <form action="/sstdata.php">
+         <input type="radio" name="question1" value="option1">a)
+         <br>
+         <input type="radio" name="question1" value="option2">b)
+         <br>
+         <input type="radio" name="question1" value="option3">c)
+         <br>
+		 <input type="radio" name="question1" value="option4">d)
+         <br>
+		 <input type="radio" name="question1" value="option5">d)
+         <br>
+		 <input type="radio" name="question1" value="option6">d)
+         <br>
+      </form>
+  </form>
+  
+  </body> 
+ 
+  <!-- Submit, next, previous button -->
+  <input type="submit" value="Submit"> 
+  <button class="btn w-100" type="button" ng-click="display = !display" >Answer</button> 
+  <a href="#" class="previous round">&#8249;</a>
+  <a href="#" class="next round">&#8250;</a>
+ 
+ <!-- Search question no -->
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Search</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#about">1</a>
+    <a href="#base">2</a>
+    <a href="#blog">3</a>
+  </div>
+  </div>
+<script src="search_btn.js"></script>
+  
+</head>
+</html>
