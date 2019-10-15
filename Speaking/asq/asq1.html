@@ -11,6 +11,7 @@
   <title>Answer Short Question</title>
 
   <!-- Custom fonts for this theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -27,10 +28,11 @@
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Answer Short Question</a>
+      <!--
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
-        <i class="fas fa-bars"></i>
-      </button>
+        <i class="fas fa-bars"></i> 
+      </button>-->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
@@ -85,50 +87,65 @@
       </div>
     </div>
   </nav>
+    <br><br><br><br>
+
 <a href="../../index.html" class="button">Home</a>
-<h2>Answer Short Question</h2>
 
-<p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
+<p class="Center">You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
 
-<audio controls>
-<source src="audio/d4ecb933-1b94-463d-90f1-66e2d9da10f5.mp3" type="audio/mpeg">
-</audio>
+<div class="Center">
+  <div class="left"></div>
+  <div class="main">
+ <!-- AUDIO FILES HERE -->
+ <audio autoplay="true" controls="">
+  <source src="audio/d4ecb933-1b94-463d-90f1-66e2d9da10f5.mp3" type="audio/mpeg">
+  </audio>
+  <p id="timer"></p>
+  <p id="secondTimer"></p>
 
-<p id="timer"></p>
-<p id="secondTimer"></p>
-
-	<div id="controls">
-  	 <button id="recordButton" onclick = "prepTimer();startRecording();">Record</button>
- 	 <button id="pauseButton" disabled>Pause</button>
-  	 <button id="stopButton" disabled onclick = "clearInterval(myTimer)">Stop</button>
-    </div>
-	
-	<div id="formats">Your Recording:</div>
-	<ol id="recordingsList"></ol>
+     <div id="controls">
+       <button id="recordButton" onclick = "prepTimer();startRecording();">Record</button>
+       <button id="pauseButton" disabled>Pause</button>
+       <button id="stopButton" disabled onclick = "clearInterval(myTimer)">Stop</button>
+     </div>
+  
+    <div id="formats">Your Recording:</div>
+    <ol id="recordingsList"></ol>
+    <a href="asq.html" class="button" disabled>Previous</a>
+    <a href="asq2.html" class="button">Next</a>
+  </div>
+</div>
 
 <div class="popup" onclick="popupMsg()"> Show transcipt.
-	<span class="popuptext" id="myPopup"> What do bees collect from flowers?</span>
+  <span class="popuptext" id="myPopup"> What do bees collect from flowers?</span>
 </div>
-<br>
 <div class="popup" onclick="popupAns()">Show answer.
-	<span class="popuptext" id="mySecondPopup">Pollen</span>
+  <span class="popuptext" id="mySecondPopup">Pollen</span>
 </div>
-<a href="asq.html" class="button" disabled>Previous</a>
-<a href="asq2.html" class="button">Next</a>
+
 
 <script src="../../js/recorder.js"></script>
 <script src="../../js/record.js"></script>
 <script src="../../js/timer.js"></script>
-<script>
-function popupMsg(){
-	var popup = document.getElementById("myPopup");
-	popup.classList.toggle("show");	
-}
+<script src="../../js/popup.js"></script>
+</div>
 
-function popupAns(){
-	var popup = document.getElementById("mySecondPopup");
-	popup.classList.toggle("show");
-}
-</script>
+<div class="footer">
+  <div class="footleft">
+  <a href="https://www.mia.org.au/find-an-agent" target="_blank">
+    <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
+  </a>
+  <a href="https://www.mia.org.au/" target="_blank">
+    <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
+  </a>
+  </div>
+  <div class="footright">
+    <p>Contact us: <br>
+    Principal Registered Migration Agent:<br>
+  Emran Malhi (MARN:1679301)<br>
+  Saemi Seon (MARN:1679394)<br>
+  COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
+  </div>
+</div>
 </body>
 </html>
