@@ -1,12 +1,11 @@
 # [Start Bootstrap - Freelancer](https://startbootstrap.com/template-overviews/freelancer/)
+The template that I used to develop this website.
 
 [Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid, window modals for each portfolio item, and a working PHP contact form.
 
-## Preview
+## Preview (No preview available)
 
-[![Freelancer Preview](https://startbootstrap.com/assets/img/screenshots/themes/freelancer.png)](https://blackrockdigital.github.io/startbootstrap-freelancer/)
-
-**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-freelancer/)**
+**[View Live Preview](https://claujf.github.io/pte-training-centre/)**
 
 ## Status
 

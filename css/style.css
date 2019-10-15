@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 p{
   margin:2px;
   font-size: 18px;
@@ -9,13 +13,17 @@ p{
   background: yellow;
 }
 
-
-a.button{
-	-webkit-appearance: button;
-	-moz-appearance: button;
-	appearance: button;
-	text-decoration: none;
-	color: initial;
+.button{
+  background-color: #6F2E21;
+  border: none;
+  color: white;
+  padding: 7.5px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 /* Popup container - can be anything you want */
@@ -27,6 +35,12 @@ a.button{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-size: 16px;
+  left:40%;
+  cursor: pointer;
+  padding: 5px 15px;
+  color: white;
+  background-color: #6F2E21;
 }
 
 /* The actual popup */
@@ -65,7 +79,72 @@ a.button{
   animation: fadeIn 1s;
 }
 
+.Center { 
+  display: flex;
+  height:100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.main{
+  flex:60%;
+  background-color: white;
+  padding: 20px;
+  justify-content: space-around;
+
+}
+
+.left{
+  flex:40%;
+  background-color: white;
+  padding: 20px;
+}
+
+
+.content{
+  width: 300px;
+  height: 250px;
+  align-content: space-between;
+}
+
+.footer{
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+  bottom : 0;
+  text-align: center;
+  background-color: #092E5B;
+}
+
+.footleft{
+  flex:30%;
+  padding: 20px;
+}
+
+.footright{
+  flex:30;
+  padding: 20px;
+}
+
+.footleft > .image{
+  flex: 1 0 0%;
+  justify-content: center;
+}
+
+.footleft > img{
+  justify-content: center;
+  max-width: 100%;
+  max-height: 300px;
+}
+
+.footright > .text{
+  
+  margin: auto 0;
+  justify-content: row-reverse;
+  float: right;
+}
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
@@ -76,4 +155,9 @@ a.button{
   from {opacity: 0;}
   to {opacity:1 ;}
 
- 
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
