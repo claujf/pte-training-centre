@@ -67,6 +67,8 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  overflow-x: hidden;
+  padding-top:  65px;
 }
 
 [tabindex="-1"]:focus {
@@ -205,6 +207,7 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  float:left;
 }
 
 svg {
@@ -548,6 +551,7 @@ pre code {
   word-break: normal;
 }
 
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
@@ -555,11 +559,18 @@ pre code {
 
 .container {
   width: 100%;
+  padding: 14px 0;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
+
+.img{
+  align-items: flex-start;
+  float: left;
+}
+
 
 @media (min-width: 576px) {
   .container {

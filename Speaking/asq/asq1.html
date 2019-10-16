@@ -87,15 +87,14 @@
       </div>
     </div>
   </nav>
-    <br><br><br><br>
 
+<div class="section">
 <a href="../../index.html" class="button">Home</a>
 
-<p class="Center">You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
+<p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
 
 <div class="Center">
-  <div class="left"></div>
-  <div class="main">
+  <div class="content">
  <!-- AUDIO FILES HERE -->
  <audio autoplay="true" controls="">
   <source src="audio/d4ecb933-1b94-463d-90f1-66e2d9da10f5.mp3" type="audio/mpeg">
@@ -111,18 +110,24 @@
   
     <div id="formats">Your Recording:</div>
     <ol id="recordingsList"></ol>
+  </div>
+</div>
+
+
+<div class="main">
+  <div class="left">
+    <div class="popup" onclick="popupMsg()"> Show transcipt.
+      <span class="popuptext" id="myPopup"> What do bees collect from flowers?</span>
+    </div>
+    <div class="popup" onclick="popupAns()">Show answer.
+      <span class="popuptext" id="mySecondPopup">Pollen</span>
+    </div>
+  </div>
+  <div class="right">
     <a href="asq.html" class="button" disabled>Previous</a>
     <a href="asq2.html" class="button">Next</a>
   </div>
 </div>
-
-<div class="popup" onclick="popupMsg()"> Show transcipt.
-  <span class="popuptext" id="myPopup"> What do bees collect from flowers?</span>
-</div>
-<div class="popup" onclick="popupAns()">Show answer.
-  <span class="popuptext" id="mySecondPopup">Pollen</span>
-</div>
-
 
 <script src="../../js/recorder.js"></script>
 <script src="../../js/record.js"></script>
@@ -131,21 +136,21 @@
 </div>
 
 <div class="footer">
-  <div class="footleft">
+
   <a href="https://www.mia.org.au/find-an-agent" target="_blank">
     <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
   </a>
   <a href="https://www.mia.org.au/" target="_blank">
     <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
   </a>
-  </div>
-  <div class="footright">
+
+
     <p>Contact us: <br>
     Principal Registered Migration Agent:<br>
   Emran Malhi (MARN:1679301)<br>
   Saemi Seon (MARN:1679394)<br>
   COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
-  </div>
+  
 </div>
 </body>
 </html>
