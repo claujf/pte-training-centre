@@ -87,18 +87,15 @@
       </div>
     </div>
   </nav>
-    <br><br><br><br>
-    
 
 
-
+<div class="section">
 
 <a href="../../index.html" class="button">Home</a>
 
-<p class="Center">You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
+<p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
 <div class="Center">
-  <div class="left"></div>
-  <div class="main">
+  <div class="content">
  <!-- AUDIO FILES HERE -->
  <audio autoplay="true" controls="">
   <source src="audio/146753c5-d27f-4428-b657-3bfde91a2ab0.mp3" type="audio/mpeg">
@@ -113,17 +110,22 @@
      </div>
     <div id="formats">Your Recording:</div>
     <ol id="recordingsList"></ol>
+  </div>
+</div>
+<div class="main">
+  <div class="left">
+    <div class="popup" onclick="popupMsg()"> Show transcipt.
+      <span class="popuptext" id="myPopup">Skeleton is made of what kind of material?</span>
+    </div>
+    <div class="popup" onclick="popupAns()">Show answer.
+      <span class="popuptext" id="mySecondPopup">Bones</span>
+    </div>
+  </div>
+  <div class="right">
     <a href="asq1.html" class="button" disabled>Previous</a>
     <a href="asq3.html" class="button">Next</a>
   </div>
 </div>
-
-    <div class="popup" onclick="popupMsg()"> Show transcipt.
-     <span class="popuptext" id="myPopup">Skeleton is made of what kind of material?</span>
-    </div>
-    <div class="popup" onclick="popupAns()">Show answer.
-    <span class="popuptext" id="mySecondPopup">Bones</span>
-    </div>
 
 
 
@@ -133,22 +135,19 @@
 <script src="../../js/popup.js"></script>
 </div>
 
-<div class="footer">
-  <div class="footleft">
-  <a href="https://www.mia.org.au/find-an-agent" target="_blank">
+<div class="footer">  <a href="https://www.mia.org.au/find-an-agent" target="_blank">
     <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
   </a>
   <a href="https://www.mia.org.au/" target="_blank">
     <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
   </a>
-  </div>
-  <div class="footright">
+
     <p>Contact us: <br>
     Principal Registered Migration Agent:<br>
   Emran Malhi (MARN:1679301)<br>
   Saemi Seon (MARN:1679394)<br>
   COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
-  </div>
+
 </div>
 </body>
 </html>
