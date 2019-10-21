@@ -9,17 +9,21 @@
 
   <title>Answer Short Question</title>
 
-  <!-- Custom fonts for this theme -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-
   <!-- Theme CSS -->
   <link href="../../css/freelancer.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+
+  <!-- Custom fonts for this theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../skin/blue.monday/css/jplayer.blue.monday.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script src="//content.jwplatform.com/libraries/eX4mp13.js"></script>
 </head>
 
 <body id="page-top">
@@ -78,7 +82,7 @@
                   </div>
                 </div>
               </li>
-              <li ckass="nav-item mx-0 mx-lg-1">
+              <li class="nav-item mx-0 mx-lg-1">
                 <div class="writingdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
@@ -95,15 +99,24 @@
 
 
     <div class="section">
-    <a href="../../index.html" class="button">Home</a><br>
-    <p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
 
+    <p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
+    <div class="preptime">
+      <button id = "trigger">Ready?</button>
+    <!-- Replace seconds(preparing time) here -->
+    Playing Audio in <span id="countdown">3</span> seconds
+    </div>
+    <br>
     <div class="Center">
       <div class="content">
      <!-- AUDIO FILES HERE -->
-     <audio autoplay="true" controls="">
+     <audio allow="autoplay" id="player" controls >
       <source src="audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3" type="audio/mpeg">
-      </audio>
+    </audio>
+
+
+
+
       <p id="timer"></p>
       <p id="secondTimer"></p>
 
@@ -138,6 +151,7 @@
     <script src="../../js/record.js"></script>
     <script src="../../js/timer.js"></script>
     <script src="../../js/popup.js"></script>
+    <script src="../../js/countdown.js"></script>
     </div>
 
     <div class="footer">
