@@ -1,45 +1,59 @@
-var x = document.getElementById("player");
-var seconds = document.getElementById("countdown").textContent;
+
+	var audio = document.getElementById("player");
+	var x = document.getElementById("pageBeginCountdown").value;
 
 
-document.getElementById("trigger").addEventListener("click",function(){
-	var context = new AudioContext();
-})
 
-var countdown = setInterval(function(){
-    seconds--;
-    document.getElementById("countdown").textContent = seconds;
-    if (seconds <= 0) {
-    	clearInterval(countdown);
-    	
-    	x.load();
-    	x.play();
-    }
-},1000);   
+ProgressCountdown(x, 'pageBeginCountdown', 'pageBeginCountdownText').then(value => audio.play());
 
-/* let time = 5;
+function ProgressCountdown(timeleft, bar, text) {
+  return new Promise((resolve, reject) => {
+    var countdownTimer = setInterval(() => {
+      timeleft--;
 
-btn.onlick = e => {
-	x.play().then (() => {
-	x.pause();
-	x.currentTime = 0;
-	});
-	countdown();
+      document.getElementById(bar).value = timeleft;
+      document.getElementById(text).textContent = timeleft;
+
+      if (timeleft <= 0) {
+        clearInterval(countdownTimer);
+        resolve(true);
+      }
+    }, 1000);
+  });
+}
+
+
+/* PLAN B 
+***** 
+DO NOT DELETE THESE CODEs 
+***** 
+THESE CODE ARE COUNTDOWN TIMER WITH TRIGGERED BY BUTTON CLICK
+*****
+
+var audio = document.getElementById('player');
+let time = 5;
+
+btn.onclick = e => {
+  // mark our audio element as approved by the user
+  audio.play().then(() => { // pause directly
+    audio.pause();
+    audio.currentTime = 0;
+  });
+  countdown();
+  btn.disabled = true;
 };
 
+
 function countdown() {
-	pre.textContent = --time;
-	if (time===0) return onend();
-	setTimeout(countdown,1000);
+  pre.textContent = --time;
+  if(time === 0) return onend();
+  setTimeout(countdown, 1000);
 }
 
-function onend(){
-	audio.play();
-	time=5;
+
+function onend() {
+  audio.play(); // now we're safe to play it
+  time = 5;
+  btn.disabled = false;
 }
-
-// html code here 
-<button id="btn">start countdown</button><br>
-<pre id="pre"></pre>
-
-/*
+*/

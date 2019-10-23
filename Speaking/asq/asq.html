@@ -102,15 +102,18 @@
 
     <p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
     <div class="preptime">
-      <button id = "trigger">Ready?</button>
-    <!-- Replace seconds(preparing time) here -->
-    Playing Audio in <span id="countdown">3</span> seconds
+    <div class="row begin-countdown">
+  <div class="col-md-12 text-center">
+    <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
+    <p> Begining in <span id="pageBeginCountdownText">3 </span> seconds</p>
+  </div>
+</div>
     </div>
     <br>
     <div class="Center">
       <div class="content">
      <!-- AUDIO FILES HERE -->
-     <audio allow="autoplay" id="player" controls >
+     <audio autoplay id="player" controls >
       <source src="audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3" type="audio/mpeg">
     </audio>
 
@@ -152,6 +155,7 @@
     <script src="../../js/timer.js"></script>
     <script src="../../js/popup.js"></script>
     <script src="../../js/countdown.js"></script>
+
     </div>
 
     <div class="footer">
@@ -173,9 +177,3 @@
 
     </body>
     </html>
-
-
-
-
-
-
