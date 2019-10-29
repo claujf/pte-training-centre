@@ -9,7 +9,6 @@ var input; 							//MediaStreamAudioSourceNode we'll be recording
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
 
-var aud = document.getElementById("player");
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var pauseButton = document.getElementById("pauseButton");
@@ -18,10 +17,6 @@ var pauseButton = document.getElementById("pauseButton");
 //recordButton.addEventListener("click", startRecording); //calling startRecording() function from index.html onclick event , so this line of code is not needed anymore
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
-
-aud.onended = function(){
-	startRecording();
-};
 
 function startRecording() {
 	console.log("recordButton clicked");
