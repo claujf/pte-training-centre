@@ -98,39 +98,41 @@
 
 
 
+
+
     <div class="section">
 
     <p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
-    <div class="preptime">
-    <div class="row begin-countdown">
-  <div class="col-md-12 text-center">
-    <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
-    <p> Begining in <span id="pageBeginCountdownText">3 </span> seconds</p>
-  </div>
-</div>
-    </div>
+
+
+
     <br>
     <div class="Center">
       <div class="content">
+        <div class="row begin-countdown">
+          <div class="col-md-12 text-center">
+              <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+                <span id = "myText"> Recording in </span>
+                  <span id ="pageBeginCountdownText"> 5 </span>
+          </div>
+        </div>
+            
      <!-- AUDIO FILES HERE -->
      <audio autoplay id="player" controls >
       <source src="audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3" type="audio/mpeg">
     </audio>
 
 
-
-
-      <p id="timer"></p>
-      <p id="secondTimer"></p>
-
-    	   <div id="controls">
-      	   <button id="recordButton" onclick = "prepTimer();startRecording();">Record</button>
-     	     <button id="pauseButton" disabled>Pause</button>
-      	   <button id="stopButton" disabled onclick = "clearInterval(myTimer)">Stop</button>
-         </div>
-    	
-    	  <div id="formats">Your Recording:</div>
-    	  <ol id="recordingsList"></ol>
+     <div id="controls">
+       <button id="recordButton" onclick = "startRecording();">Record</button>
+       <button id="pauseButton" disabled>Pause</button>
+       <button id="stopButton" disabled onclick = "clearInterval(myTimer)">Stop</button>
+     </div>
+  
+    <div id="formats">Your Recording:</div>
+    <ol id="recordingsList"></ol>
+  </div>
+</div>
     </div>
     </div>
 
@@ -150,11 +152,13 @@
         </div>
     </div>
 
-    <script src="../../js/recorder.js"></script>
-    <script src="../../js/record.js"></script>
-    <script src="../../js/timer.js"></script>
+
     <script src="../../js/popup.js"></script>
     <script src="../../js/countdown.js"></script>
+    <script src="../../js/record.js>"></script>
+    <script src="../../js/recorder.js>"></script>
+    <script src="../../js/timer.js"></script>
+
 
     </div>
 
@@ -168,9 +172,7 @@
       </a>
 
       <p>Contact us: <br>
-      Principal Registered Migration Agent:<br>
-      Emran Malhi (MARN:1679301)<br>
-      Saemi Seon (MARN:1679394)<br>
+      SCVI Migration Pty Ltd <br>
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 
     </div>

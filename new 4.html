@@ -8,8 +8,7 @@
     .center_div {
       width: 500px;
       height: 100px;
-      background-color: #f5f5f5;
-      border: 1px solid #808080;
+
       position: absolute;
       top: 50%;
       left: 50%;
@@ -55,12 +54,7 @@
 </head>
 <body>
 
-<div class="row begin-countdown">
-  <div class="col-md-12 text-center">
-    <progress value="3" max="3" id="pageBeginCountdown"></progress>
-    <p> Begining in <span id="pageBeginCountdownText">3 </span> seconds</p>
-  </div>
-</div>
+
 
 <div class="center_div">
     <span class="recording_label">Please wait...</span>
@@ -111,7 +105,7 @@
     }
 
     $(function() {
-      var max = 40;
+      var max = 5; // PREPARATION PERIOD HERE 
       var count = max + 1;
       var counter = setInterval(timer, 1000);
 
@@ -124,7 +118,7 @@
             'min-width': '' + (100) + '%'
           })
           startRecording();
-          recordingSec(40);
+          recordingSec(5); // Change recording duration HERE
           return;
         }
         $(".recording_label").html("Recording will begin in " + count + " sec.");
@@ -159,10 +153,9 @@
         })
       }
     }
-  </script>
 
+</script>
 
-<!-- Replace 10 with the seconds you want to count down from -->
 
 
 </body>
