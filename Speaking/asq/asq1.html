@@ -95,16 +95,24 @@
 
 <div class="Center">
   <div class="content">
+    <div class="row begin-countdown">
+      <div class="col-md-12 text-center">
+        <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+          <span id = "myText"> Audio starts in </span>
+          <span id ="pageBeginCountdownText"> 5 </span>
+        </div>
+    </div>
+
  <!-- AUDIO FILES HERE -->
- <audio autoplay="true" controls="">
+ <audio id="player" autoplay="true" controls>
   <source src="audio/d4ecb933-1b94-463d-90f1-66e2d9da10f5.mp3" type="audio/mpeg">
   </audio>
 
 
      <div id="controls">
-       <button id="recordButton" onclick = "startRecording();">Record</button>
+       <button id="recordButton">Record</button>
        <button id="pauseButton" disabled>Pause</button>
-       <button id="stopButton" disabled onclick = "clearInterval(myTimer)">Stop</button>
+       <button id="stopButton" disabled>Stop</button>
      </div>
   
     <div id="formats">Your Recording:</div>
@@ -132,6 +140,7 @@
 <script src="../../js/record.js"></script>
 <script src="../../js/timer.js"></script>
 <script src="../../js/popup.js"></script>
+<script src="../../js/countdown.js"></script>
 </div>
 
 <div class="footer">
@@ -146,8 +155,7 @@
 
     <p>Contact us: <br>
     Principal Registered Migration Agent:<br>
-  Emran Malhi (MARN:1679301)<br>
-  Saemi Seon (MARN:1679394)<br>
+
   COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
   
 </div>
