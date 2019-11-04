@@ -23,17 +23,6 @@ body{
   margin: 0 0 100px;
 }
 
-.section{
-  margin: 0 auto; /* this line will center the page */
-  width: 960px;
-  text-align: center;
-  background:white;
-  padding-top: 20px;
-  top: 10%;
-  bottom: 10%
-  height:80%;
-}
-
 input, textarea {
   width:  100px;
   font:   normal 10pt verdana;
@@ -105,10 +94,26 @@ input, textarea {
   animation: fadeIn 1s;
 }
 
-.Center { 
+.section{
+  margin: 0 auto; /* this line will center the page */
+  width: 960px;
+  text-align: center;
+  background:white;
+  padding-top: 20px;
+  top: 10%;
+  bottom: 10%
+  height:80%;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Center { 
   height:100%;
   flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
   justify-content: center;
 }
 
