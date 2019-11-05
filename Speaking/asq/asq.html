@@ -1,3 +1,34 @@
+<?php
+$counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if(isset($_POST["next"])){
+        $counter++;
+        echo $counter;
+    }
+
+    if(isset($_POST["prev"])){
+      $counter--;
+      echo $counter;
+    }
+}
+ $db = mysqli_connect('localhost','root','root','asq')
+ or die('Error connecting to MySQL server.');
+
+ $query = "SELECT * FROM asq";
+$array = array();
+
+mysqli_query($db,$query) or die ('Error query database');
+
+$result = mysqli_query($db,$query);
+
+while($row = mysqli_fetch_array($result)){
+  $array[] = $row; // store the database values in array
+}
+echo $array[$counter]['question'] . '<br/>';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,7 +153,7 @@
 
 
      <div id="controls">
-       <button id="recordButton">Start</button>
+       <button id="recordButton" style="display:none;" >Start</button>
        <button id="pauseButton" disabled>Pause</button>
        <button id="stopButton" disabled>Stop</button>
      </div>
@@ -163,7 +194,7 @@
 
 
 
-    </div>
+</div>
 
     <div class="footer">
 
