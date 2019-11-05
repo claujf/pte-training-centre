@@ -11,9 +11,8 @@
  </head>
  <body>
  <h1>PHP connect to MySQL</h1>
-
-
 <br>
+
 <?php
 $query = "SELECT * FROM asq";
 $array = array();
@@ -51,5 +50,7 @@ mysqli_close($db);
     <input type = "hidden" name = "counter" value = "<?php print $counter; ?>"; />
 </form>
 
+ <button id="myBtn"> Next</button>
+<br>
 </body>
 </html>
