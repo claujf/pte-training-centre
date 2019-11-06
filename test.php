@@ -1,19 +1,8 @@
 <?php
-//Step1
- $db = mysqli_connect('localhost','root','root','asq')
- or die('Error connecting to MySQL server.');
-?>
+$db = mysqli_connect('localhost','root','root','asq') or die ('Error connecting to MYSQL Server.');
 
-<!-- If connection succeed <h1> content below should be displayed, error message otherwise -->
+$counter = 0;
 
-<html>
- <head>
- </head>
- <body>
- <h1>PHP connect to MySQL</h1>
-<br>
-
-<?php
 $query = "SELECT * FROM asq";
 $array = array();
 
@@ -21,36 +10,32 @@ mysqli_query($db,$query) or die ('Error query database');
 
 $result = mysqli_query($db,$query);
 
-while($row = mysqli_fetch_array($result)){
-	$array[] = $row; // store the database values in array
-}
-$counter = 0;
-echo $array[$counter]['question'] . '<br/>';
-
-$counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["next"])){
-        $counter++;
-        echo $counter;
-    }
-}
-//echo $array[3]['question']; // print value based on index of the array
-
-/*
 while ($row = mysqli_fetch_array($result)){
-	echo $row['id'] . ' ' . $row['question'] . $row['ans'] . ' ' . $row['comment'] .'<br/>';
+	$audiomp3 = $array[$counter]['path'];
+	echo $audiomp3;
+
+	//$array[] = $row;
+	$element = "";
+	$element .= "<audio controls>";
+	$element .= "<source src = '$audiomp3' type = 'audio/mpeg'>";
+	$element .= "Your browser does not support audio element";
+	$element .= "</audio>";
+
+	echo $element . '<br/>';
+	$counter++;
 }
-*/
-mysqli_close($db);
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test 2</title>
+</head>
+<body>
 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = post>
-    <input type = "submit" name = "button" value = "Submit" >
+    <input type = "submit" name = "next" value = "Submit" >
+    <input type = "submit" name = "prev" value = "Previous">
     <input type = "hidden" name = "counter" value = "<?php print $counter; ?>"; />
 </form>
-
- <button id="myBtn"> Next</button>
-<br>
 </body>
 </html>

@@ -25,7 +25,16 @@ $result = mysqli_query($db,$query);
 while($row = mysqli_fetch_array($result)){
   $array[] = $row; // store the database values in array
 }
-echo $array[$counter]['question'] . '<br/>';
+echo $array[$counter]['path'] . '<br/>';
+$audiomp3 = $array[$counter]['path'];
+
+$element = "";
+$element .= "<audio controls>";
+$element .= "<source src= '$audiomp3' type = 'audio/mpeg'>";
+$element .= "Your browser does not support audio element.";
+$element .= "</audio>";
+
+echo $element . '<br/>';
 ?>
 
 
@@ -145,12 +154,11 @@ echo $array[$counter]['question'] . '<br/>';
                   <span id ="pageBeginCountdownText"> 5 </span>
           </div>
         </div>
-            
-     <!-- AUDIO FILES HERE -->
+           
+     <!-- AUDIO FILES HERE --> 
      <audio id="player" controls >
       <source src="audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3" type="audio/mpeg">
     </audio>
-
 
 
 
