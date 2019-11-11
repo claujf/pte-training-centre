@@ -1,4 +1,5 @@
 <?php
+
 $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -12,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo $counter;
     }
 }
- $db = mysqli_connect('localhost','root','root','asq')
+ $db = mysqli_connect('localhost','root','root','pte_db')
  or die('Error connecting to MySQL server.');
 
- $query = "SELECT * FROM asq";
+ $query = "SELECT * FROM s_asq";
 $array = array();
 
 mysqli_query($db,$query) or die ('Error query database');
