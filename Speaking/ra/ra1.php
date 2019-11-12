@@ -1,33 +1,3 @@
-<?php
-  if(isset($_POST['next'])){
-    $a=$_POST['a'];
-  }
-  if(!isset($a)) {
-    $a = 0;
-  }
-  require_once "../../config.php";
-
-  $query = "SELECT * FROM s_read_aloud WHERE ra_id='1' LIMIT 1 OFFSET $a";
-  mysqli_query($link,$query) or die(' Error quering database');
-  $result = mysqli_query($link,$query);
-
-  if (mysqli_num_rows($result) > 0) {
-    echo "<p class="center">";
-    while($row = mysqli_fetch_assoc($result)) {
-      echo "Question " . $row["ra_id"]. ". Title: " . $row["ra_title"]. "<br>" . $row['ra_paragraph'];
-    }
-    echo "</p>"
-  }
-
-  $b = $a + 1;
-  echo "<input type='hidden' value='$b' name='a'> ";
-  echo "<input type='submit' name='next' value='next'>";
-  echo "<input type='reset' name='reset' value='Reset'>";
-  
-
-  mysqli_close($link);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +11,9 @@
   <title>Read Aloud</title>
 
   <!-- Custom fonts for this theme -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
 
   <!-- Theme CSS -->
   <link href="../../css/freelancer.min.css" rel="stylesheet">
@@ -106,7 +73,7 @@
               </div>
             </div>
           </li>
-          <li class="nav-item mx-0 mx-lg-1">
+          <li ckass="nav-item mx-0 mx-lg-1">
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
@@ -123,7 +90,7 @@
 
 <div class = "section">
   <div class="Center"> 
-    <h4 class="Center">Look at the text below. In 40 seconds, you must read this text aloud as naturally and clearly as possible. You have 40 seconds to read aloud.</h4>
+    <h4 class="Center"> Look at the text below. In 40 seconds, you must read this text aloud as naturally and clearly as possible. You have 40 seconds to read aloud.</h4>
  
                 <p class="Center">Imagine living all your life as the only family on your street. Then, one morning, you open the front door and discover houses all around you. You see neighbours tending their gardens and children walking to school. Where did all the people come from? What if the answer turned out to be that they had always been there — you just hadn't seen them? </p>
 
@@ -132,30 +99,30 @@
               <div class="row begin-countdown">
                 <div class="col-md-12 text-center">
                     <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
-                      <span id = "myText"> Recording in </span>
-                        <span id ="pageBeginCountdownText"> 5 </span>
+                      <span id = "myText"> Audio starts in </span>
+                        <span id ="pageBeginCountdownText"> 40 </span>
                 </div>
               </div>
 
             <div id="controls">
-             <button id="recordButton" >Start</button>
+             <button id="recordButton" style="display:none;" >Start</button>
+             <button onclick="myFunction()">start</button>
              <button id="pauseButton" disabled>Pause</button>
              <button id="stopButton" disabled>Stop</button>
            </div>
            <div id="formats">Your Recording:</div>
            <ol id="recordingList"></ol>
+      </div>
 
-       </div>
-
-             <a class = "button" disabled>Previous</a>  
-             <a href="ra1.php" class="button"> Next </a>
+    <a class = "button" disabled>Previous</a>  
+    <a href="ra1.php" class="button"> Next </a>
     </div>
 </div>
 
-<script src="../../js/recorder.js"></script>
-<script src="../../js/record.js"></script>
-<script src="../../js/popup.js"></script>
-<script src="../../js/fourty_sec_cd.js"></script>
+
+  	 <script src="../../js/recorder.js"></script>
+  	 <script src="../../js/record.js"></script>
+     <script src="../../js/count_record.js"></script>
 
 
 </body>

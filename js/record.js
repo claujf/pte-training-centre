@@ -23,6 +23,7 @@ pauseButton.addEventListener("click", pauseRecording);
 
 
 // THIS PART OF CODE HAVE NOT DONE YET !!!!!! PLEASE MODIFY ASAP !!!!!!!!!!!!!!!!
+
 aud.onended = function(){
 	startRecording();
 
@@ -31,10 +32,11 @@ aud.onended = function(){
 	
 	setTimeout(function(){
 		stopRecording();
-		document.querySelector("#myText").innerHTML = "Finished recording.";
+		document.querySelector("#myText").innerHTML = "Finished recording .";
 	}, x*1000);
+} 
 
-}
+
 
 navigator.mediaDevices.getUserMedia({audio:true})
 	.then(function(stream){

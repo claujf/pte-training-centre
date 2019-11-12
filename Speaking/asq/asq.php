@@ -70,7 +70,7 @@ echo $element . '<br/>';
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <div class="img">
-      <a href ="../../index.html">
+      <a href ="../../index.php">
         <img border="0" alt="homepage" src="../../img/my_logo.jpeg" width="100" height="70">
       </a>
      </div>  
@@ -86,11 +86,11 @@ echo $element . '<br/>';
                 <div class="speakingdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                     <div class="dropdown-content">
-                    <a href="../ra/ra.html">Read Aloud</a>
-                    <a href="../di/di.html">Describe Image</a>
-                    <a href="../rs/rs.html">Repeat Sentence</a>
+                    <a href="../ra/ra.php">Read Aloud</a>
+                    <a href="../di/di.php">Describe Image</a>
+                    <a href="../rs/rs.php">Repeat Sentence</a>
                     <a>Answer Short Question</a>
-                    <a href="../rl/rl.html">Re-tell Lecture</a>
+                    <a href="../rl/rl.php">Re-tell Lecture</a>
                     </div>
                 </div>
               </li>
@@ -98,11 +98,11 @@ echo $element . '<br/>';
                 <div class="readingdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
-                  <a href="../../Reading/r_fib/fib.html">Reading:Fill in the blanks</a>
-                  <a href="../../Reading/rw_fib/fib.html">Reading&Writing:Fill in the blanks</a>
-                  <a href="../../Reading/rp/rp.html">Reorder Paragraph</a>
-                  <a href="../../Reading/r_mcma/r_mcma.html">Reading:Multiple Choice Multiple Answers</a>
-                  <a href="../../Reading/r_mcsa/r_mcsa.html">Reading:Multiple Choice Single Answer</a>
+                  <a href="../../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
+                  <a href="../../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
+                  <a href="../../Reading/rp/rp.php">Reorder Paragraph</a>
+                  <a href="../../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+                  <a href="../../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
                   </div>
                 </div>
               </li>
@@ -110,14 +110,14 @@ echo $element . '<br/>';
                 <div class="listeningdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
-                    <a href="../../Listening/hiw/hiw.html">Highlight Incorrect Words</a>
-                    <a href="../../Listening/hcs/hcs.html">Highlight the Correct Summary</a>
-                    <a href="../../Listening/l_fib/l_fib.html">Listening:Fill in the blanks</a>
-                    <a href="../../Listening/l_mcma/l_mcma.html">Listening:Multiple Choice Multiple Answers</a>
-                    <a href="../../Listening/l_mcsa/l_mcsa.html">Listening:Multiple Choice Single Answer</a>
-                    <a href="../../Listening/smw/smw.html">Select Missing Words</a>
-                    <a href="../../Listening/sst/sst.html">Summarize Spoken Text</a>
-                    <a href="../../Listening/wfd/wfd.html">Write From Dictation</a>
+                    <a href="../../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
+                    <a href="../../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
+                    <a href="../../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
+                    <a href="../../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                    <a href="../../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                    <a href="../../Listening/smw/smw.php">Select Missing Words</a>
+                    <a href="../../Listening/sst/sst.php">Summarize Spoken Text</a>
+                    <a href="../../Listening/wfd/wfd.php">Write From Dictation</a>
                   </div>
                 </div>
               </li>
@@ -125,8 +125,8 @@ echo $element . '<br/>';
                 <div class="writingdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
-                    <a href="../../Writing/swt/swt.html">Summarize Written Text</a>
-                    <a href="../../Writing/we/we.html">Write Essay</a>
+                    <a href="../../Writing/swt/swt.php">Summarize Written Text</a>
+                    <a href="../../Writing/we/we.php">Write Essay</a>
                   </div>
                 </div>
               </li>  
@@ -157,7 +157,7 @@ echo $element . '<br/>';
         </div>
            
      <!-- AUDIO FILES HERE --> 
-     <audio id="player" controls >
+     <audio id="player" controls autostart="false">
       <source src="audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3" type="audio/mpeg">
     </audio>
 
@@ -185,24 +185,16 @@ echo $element . '<br/>';
       </div>
         <div class="right">
            <a class="button" disabled>Previous</a>
-           <a href="asq1.html" class="button">Next</a>
+           <a href="asq1.php" class="button">Next</a>
            <br>
         </div>
     </div>
 
-<script type="text/javascript">
-  var aud = document.getElementById('player');
-
-  aud.onended = function(){
-    startRecording();
-  }
-</script>
 
 <script src="../../js/recorder.js"></script>
 <script src="../../js/record.js"></script>
 <script src="../../js/popup.js"></script>
 <script src="../../js/countdown.js"></script>
-
 
 
 </div>
