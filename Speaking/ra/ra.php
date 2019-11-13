@@ -1,31 +1,94 @@
 <?php
-  if(isset($_POST['next'])){
-    $a=$_POST['a'];
-  }
-  if(!isset($a)) {
-    $a = 0;
-  }
-  require_once "../../config.php";
 
-  $query = "SELECT * FROM s_read_aloud WHERE ra_id='1' LIMIT 1 OFFSET $a";
-  mysqli_query($link,$query) or die(' Error quering database');
-  $result = mysqli_query($link,$query);
+$con = mysqli_connect("localhost","root","root","pte_db");
+if (!$con){
+die("Can not connect: " . mysqli_error());
+}
+$query = "SELECT * FROM s_read_aloud";
 
-  if (mysqli_num_rows($result) > 0) {
-    echo "<p class="center">";
-    while($row = mysqli_fetch_assoc($result)) {
-      echo "Question " . $row["ra_id"]. ". Title: " . $row["ra_title"]. "<br>" . $row['ra_paragraph'];
-    }
-    echo "</p>"
-  }
+mysqli_query($con,$query) or die ('Error qury datab');
 
-  $b = $a + 1;
-  echo "<input type='hidden' value='$b' name='a'> ";
-  echo "<input type='submit' name='next' value='next'>";
-  echo "<input type='reset' name='reset' value='Reset'>";
-  
+$result = mysqli_query($con,$query);
 
-  mysqli_close($link);
+$counter = 0;
+$incr1 = 0;
+while ($incr1 < mysqli_num_rows($result)) {
+$id = mysqli_fetch_row($result); //get first row data
+$idnum[$incr1]= $id[0];
+$incr1=($incr1+1);
+}
+$incr1=($incr1-1);
+$q= "SELECT * from s_read_aloud where ra_id = '$idnum[0]'";
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+$line = mysqli_fetch_array($result2);
+
+
+if (!empty($_POST['button'])){
+switch ($_POST['button']){
+case 'button1':
+$counter = ($_POST['counter']);
+
+$counter = $counter +1;
+if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
+$q= "select * from s_read_aloud where ra_id = '$idnum[$counter]'";
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+break;
+case 'button2':
+$counter = ($_POST['counter']);
+
+$counter = $counter -1;
+
+if ($counter < 0){ $counter =0;}
+$q= "select * from s_read_aloud where ra_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+case 'button3':
+// pressed first
+$counter = 0;
+
+$q= "select * from s_read_aloud where ra_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+case 'button4':
+//pressed last
+$counter = (count($idnum)-1) ;
+
+
+$q= "SELECT * FROM  s_read_aloud where ra_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+
+default:
+$yes = 'yes default';
+break;
+}
+}
+else
+{
+//$inc = 0;
+}
+if ($line) {
+echo "<p>Click next to start your practice </p>";
+echo "<table>\n";
+echo "\t<tr>\n";
+$column = mysqli_fetch_row($result2);
+echo "\t\t<td>$column[0]</td>\n";
+echo "\t\t<td>$column[2]</td>\n";
+//echo "\t\t<td>$column[3]</td>\n";
+
+echo "\t</tr>\n";
+echo "</table>\n";
+}
+else echo "Record not found.\n";
+mysqli_free_result($result2);
+mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -146,10 +209,17 @@
            <ol id="recordingList"></ol>
 
        </div>
-
-             <a class = "button" disabled>Previous</a>  
-             <a href="ra1.php" class="button"> Next </a>
+<form action="ra.php" method="post">
+<div>
+<button type="submit" name="button" value="button2">Previous</button>
+<button type="submit" name="button" value="button1">Next</button>
+<button type="submit" name="button" value="button3">First</button>
+<button type="submit" name="button" value="button4">Last</button>
+<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+</div>
+</form>
     </div>
+
 </div>
 
 <script src="../../js/recorder.js"></script>

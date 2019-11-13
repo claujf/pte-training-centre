@@ -1,9 +1,21 @@
-<?php
-$dbh = new PDO("mysql:host=localhost;dbname=asq","root","root");
-$id = isset($_GET['id'])? $_GET['id'] : "" ;
-$stat = $dbh->prepare("select * from asq where id=?");
-$stat->bindParam(1,$id);
-$stat->execute();
-$row = $stat->fetch();
-header('Content-Type:'.$row['mime']);
-$echo $row['data'];
+<?php 
+
+if($_POST['submit'] && $_POST['submit'] != 0)
+{
+   $animal=$_POST['animal'];
+}
+ ?>
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Tesitng</title>
+ </head>
+ <body>
+ <select id="animal" name="animal">                      
+  <option value="0">--Select Animal--</option>
+  <option value="Cat">Cat</option>
+  <option value="Dog">Dog</option>
+  <option value="Cow">Cow</option>
+</select>
+ </body>
+ </html>
