@@ -1,3 +1,10 @@
+<?php
+$con = mysqli_connect("localhost","root","root","pte_db");
+if (!$con){
+die("Can not connect: " . mysqli_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,11 +45,11 @@
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../../Speaking/ra/ra.html">Read Aloud</a>
-                <a href="../../Speaking/di/di.html">Describe Image</a>
-                <a href="../../Speaking/rs/rs.html">Repeat Sentence</a>
-                <a href="../../Speaking/asq/asq.html">Answer Short Question</a>
-                <a href="../../Speaking/rl/rl.html">Re-tell Lecture</a>
+                <a href="../../Speaking/ra/ra.php">Read Aloud</a>
+                <a href="../../Speaking/di/di.php">Describe Image</a>
+                <a href="../../Speaking/rs/rs.php">Repeat Sentence</a>
+                <a href="../../Speaking/asq/asq.php">Answer Short Question</a>
+                <a href="../../Speaking/rl/rl.php">Re-tell Lecture</a>
                 </div>
             </div>
           </li>
@@ -51,10 +58,10 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
               <a>Reading:Fill in the blanks</a>
-              <a href="../rw_fib/fib.html">Reading&Writing:Fill in the blanks</a>
-              <a href="../rp.html">Reorder Paragraph</a>
-              <a href="../r_mcma/r_mcma.html">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../r_mcsa/r_mcsa.html">Reading:Multiple Choice Single Answer</a>
+              <a href="../rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../rp.php">Reorder Paragraph</a>
+              <a href="../r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -62,14 +69,14 @@
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Listening/hiw/hiw.html">Highlight Incorrect Words</a>
-                <a href="../../Listening/hcs/hcs.html">Highlight the Correct Summary</a>
-                <a href="../../Listening/l_fib/l_fib.html">Listening:Fill in the blanks</a>
-                <a href="../../Listening/l_mcma/l_mcma.html">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../../Listening/l_mcsa/l_mcsa.html">Listening:Multiple Choice Single Answer</a>
-                <a href="../../Listening/smw/smw.html">Select Missing Words</a>
-                <a href="../../Listening/sst/sst.html">Summarize Spoken Text</a>
-                <a href="../../Listening/wfd/wfd.html">Write From Dictation</a>
+                <a href="../../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
+                <a href="../../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
+                <a href="../../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../../Listening/smw/smw.php">Select Missing Words</a>
+                <a href="../../Listening/sst/sst.php">Summarize Spoken Text</a>
+                <a href="../../Listening/wfd/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -77,8 +84,8 @@
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Writing/swt/swt.html">Summarize Written Text</a>
-                <a href="../../Writing/we/we.html">Write Essay</a>
+                <a href="../../Writing/swt/swt.php">Summarize Written Text</a>
+                <a href="../../Writing/we/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -88,6 +95,110 @@
   </nav>
 <body>
 <h3>In the text below some words are missing. Drag words from the box below to the appropriate place in the text. To undo an answer choice, drag the word back to the box below the text.</h3>
+
+
+<?php
+$query = "SELECT * FROM r_fib";
+
+mysqli_query($con,$query) or die ('Error qury datab');
+
+$result = mysqli_query($con,$query);
+
+$counter = 0;
+$incr1 = 0;
+while ($incr1 < mysqli_num_rows($result)) {
+$id = mysqli_fetch_row($result); //get first row data
+$idnum[$incr1]= $id[0];
+$incr1=($incr1+1);
+}
+$incr1=($incr1-1);
+$q= "SELECT * from r_fib where r_fib_id = '$idnum[0]'";
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+$line = mysqli_fetch_array($result2);
+
+
+if (!empty($_POST['button'])){
+switch ($_POST['button']){
+case 'button1':
+$counter = ($_POST['counter']);
+
+$counter = $counter +1;
+if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
+$q= "select * from r_fib where r_fib_id = '$idnum[$counter]'";
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+break;
+case 'button2':
+$counter = ($_POST['counter']);
+
+$counter = $counter -1;
+
+if ($counter < 0){ $counter =0;}
+$q= "select * from r_fib where r_fib_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+case 'button3':
+// pressed first
+$counter = 0;
+
+$q= "select * from r_fib where r_fib_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+case 'button4':
+//pressed last
+$counter = (count($idnum)-1) ;
+
+
+$q= "SELECT * FROM  r_fib where r_fib_id = '$idnum[$counter]'";
+
+$result2 = mysqli_query($con,$q) or die('Query failed: ');
+
+break;
+
+default:
+$yes = 'yes default';
+break;
+}
+}
+else
+{
+//$inc = 0;
+}
+if ($line) {
+echo "<p>Click next to start your practice </p>";
+echo "<table>\n";
+echo "\t<tr>\n";
+$column = mysqli_fetch_row($result2);
+
+echo "<th>$column[0] . $column[1]</th>";
+echo "<br>";
+echo "\t</tr>\n";
+echo "</table>\n";
+
+echo "\t\t<td>$column[2]</td>\n";
+echo "\t\t<td>$column[3]</td>\n";
+echo "\t\t<td>$column[4]</td>\n";
+echo "\t\t<td>$column[5]</td>\n";
+echo "\t\t<td>$column[6]</td>\n";
+echo "\t\t<td>$column[7]</td>\n";
+
+echo "<br>";
+
+
+echo "\t</tr>\n";
+echo "</table>\n";
+}
+else echo "Record not found.\n";
+mysqli_free_result($result2);
+mysqli_close($con);
+?>
+
+
+<!----------------------------------------------------------------------------------------------------
 
 From the time of the very earliest civilisations man has wondered about the world he lives in, about how it was created and about how it will end. In these distant times the sun was seen to make its daily 
 	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -124,11 +235,22 @@ their positions in the sky. <br><br>
 	<span id="secrets" draggable="true" ondragstart="drag(event)">secrets</span>
 </div>
 <br>
+----------------------------------------------------------------------------------------------------->
 <div class="popup" onclick="popupMsg()"> Answer. <span class="popuptext" id="myPopup">1.journey<br>2.became<br>3.secrets<br>4.determine<br>5.predict</span>
 </div>
 <br><br>
-<a class="button" href="../../index.html">Previous</a>
-<a class="button" href="fib1.html">Next</a>
+<a class="button" href="../../index.php">Previous</a>
+<a class="button" href="fib1.php">Next</a>
+
+<form action="fib.php" method="post">
+<div>
+<button type="submit" name="button" value="button2">Previous</button>
+<button type="submit" name="button" value="button1">Next</button>
+<button type="submit" name="button" value="button3">First</button>
+<button type="submit" name="button" value="button4">Last</button>
+<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+</div>
+</form>
 
 </body>
 </html>

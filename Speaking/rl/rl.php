@@ -192,7 +192,7 @@ else echo "Record not found.\n";
 mysqli_free_result($result2);
 mysqli_close($con);
 ?>
->
+
 
 <p id="timer"></p>
 <p id="secondTimer"></p>

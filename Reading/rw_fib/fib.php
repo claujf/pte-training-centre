@@ -112,9 +112,14 @@ $incr1=($incr1+1);
 }
 $incr1=($incr1-1);
 $q= "SELECT * from rw_fib where rw_fib_id = '$idnum[0]'";
+$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
+
 $result2 = mysqli_query($con,$q) or die('Query failed: ');
+$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
+
 
 $line = mysqli_fetch_array($result2);
+$sline = mysqli_fetch_array($selectresult);
 
 
 if (!empty($_POST['button'])){
@@ -124,8 +129,10 @@ $counter = ($_POST['counter']);
 
 $counter = $counter +1;
 if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "select * from rw_fib where rw_fib_id = '$idnum[$counter]'";
+$q= "SELECT * FROM rw_fib WHERE rw_fib_id = '$idnum[$counter]'";
+$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
 $result2 = mysqli_query($con,$q) or die('Query failed: ');
+$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
 break;
 case 'button2':
 $counter = ($_POST['counter']);
@@ -134,8 +141,10 @@ $counter = $counter -1;
 
 if ($counter < 0){ $counter =0;}
 $q= "select * from rw_fib where rw_fib_id = '$idnum[$counter]'";
+$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
 
 $result2 = mysqli_query($con,$q) or die('Query failed: ');
+$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
 
 break;
 case 'button3':
@@ -143,8 +152,10 @@ case 'button3':
 $counter = 0;
 
 $q= "select * from rw_fib where rw_fib_id = '$idnum[$counter]'";
+$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
 
 $result2 = mysqli_query($con,$q) or die('Query failed: ');
+$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
 
 break;
 case 'button4':
@@ -153,8 +164,10 @@ $counter = (count($idnum)-1) ;
 
 
 $q= "SELECT * FROM  rw_fib where rw_fib_id = '$idnum[$counter]'";
+$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
 
 $result2 = mysqli_query($con,$q) or die('Query failed: ');
+$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
 
 break;
 
@@ -169,27 +182,77 @@ else
 }
 
 
-
 if ($line) {
 echo "<p>Click next to start your practice </p>";
 echo "<table>\n";
 echo "\t<tr>\n";
 $column = mysqli_fetch_row($result2);
-echo "\t\t<td>$column[0]</td>\n";
-echo "\t\t<td>$column[1]</td>\n";
-echo "\t\t<td>$column[2]</td>\n";
-echo "\t\t<td>$column[3]</td>\n";
-echo "\t\t<td>$column[4]</td>\n";
-echo "\t\t<td>$column[5]</td>\n";
-echo "\t\t<td>$column[6]</td>\n";
-echo "\t\t<td>$column[7]</td>\n";
-echo "\t\t<td>$column[8]</td>\n";
-echo "\t\t<td>$column[9]</td>\n";
-echo "\t\t<td>$column[10]</td>\n";
+$scolumn = mysqli_fetch_row($selectresult);
+echo "<th>$column[0] . $column[1]</th>";
 echo "<br>";
-
 echo "\t</tr>\n";
 echo "</table>\n";
+
+echo "\t\t<td>$column[2]</td>\n";
+
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[2]'>$scolumn[2]</option>";
+echo "<option value='$scolumn[3]'>$scolumn[3]</option>";
+echo "<option value='$scolumn[4]'>$scolumn[4]</option>";
+echo "<option value='$scolumn[5]'>$scolumn[5]</option>";
+echo "</select>";
+echo "\t\t<td>$column[3]</td>\n";
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[6]'>$scolumn[6]</option>";
+echo "<option value='$scolumn[7]'>$scolumn[7]</option>";
+echo "<option value='$scolumn[8]'>$scolumn[8]</option>";
+echo "<option value='$scolumn[9]'>$scolumn[9]</option>";
+echo "</select>";
+echo "\t\t<td>$column[4]</td>\n";
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[10]'>$scolumn[10]</option>";
+echo "<option value='$scolumn[11]'>$scolumn[11]</option>";
+echo "<option value='$scolumn[12]'>$scolumn[12]</option>";
+echo "<option value='$scolumn[13]'>$scolumn[13]</option>";
+echo "</select>";
+echo "\t\t<td>$column[5]</td>\n";
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[14]'>$scolumn[14]</option>";
+echo "<option value='$scolumn[15]'>$scolumn[15]</option>";
+echo "<option value='$scolumn[16]'>$scolumn[16]</option>";
+echo "<option value='$scolumn[17]'>$scolumn[17]</option>";
+echo "</select>";
+echo "\t\t<td>$column[6]</td>\n";
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[18]'>$scolumn[18]</option>";
+echo "<option value='$scolumn[19]'>$scolumn[19]</option>";
+echo "<option value='$scolumn[20]'>$scolumn[20]</option>";
+echo "<option value='$scolumn[21]'>$scolumn[21]</option>";
+echo "</select>";
+echo "\t\t<td>$column[7]</td>\n";
+echo "<select>";
+echo "<option value=''>&nbsp;</option>";
+echo "<option value='$scolumn[22]'>$scolumn[22]</option>";
+echo "<option value='$scolumn[23]'>$scolumn[23]</option>";
+echo "<option value='$scolumn[24]'>$scolumn[24]</option>";
+echo "<option value='$scolumn[25]'>$scolumn[25]</option>";
+echo "</select>";
+echo "\t\t<td>$column[8]</td>\n";
+echo "<br";
+echo "\t\t<td>$column[9]</td>\n";
+
+echo "<br";
+echo "<table>";
+echo "<tr>";
+echo "\t\t<td>$column[10]</td>\n";
+echo "<br>";
+echo "\t</tr>\n";
+echo "</table>";
 }
 else echo "Record not found.\n";
 mysqli_free_result($result2);
