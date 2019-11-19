@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Highlight incorrect words</title>
+	<h1>Highlight incorrect words</h1>
+	<link rel="stylesheet" href="../../css/style.css">
+	<a href="../../index.html" class="button">Home</a>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<h3>You will hear a recording. Below is a transcription of the recording. Some words in the transcription differ from what the speaker(s) said. Please click on the words that are different.</h3>
+<audio controls>
+	<source src="hiw_audio/0abe944b-2be5-44d9-a5f2-46024d42528a.mp3" type="audio/mpeg">
+</audio>
+<br>
+<p class="sentence">When societies were still mostly rural and agricultural, waste disposal was hardly an issue, partly because people tended to make use of everything and partly because there was plenty of space to bury rubbish. It was when societies became predominantly urban and industrious that problems arose - mainly to do with wealth. City authorities had a hard time trying to find effective ways of getting rid of all the rubbish. One of these was to get people to set out their rubbish into different types, just as these days we are encouraged to separate our rubbish into different categories for easier removal and recycling. So, for example, kitchen rubbish was set aside and used for feeding animals. However, fears of disease put an end to that. In fact, it wasn't until the 20th century that all waste was simply thrown together and put into landfills.</p>
+<br>
+<script src="../../js/highlight.js"></script>
+<script src="../../js/popup.js"></script>
+
+<a href="hiw.html" class="button">Previous</a>
+<a href="hiw2.html" class="button">Next</a>
+
+<br><br>
+
+<div class="popup" onclick="popupMsg()"> Answer 
+  <span class="popuptext" id="myPopup">1.waste<br>2.industrious<br>3.wealth<br>4.effective<br>5.put</span>
+</div>
+
+<div class="popup" onclick="popupAns()"> Transcript 
+  <span class="popuptext" id="mySecondPopup">1)"dispersal" disposal was..<br>2)"industrial"that problems arose<br>
+  3)mainly to do with"health"<br>
+  4)"efficient" ways of getting..<br>
+  5)"ploughed" into landfills.
+  </span>
+</div>
+
+</body>
+</html>
