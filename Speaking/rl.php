@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","","pte");
+$con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
 }
@@ -32,9 +32,9 @@ $result = mysqli_query($con,$query);
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   
   <!-- Theme CSS -->
-  <link href="../../css/freelancer.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
-  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link href="../css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/my_style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body id="page-top">
@@ -43,8 +43,8 @@ $result = mysqli_query($con,$query);
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <div class="img">
-      <a href ="../../index.html">
-        <img border="0" alt="homepage" src="../../img/my_logo.jpeg" width="100" height="70">
+      <a href ="../index.php">
+        <img border="0" alt="homepage" src="../img/my_logo.jpeg" width="100" height="70">
       </a>
      </div>  
           <a class="navbar-brand js-scroll-trigger" href="#page-top">Retell Lecture</a>
@@ -58,10 +58,10 @@ $result = mysqli_query($con,$query);
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../../Speaking/ra/ra.html">Read Aloud</a>
-                <a href="../../Speaking/di/di.html">Describe Image</a>
-                <a href="../../Speaking/rs/rs.html">Repeat Sentence</a>
-                <a href="../../Speaking/asq/asq.html">Answer Short Question</a>
+                <a href="ra.php">Read Aloud</a>
+                <a href="di.php">Describe Image</a>
+                <a href="rs.php">Repeat Sentence</a>
+                <a href="asq.php">Answer Short Question</a>
                 <a>Re-tell Lecture</a>
                 </div>
             </div>
@@ -70,11 +70,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../../Reading/r_fib/fib.html">Reading:Fill in the blanks</a>
-              <a href="../../Reading/rw_fib/fib.html">Reading&Writing:Fill in the blanks</a>
-              <a href="../../Reading/rp/rp.html">Reorder Paragraph</a>
-              <a href="../../Reading/r_mcma/r_mcma.html">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../../Reading/r_mcsa/r_mcsa.html">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -82,14 +82,14 @@ $result = mysqli_query($con,$query);
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Listening/hiw/hiw.html">Highlight Incorrect Words</a>
-                <a href="../../Listening/hcs/hcs.html">Highlight the Correct Summary</a>
-                <a href="../../Listening/l_fib/l_fib.html">Listening:Fill in the blanks</a>
-                <a href="../../Listening/l_mcma/l_mcma.html">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../../Listening/l_mcsa/l_mcsa.html">Listening:Multiple Choice Single Answer</a>
-                <a href="../../Listening/smw/smw.html">Select Missing Words</a>
-                <a href="../../Listening/sst/sst.html">Summarize Spoken Text</a>
-                <a href="../../Listening/wfd/wfd.html">Write From Dictation</a>
+                <a href="../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
+                <a href="../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
+                <a href="../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -97,8 +97,8 @@ $result = mysqli_query($con,$query);
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Writing/swt/swt.html">Summarize Written Text</a>
-                <a href="../we/we.html">Write Essay</a>
+                <a href="../Writing/swt/swt.php">Summarize Written Text</a>
+                <a href="../we/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -110,7 +110,7 @@ $result = mysqli_query($con,$query);
 
 <div class="section">
 <div align="center">
-	<h5 align="justify">You will hear a lecture. After listening to the lecture, in 6 seconds, please speak into the microphone and retell what you have just heard from the lecture in your own words. You will have 40 seconds to give your response.</h5>
+	<h5 align="justify">You will hear a lecture. After listening to the lecture, in 5 seconds, please speak into the microphone and retell what you have just heard from the lecture in your own words. You will have 40 seconds to give your response.</h5>
 
 		
 			
@@ -123,108 +123,60 @@ $result = mysqli_query($con,$query);
 				</div>		
 			
 <?php
-$counter = 0;
-$incr1 = 0;
-while ($incr1 < mysqli_num_rows($result)) {
-$id = mysqli_fetch_row($result); //get first row data
-$idnum[$incr1]= $id[0];
-$incr1=($incr1+1);
-}
-$incr1=($incr1-1);
-$q= "SELECT * from s_rl where retell_id = '$idnum[0]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
+      $query = "SELECT * FROM s_rl";
+      $array = array();
 
-$line = mysqli_fetch_array($result2);
+      mysqli_query($con,$query) or die ('Error query database');
 
+      $result = mysqli_query($con,$query);
 
-if (!empty($_POST['button'])){
-switch ($_POST['button']){
-case 'button1':
-$counter = ($_POST['counter']);
+      while($row = mysqli_fetch_array($result)){
+        $array[] = $row; // store the database values in array
+      }
+      
+      $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$counter = $counter +1;
-if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "select * from s_rl where retell_id = '$idnum[$counter]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-break;
-case 'button2':
-$counter = ($_POST['counter']);
+          if(isset($_POST["next"])){
+            if ($counter < (count($array)-1)) {
+              $counter++;
+            } else {
+              $counter = (count($array)-1);
+            }
+            echo $counter;
+          }
 
-$counter = $counter -1;
-
-if ($counter < 0){ $counter =0;}
-$q= "select * from s_rl where retell_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button3':
-// pressed first
-$counter = 0;
-
-$q= "select * from s_rl where retell_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button4':
-//pressed last
-$counter = (count($idnum)-1) ;
+          if(isset($_POST["prev"])){
+            if($counter > 0) {
+              $counter--;
+            } else {
+              $counter = 0;
+            }
+            echo $counter;
+          }
+      }
 
 
-$q= "SELECT * FROM  s_rl where retell_id = '$idnum[$counter]'";
+      $audiomp3 = $array[$counter]['audio_name'];
 
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
+      $element = "";
+      $element .= "<audio id = 'player' controls>";
+      $element .= "<source src='audio/" . $audiomp3 . "' type = 'audio/mpeg'>";
+      $element .= "Your browser does not support audio element.";
+      $element .= "</audio>";
 
-break;
-
-default:
-$yes = 'yes default';
-break;
-}
-}
-else
-{
-//$inc = 0;
-}
-if ($line) {
-
-
-echo "\t<tr>\n";
-$column = mysqli_fetch_row($result2);
-echo " Question:\t\t<td>$column[0]</td>\n";
-echo "\t\t<td>$column[1]</td>\n";
-echo "<br>";
-
-
-$element = "";
-$element .="<audio controls>";
-$element .= "<source src='audio/" . $column[2] . " ' type='audio/mpeg'>";
-$element .= "Your browser does not support audio element.";
-$element .= "</audio>";
-
-echo $element . '<br/>';
-
-echo "\t</tr>\n";
-echo "\t\t<td>$column[2]</td>\n";
-echo "<br>";
-echo "\t\t<td>$column[3]</td>\n";
-echo "<br>";
-
-}
-else echo "Record not found.\n";
-mysqli_free_result($result2);
-mysqli_close($con);
-?>				
+      echo $element . '<br/>';
+    
+?>  				
 				<div id="controls" align="justify">
 						<button id="recordButton" style="display:none;" >Record</button>
 						<button id="pauseButton" disabled class="button">Pause</button>
 						<button id="stopButton" disabled class="button">Stop</button>
 						<div class="popup" onclick="popupMsg()">Transcript
-								<span class="popuptext" id="myPopup"style="height:200px; width:600px; text-align:left"> family morning front door neighbours gardens children</span>
+								<span class="popuptext" id="myPopup"style="height:200px; width:600px; text-align:left"> <?php echo $array[$counter]['transcript']?></span>
 							</div>
 							<div class="popup" onclick="popupAns()">Hint
-								<span class="popuptext" id="mySecondPopup"  style="height:200px; width:600px; text-align:left">Imagine living all your life /as the only family on your street. Then,/ one morning,/ you open the front door and discover houses all around you./ You see neighbours tending their gardens and children walking to school./ Where did all the people come from? /What if the answer turned out to be that they had always been there —/ you just hadn't seen them? </p>							
+								<span class="popuptext" id="mySecondPopup"  style="height:200px; width:600px; text-align:left"><?php echo $array[$counter]['hint'] ?> </p>							
 								</span>
 							</div>
 					</div>
@@ -232,18 +184,16 @@ mysqli_close($con);
 					<div id="formats">Your Recording:</div>
 						<ol id="recordingsList"></ol>
 					</div>
-  	<script src="../../js/recorder.js"></script>
-  	<script src="../../js/record.js"></script>
-	<script src="../../js/popup.js"></script>
-	<script src="../../js/countdown.js"></script>
+  	<script src="../js/recorder.js"></script>
+  	<script src="../js/40sec_record.js"></script>
+	<script src="../js/popup.js"></script>
+	<script src="../js/countdown.js"></script>
 
 <form action="rl.php" method="post">
 <div>
-<button type="submit" name="button" value="button3" class="button">First</button>
-<button type="submit" name="button" value="button2" class="button">Previous</button>
-<button type="submit" name="button" value="button1" class="button">Next</button>
-<button type="submit" name="button" value="button4" class="button">Last</button>
-<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+        <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
+        <button type="submit" class="button" name="next" value="next"> Next </button>
+        <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
 </form>
 </div>
@@ -252,10 +202,10 @@ mysqli_close($con);
 <div class="footer">
 
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
-        <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
+        <img src="../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
       </a>
       <a href="https://www.mia.org.au/" target="_blank">
-        <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
+        <img src="../img/mia.jpg" border="0" alt="mia" width="150" height="120">
       </a>
 
       <p>Contact us: <br>

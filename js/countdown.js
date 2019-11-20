@@ -22,7 +22,6 @@ function ProgressCountdown(timeleft, bar, text) {
   });
 }
 
-autoplay 
 /* PLAN B 
 ***** 
 DO NOT DELETE THESE CODEs 

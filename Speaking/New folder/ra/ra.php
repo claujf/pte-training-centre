@@ -141,13 +141,12 @@ $result2 = mysqli_query($con,$q) or die('Query failed: ');
 
 $line = mysqli_fetch_array($result2);
 
-
 if (!empty($_POST['button'])){
 switch ($_POST['button']){
 case 'button1':
 $counter = ($_POST['counter']);
 
-$counter = $counter +1;
+$counter = $counter + 1;
 if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
 $q= "select * from s_ra where ra_id = '$idnum[$counter]'";
 $result2 = mysqli_query($con,$q) or die('Query failed: ');

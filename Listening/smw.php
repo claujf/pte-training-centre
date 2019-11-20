@@ -56,11 +56,11 @@ $result = mysqli_query($con,$query);
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../Speaking/ra/ra.php">Read Aloud</a>
-                <a href="../Speaking/di/di.php">Describe Image</a>
-                <a href="../Speaking/rs/rs.php">Repeat Sentence</a>
-                <a href="../Speaking/asq/asq.php">Answer Short Question</a>
-                <a href="../Speaking/rl/rl.php">Re-tell Lecture</a>
+                <a href="../Speaking/ra.php">Read Aloud</a>
+                <a href="../Speaking/di.php">Describe Image</a>
+                <a href="../Speaking/rs.php">Repeat Sentence</a>
+                <a href="../Speaking/asq.php">Answer Short Question</a>
+                <a href="../Speaking/rl.php">Re-tell Lecture</a>
                 </div>
             </div>
           </li>
@@ -68,11 +68,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -80,14 +80,14 @@ $result = mysqli_query($con,$query);
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
-                <a href="../Listening/hcs/hcs.php">Highlight Correct Summary</a>
-                <a href="../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                <a href="../Listening/hcs.php">Highlight Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
                 <a>Select Missing Words</a>
-                <a href="../Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd/wfd.php">Write From Dictation</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -95,8 +95,8 @@ $result = mysqli_query($con,$query);
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../Writing/swt/swt.php">Summarize Written Text</a>
-                <a href="../we/we.php">Write Essay</a>
+                <a href="../Writing/swt.php">Summarize Written Text</a>
+                <a href="../writing/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -116,159 +116,76 @@ $result = mysqli_query($con,$query);
 		<span id="time"></span> 
 		<script src="../js/timer60_sec.js"></script>
   </div>
-  <!-- # Item number and item Title -->
- <?php
-$counter = 0;
-$incr1 = 0;
-while ($incr1 < mysqli_num_rows($result)) {
-$id = mysqli_fetch_row($result); //get first row data
-$idnum[$incr1]= $id[0];
-$incr1=($incr1+1);
-}
-$incr1=($incr1-1);
-$q= "SELECT * from l_smw where smw_id = '$idnum[0]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
 
-$line = mysqli_fetch_array($result2);
+<div class="row begin-countdown">
+  <div class="col-md-12 text-center">
+      <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+      <span id = "myText"> Audio starts in </span>
+      <span id ="pageBeginCountdownText"> 5 </span>
+  </div>
+</div>
 
 
-if (!empty($_POST['button'])){
-switch ($_POST['button']){
-case 'button1':
-$counter = ($_POST['counter']);
-
-$counter = $counter +1;
-if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "select * from l_smw where smw_id = '$idnum[$counter]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-break;
-case 'button2':
-$counter = ($_POST['counter']);
-
-$counter = $counter -1;
-
-if ($counter < 0){ $counter =0;}
-$q= "select * from l_smw where smw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button3':
-// pressed first
-$counter = 0;
-
-$q= "select * from l_smw where smw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button4':
-//pressed last
-$counter = (count($idnum)-1) ;
-
-
-$q= "SELECT * FROM  l_smw where smw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-
-default:
-$yes = 'yes default';
-break;
-}
-}
-else
-{
-//$inc = 0;
-}
-if ($line) {
-
-
-echo "\t<tr>\n";
-$column = mysqli_fetch_row($result2);
-echo "Question: \t\t<td>$column[0]</td>\n";
-echo "\t\t<td>$column[1]</td>\n";
-echo "<br>";
-$array = array();
-
-mysqli_query($con,$query) or die ('Error query database');
-
-$result = mysqli_query($con,$query);
-while($row = mysqli_fetch_array($result)){
-  $array[] = $row; // store the database values in array
-}
-?>
-<div align="center">
 <?php
-$audiomp3 = $array[$counter]['path'];
-$element = "";
-$element .="<audio  controls>";
-$element .= "<source src= '$audiomp3' type = 'audio/mpeg'>";
-$element .= "Your browser does not support audio element.";
-$element .= "</audio>";
+      $query = "SELECT * FROM l_smw";
+      $array = array();
 
-echo $element . '<br/>';
+      mysqli_query($con,$query) or die ('Error query database');
 
+      $result = mysqli_query($con,$query);
+
+      while($row = mysqli_fetch_array($result)){
+        $array[] = $row; // store the database values in array
+      }
+
+      $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+          if(isset($_POST["next"])){
+            if ($counter < (count($array)-1)) {
+              $counter++;
+            } else {
+              $counter = (count($array)-1);
+            }
+            echo $counter;
+          }
+
+          if(isset($_POST["prev"])){
+            if($counter > 0) {
+              $counter--;
+            } else {
+              $counter = 0;
+            }
+            echo $counter;
+          }
+      }
+
+      $audiomp3 = $array[$counter]['path'];
+
+      $element = "<div align='center'>";
+      $element .= "<audio id = 'player' controls>";
+      $element .= "<source src= '$audiomp3' type = 'audio/mpeg'>";
+      $element .= "Your browser does not support audio element.";
+      $element .= "</audio>";
+      $element .= "</br>";
+
+      echo $element . '<br/>';
 ?>
 </div></br>
 
-
-<form action="hcs.php" style="padding-bottom: 50px;"> 
-		<input type="radio" name="question1">
-			<?php	echo "A)\t\t<td>$column[2]</td>\n";
-				echo "\t</tr>\n<br>";	
-			?> 
-        <input type="radio" name="question1">	
-			<?php echo "B)\t\t<td>$column[3]</td>\n";
-				  echo "\t</tr>\n<br>";
-			?>
-		<input type="radio" name="question1">
-			<?php echo "C)\t\t<td>$column[4]</td>\n";
-				  echo "\t</tr>\n<br>";
-			?>
-		<input type="radio" name="question1">
-			<?php echo "D)\t\t<td>$column[5]</td>\n";
-				  echo "\t</tr>\n<br>";
-			?>
-			<input type="Submit" value="Submit" class="button"></input>
-</form>			
-			
-<?php
-echo "Answer: \t\t<td>$column[6]</td>\n";
-}
-else echo "Record not found.\n";
-mysqli_free_result($result2);
-mysqli_close($con);
-?>	
-  
-  
- 
-   <!-- Recording audio -->
-  <audio autoplay id="player" controls style="padding-left: 320px">
-  <source src="listening 1.mp3" type="audio/mpeg">
-  <source src="listening 2.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-  </audio>
-  <br>
-  <!-- questions -->
-  <p>Which languages you work on?</p>
  
   <!-- options -->
   <form action="/sstdata.php">
-         <input type="radio" name="question1" value="option1">a)
+         <input type="radio" name="question1" value="option1"><?php echo $array[$counter]['smw_option1'] ?>
          <br>
-         <input type="radio" name="question1" value="option2">b)
+         <input type="radio" name="question1" value="option2"><?php echo $array[$counter]['smw_option2'] ?>
          <br>
-         <input type="radio" name="question1" value="option3">c)
+         <input type="radio" name="question1" value="option3"><?php echo $array[$counter]['smw_option3'] ?>
          <br>
-		 <input type="radio" name="question1" value="option4">d)
+		     <input type="radio" name="question1" value="option4"><?php echo $array[$counter]['smw_option4'] ?>
          <br>
-		 <input type="radio" name="question1" value="option5">d)
+		     <input type="radio" name="question1" value="option5"><?php echo $array[$counter]['smw_option5'] ?>
          <br>
-		 <input type="radio" name="question1" value="option6">d)
-         <br>
-      </form>
   </form>
   <br><br>
 
@@ -277,24 +194,23 @@ mysqli_close($con);
   
 			
 				<div class="popup" onclick="popupMsg()"> Answer 
-						<span class="popuptext" id="myPopup">1.mostly<br>2.greater<br>3.packet<br>4.price<br>5.about</span>
+						<span class="popuptext" id="myPopup"><?php echo $array[$counter]['smw_answer'] ?></span>
 				</div>
 
 				
 		
 <form action="smw.php" method="post">
 <div style="padding-left: 300px">
-<button type="submit" name="button" value="button3" class="button">First</button>
-<button type="submit" name="button" value="button2"class="button">Previous</button>
-<button type="submit" name="button" value="button1" class="button">Next</button>
-<button type="submit" name="button" value="button4"class="button">Last</button>
-<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+        <button class="button" type="submit" name ="prev" value="prev"> Previous </button>
+        <button class="button" type="submit" name="next" value="next"> Next </button>
+        <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
 </form>			
  </div>
  </div>
  
-<script src="../js/popup.js"></script> 
+<script src="../js/popup.js"></script>
+<script src="../js/countdown.js"></script> 
  
 <div class="footer">
 

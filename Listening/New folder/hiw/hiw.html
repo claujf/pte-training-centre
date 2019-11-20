@@ -3,7 +3,7 @@
 <head>
 	<title>Highlight incorrect words</title>
 	<h1>Highlight incorrect words</h1>
-	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../../css/style.css">
 	<a href="../../index.html" class="button">Home</a>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -17,8 +17,27 @@
 <p class="sentence">Leisure travel was. in a sense; a British invention. This was mostly due to economic and social factors; Britain was the first country to become fully industrialized, and industrial society offered greater numbers of people time for leisure. This, coupled with improvements in transport, especially the railways, meant that large numbers of people could get to holiday resorts in a very short time. Modern mass tourism of a sort we can easily recognize today began in 1841 when Thomas Cook organized the first packet tour; in which everything was included in the price - travel; hotel and entertainment. To cater for the large numbers of new holiday-makers, holiday camps were established, both on the coast and in the countryside; and they became immensely popular. Their popularity declined, however; with the rise of cheap overseas tours; which gave many people their first opportunity to travel about.</p>
 <br><br>
 
-<script src="../../js/highlight.js"></script>
+<script src="js/highlight.js"></script>
 <script src="../../js/popup.js"></script>
+<script type="text/javascript">
+	
+var sentence = $('.sentence').html().split(/\s+/),    
+    result = []; 
+
+for( var i = 0; i < sentence.length; i++ ) {
+    result[i] = '<span>' + sentence[i] + '</span>';
+}
+
+$('.sentence').html(result.join(' '));
+
+$('.sentence').on('click', 'span', function(){
+	$(this).toggleClass('highlight');
+}); 
+
+    
+  
+    
+</script>
 
 <a href="../../index.html" class="button">Previous</a>
 <a href="hiw1.html" class="button">Next</a>

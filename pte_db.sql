@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2019 at 09:36 AM
+-- Generation Time: Nov 20, 2019 at 10:00 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -90,6 +90,7 @@ CREATE TABLE `l_hcs` (
   `hcs_option1` varchar(400) NOT NULL,
   `hcs_option2` varchar(400) NOT NULL,
   `hcs_option3` varchar(400) NOT NULL,
+  `hcs_option4` varchar(255) NOT NULL,
   `hcs_answer` char(2) NOT NULL,
   `path` varchar(99) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -98,10 +99,10 @@ CREATE TABLE `l_hcs` (
 -- Dumping data for table `l_hcs`
 --
 
-INSERT INTO `l_hcs` (`hcs_id`, `hcs_title`, `hcs_option1`, `hcs_option2`, `hcs_option3`, `hcs_answer`, `path`) VALUES
-(1, 'Hurricane', 'The hurricanes, which are also refers to the typhoons or cyclones, are ranked according to their wind speed and ability to cause damage.', ' Comparing with the cyclone, typhoon typically begins as a tropical storm and is relatively faster in wind speed.', 'The majority of hurricanes last only a few days and that’s the main reason why they do not always kill people when they reach land.', 'A', 'hcs_audio/hcs_1.mp3'),
-(2, ' Chemistry', 'Organic compounds include all living organisms, boil at lower temperatures, and bond easily with other elements. As for inorganic compounds, they are more common than organic compounds.', 'Because carbon bonds easily with other elements, there are more carbon compounds than non-carbon compounds. There are more than ten million carbon compounds, which is ten times the number of inorganic compounds.', ' A compound is made when two or more elements unite and there are two main branches of chemical compounds: organic and inorganic compounds. There are five differences between organic and inorganic compounds.', 'C', 'hcs_audio/hcs_2.mp3'),
-(3, 'Winter', 'Global cooling has taken place on Earth in the past and the Little Ice Age lasted from around 1300 to 1800. Some scientists think changes in Earth’s orbit make the temperature drop, and a lack of sunspots might affect temperatures on Earth.', 'The temperatures in the Northern and Southern hemispheres decreased during the Little Ice Age. There was less rain in summer during this period, which resulted in a lack of food.', 'Global cooling will occur soon due to sunspots, which will further result in the average temperatures on Earth dropping. As a result, the ice pack in the Arctic Ocean will grow larger and move south.', 'A', 'hcs_audio/hcs_3.mp3');
+INSERT INTO `l_hcs` (`hcs_id`, `hcs_title`, `hcs_option1`, `hcs_option2`, `hcs_option3`, `hcs_option4`, `hcs_answer`, `path`) VALUES
+(1, 'Hurricane', 'The hurricanes, which are also refers to the typhoons or cyclones, are ranked according to their wind speed and ability to cause damage.', ' Comparing with the cyclone, typhoon typically begins as a tropical storm and is relatively faster in wind speed.', 'The majority of hurricanes last only a few days and that’s the main reason why they do not always kill people when they reach land.', 'option 4', 'A', 'hcs_audio/hcs_1.mp3'),
+(2, ' Chemistry', 'Organic compounds include all living organisms, boil at lower temperatures, and bond easily with other elements. As for inorganic compounds, they are more common than organic compounds.', 'Because carbon bonds easily with other elements, there are more carbon compounds than non-carbon compounds. There are more than ten million carbon compounds, which is ten times the number of inorganic compounds.', ' A compound is made when two or more elements unite and there are two main branches of chemical compounds: organic and inorganic compounds. There are five differences between organic and inorganic compounds.', 'option 4', 'C', 'hcs_audio/hcs_2.mp3'),
+(3, 'Winter', 'Global cooling has taken place on Earth in the past and the Little Ice Age lasted from around 1300 to 1800. Some scientists think changes in Earth’s orbit make the temperature drop, and a lack of sunspots might affect temperatures on Earth.', 'The temperatures in the Northern and Southern hemispheres decreased during the Little Ice Age. There was less rain in summer during this period, which resulted in a lack of food.', 'Global cooling will occur soon due to sunspots, which will further result in the average temperatures on Earth dropping. As a result, the ice pack in the Arctic Ocean will grow larger and move south.', 'option 4', 'A', 'hcs_audio/hcs_3.mp3');
 
 -- --------------------------------------------------------
 
@@ -205,8 +206,8 @@ CREATE TABLE `l_smw` (
 
 INSERT INTO `l_smw` (`smw_id`, `path`, `smw_option1`, `smw_option2`, `smw_option3`, `smw_option4`, `smw_option5`, `smw_answer`) VALUES
 (1, 'smw_audio/smw_1.mp3', 'has health benefits', ' is recommended by doctors', ' eat plenty of vegetables every day', 'contains natural sugars', 'protects babies against illness\r\n', 'C'),
-(2, 'smw_audio/smw_1.mp3', 'a very tall structure', 'fish which need light', 'you can’t see anything', 'all this fabulous life', 'something rather uninteresting', 'D'),
-(3, 'smw_audio/smw_1.mp3', 'acting differently', ' walking round', 'appearing elsewhere', 'discussing politics', '', 'B');
+(2, 'smw_audio/smw_2.mp3', 'a very tall structure', 'fish which need light', 'you can’t see anything', 'all this fabulous life', 'something rather uninteresting', 'D'),
+(3, 'smw_audio/smw_3.mp3', 'acting differently', ' walking round', 'appearing elsewhere', 'discussing politics', '', 'B');
 
 -- --------------------------------------------------------
 
@@ -477,12 +478,12 @@ CREATE TABLE `s_asq` (
 --
 
 INSERT INTO `s_asq` (`asq_id`, `path`, `asq_transcript`, `asq_answer`) VALUES
-(1, 'audio/d4ecb933-1b94-463d-90f1-66e2d9da10f5.mp3', 'What stage is a 10 year old child in', 'Adolescence'),
-(2, 'audio/146753c5-d27f-4428-b657-3bfde91a2ab0.mp3', 'What do you call the stra', 'Seat'),
-(3, 'audio/d23310c5-6ddf-43be-a87a-4c5277b0b9d1.mp3', 'What do you cal the gover', 'Auto'),
-(4, 'heyman', 'yoyo', 'whatsup'),
-(5, 'powerranger', 'blue pink', 'yellow black'),
-(6, 'lord of the ring', 'give me that ring', 'no');
+(1, 'audio/asq1.mp3', 'What stage is a 10 year old child in', 'Adolescence'),
+(2, 'audio/asq2.mp3', 'What do you call the stra', 'Seat'),
+(3, 'audio/asq3.mp3', 'What do you cal the gover', 'Auto'),
+(4, 'audio/asq4.mp3', 'yoyo', 'whatsup'),
+(5, 'audio/asq5.mp3', 'blue pink', 'yellow black'),
+(6, 'audio/asq6.mp3', 'give me that ring', 'no');
 
 -- --------------------------------------------------------
 
@@ -514,17 +515,19 @@ INSERT INTO `s_di` (`di_id`, `img_name`, `answer`) VALUES
 CREATE TABLE `s_ra` (
   `ra_id` int(11) NOT NULL,
   `ra_title` char(40) NOT NULL,
-  `ra_paragraph` text NOT NULL
+  `ra_paragraph` text NOT NULL,
+  `s_guide` varchar(255) NOT NULL,
+  `p_guide` varchar(750) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `s_ra`
 --
 
-INSERT INTO `s_ra` (`ra_id`, `ra_title`, `ra_paragraph`) VALUES
-(1, 'Grand Canyon', 'The Grand Canyon is 277 miles long, up to 18 miles wide and attains a depth of over a mile. While the specific geologic processes and timing that formed the Grand Canyon are the subject of debate by geologists, recent evidence suggests the Colorado River established its course through the canyon at least 17 million years ago. '),
-(2, 'Carbon  Emissions', 'When countries assess their annual carbon  emissions, they count up their cars and power stations, but bush fires are not included – presumably because they are deemed to be events beyond human control. In Australia, Victoria alone sees several hundred thousand hectares burn each year; in both 2004 and the present summer, the figure has been over 1 million hectares. '),
-(3, ' Financial Plan', 'At the beginning of each fiscal year funds are allocated to each State account in accordance with the University’s financial plan. Funds are allocated to each account by object of expenditure. Account managers are responsible for ensuring that adequate funds are available in the appropriate object before initiating transactions to use the funds. ');
+INSERT INTO `s_ra` (`ra_id`, `ra_title`, `ra_paragraph`, `s_guide`, `p_guide`) VALUES
+(1, 'Grand Canyon', 'The Grand Canyon is 277 miles long, up to 18 miles wide and attains a depth of over a mile. While the specific geologic processes and timing that formed the Grand Canyon are the subject of debate by geologists, recent evidence suggests the Colorado River established its course through the canyon at least 17 million years ago. ', 'family morning front door neighbours gardens children', 'Imagine living all your life /as the only family on your street. Then,/ one morning,/ you open the front door and discover houses all around you./ You see neighbours tending their gardens and children walking to school./ Where did all the people come from? /What if the answer turned out to be that they had always been there —/ you just hadn\'t seen them?'),
+(2, 'Carbon  Emissions', 'When countries assess their annual carbon  emissions, they count up their cars and power stations, but bush fires are not included – presumably because they are deemed to be events beyond human control. In Australia, Victoria alone sees several hundred thousand hectares burn each year; in both 2004 and the present summer, the figure has been over 1 million hectares. ', 'stress guide for question 2 here', 'pause guide exampleeeeeeee'),
+(3, ' Financial Plan', 'At the beginning of each fiscal year funds are allocated to each State account in accordance with the University’s financial plan. Funds are allocated to each account by object of expenditure. Account managers are responsible for ensuring that adequate funds are available in the appropriate object before initiating transactions to use the funds. ', 'qeustion 3 !!!!!!!!!!!!!!!!! stressguide', 'pause guide question there here');
 
 -- --------------------------------------------------------
 
@@ -535,17 +538,19 @@ INSERT INTO `s_ra` (`ra_id`, `ra_title`, `ra_paragraph`) VALUES
 CREATE TABLE `s_rl` (
   `retell_id` int(3) NOT NULL,
   `re_tell_title` char(40) NOT NULL,
-  `audio_name` varchar(255) NOT NULL
+  `audio_name` varchar(255) NOT NULL,
+  `transcript` varchar(500) NOT NULL,
+  `hint` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `s_rl`
 --
 
-INSERT INTO `s_rl` (`retell_id`, `re_tell_title`, `audio_name`) VALUES
-(1, 'Globalization', 'rl_1.mp3'),
-(2, 'Stem Cell', 'rl_2.mp3'),
-(3, 'Performance of Genders', 'rl_3.mp3');
+INSERT INTO `s_rl` (`retell_id`, `re_tell_title`, `audio_name`, `transcript`, `hint`) VALUES
+(1, 'Globalization', 'rl_1.mp3', 'Imagine living all your life /as the only family on your street. Then,/ one morning,/ you open the front door and discover houses all around you./ You see neighbours tending their gardens and children walking to school./ Where did all the people come from? /What if the answer turned out to be that they had always been there —/ you just hadn\'t seen them?', 'family morning front door neighbours gardens children'),
+(2, 'Stem Cell', 'rl_2.mp3', 'Second qn transcript here ////', 'hint for second qn here ////'),
+(3, 'Performance of Genders', 'rl_3.mp3', 'question 3 transceript', 'q3 hints !!!');
 
 -- --------------------------------------------------------
 
@@ -556,14 +561,14 @@ INSERT INTO `s_rl` (`retell_id`, `re_tell_title`, `audio_name`) VALUES
 CREATE TABLE `s_rs` (
   `rs_id` int(11) NOT NULL,
   `resen_answer` varchar(50) NOT NULL,
-  `audio_name` varchar(255) NOT NULL
+  `path` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `s_rs`
 --
 
-INSERT INTO `s_rs` (`rs_id`, `resen_answer`, `audio_name`) VALUES
+INSERT INTO `s_rs` (`rs_id`, `resen_answer`, `path`) VALUES
 (1, 'A computer virus destroyed all my files.', 'rs_1.mp3'),
 (2, 'A full bibliography is needed at the end of all as', 'rs_2.mp3'),
 (3, ' A lot of agricultural workers came to the east en', 'rs_3.mp3');

@@ -56,11 +56,11 @@ $result = mysqli_query($con,$query);
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../Speaking/ra/ra.php">Read Aloud</a>
-                <a href="../Speaking/di/di.php">Describe Image</a>
-                <a href="../Speaking/rs/rs.php">Repeat Sentence</a>
-                <a href="../Speaking/asq/asq.php">Answer Short Question</a>
-                <a href="../Speaking/rl/rl.php">Re-tell Lecture</a>
+                <a href="../Speaking/ra.php">Read Aloud</a>
+                <a href="../Speaking/di.php">Describe Image</a>
+                <a href="../Speaking/rs.php">Repeat Sentence</a>
+                <a href="../Speaking/asq.php">Answer Short Question</a>
+                <a href="../Speaking/rl.php">Re-tell Lecture</a>
                 </div>
             </div>
           </li>
@@ -68,11 +68,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -80,14 +80,14 @@ $result = mysqli_query($con,$query);
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
-                <a href="../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
-                <a href="../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../Listening/smw/smw.php">Select Missing Words</a>
-                <a href="../Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd/wfd.php">Write From Dictation</a>
+                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -96,7 +96,7 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <a>Summarize Written Text</a>
-                <a href="../we/we.php">Write Essay</a>
+                <a href="we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -111,88 +111,41 @@ $result = mysqli_query($con,$query);
 <div align="justify">
 
 	<h5>Read the passage below and summarize it using one sentence. Type your response in the box at the bottom of the screen. You have 10 minutes to finish this task. Your response will be judged on the quality of your writing and on how well your response presents the key points in the passage.</h5>
-	<?php
-$counter = 0;
-$incr1 = 0;
-while ($incr1 < mysqli_num_rows($result)) {
-$id = mysqli_fetch_row($result); //get first row data
-$idnum[$incr1]= $id[0];
-$incr1=($incr1+1);
-}
-$incr1=($incr1-1);
-$q= "SELECT * from w_swt where swt_id = '$idnum[0]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
 
-$line = mysqli_fetch_array($result2);
+<?php
+      $query = "SELECT * FROM w_swt";
+      $array = array();
 
+      mysqli_query($con,$query) or die ('Error query database');
 
-if (!empty($_POST['button'])){
-switch ($_POST['button']){
-case 'button1':
-$counter = ($_POST['counter']);
+      $result = mysqli_query($con,$query);
 
-$counter = $counter +1;
-if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "select * from w_swt where swt_id = '$idnum[$counter]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-break;
-case 'button2':
-$counter = ($_POST['counter']);
+      while($row = mysqli_fetch_array($result)){
+        $array[] = $row; // store the database values in array
+      }
+      
+      $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$counter = $counter -1;
+          if(isset($_POST["next"])){
+            if ($counter < (count($array)-1)) {
+              $counter++;
+            } else {
+              $counter = (count($array)-1);
+            }
+          }
 
-if ($counter < 0){ $counter =0;}
-$q= "select * from w_swt where swt_id = '$idnum[$counter]'";
+          if(isset($_POST["prev"])){
+            if($counter > 0) {
+              $counter--;
+            } else {
+              $counter = 0;
+            }
+          }
+      }
+?>
 
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button3':
-// pressed first
-$counter = 0;
-
-$q= "select * from w_swt where swt_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button4':
-//pressed last
-$counter = (count($idnum)-1) ;
-
-
-$q= "SELECT * FROM  w_swt where swt_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-
-default:
-$yes = 'yes default';
-break;
-}
-}
-else
-{
-//$inc = 0;
-}
-if ($line) {
-
-
-echo "\t<tr>\n";
-$column = mysqli_fetch_row($result2);
-echo "Question: \t\t<td>$column[0]</td>\n";
-echo "<br>";
-echo "Title:\t\t<td>$column[1]</td>\n";
-echo "<br>";
-echo "\t\t<td>$column[2]</td>\n";
-echo "\t</tr>\n";
-
-}
-else echo "Record not found.\n";
-mysqli_free_result($result2);
-mysqli_close($con);
-?>	
+    <p> <?php echo $array[$counter]['swt_paragraph'] ?> </p>
 	
 	<!--  action page is where the input going to be send to  -->
 		<form action ="/action_page.php">
@@ -212,11 +165,9 @@ mysqli_close($con);
 
 <form action="swt.php" method="post">
 <div style="padding-left: 300px">
-<button type="submit" name="button" value="button3" class="button">First</button>
-<button type="submit" name="button" value="button2"class="button">Previous</button>
-<button type="submit" name="button" value="button1" class="button">Next</button>
-<button type="submit" name="button" value="button4"class="button">Last</button>
-<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+    <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
+    <button type="submit" class="button" name="next" value="next"> Next </button>
+    <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
 </form>	
 </div>		

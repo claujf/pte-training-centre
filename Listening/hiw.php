@@ -56,11 +56,11 @@ $result = mysqli_query($con,$query);
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../Speaking/ra/ra.php">Read Aloud</a>
-                <a href="../Speaking/di/di.php">Describe Image</a>
-                <a href="../Speaking/rs/rs.php">Repeat Sentence</a>
-                <a href="../Speaking/asq/asq.php">Answer Short Question</a>
-                <a href="../Speaking/rl/rl.php">Re-tell Lecture</a>
+                <a href="../Speaking/ra.php">Read Aloud</a>
+                <a href="../Speaking/di.php">Describe Image</a>
+                <a href="../Speaking/rs.php">Repeat Sentence</a>
+                <a href="../Speaking/asq.php">Answer Short Question</a>
+                <a href="../Speaking/rl.php">Re-tell Lecture</a>
                 </div>
             </div>
           </li>
@@ -68,11 +68,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -81,13 +81,13 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <a>Highlight Incorrect Words</a>
-                <a href="../Listening/hcs/hcs.php">Highlight Correct Summary</a>
-                <a href="../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../Listening/smw/smw.php">Select Missing Words</a>
-                <a href="../Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd/wfd.php">Write From Dictation</a>
+                <a href="hcs.php">Highlight Correct Summary</a>
+                <a href="l_fib.php">Listening:Fill in the blanks</a>
+                <a href="l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="smw.php">Select Missing Words</a>
+                <a href="sst.php">Summarize Spoken Text</a>
+                <a href="wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -108,21 +108,7 @@ $result = mysqli_query($con,$query);
 
 	<link rel="stylesheet" href="../css/style.css">
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script>
-			var sentence = $('.sentence').php().split(/\s+/),    
-			result = []; 
 
-			for( var i = 0; i < sentence.length; i++ ) {
-			result[i] = '<span>' + sentence[i] + '</span>';
-			}
-
-			$('.sentence').php(result.join(' '));
-
-			$('.sentence').on('click', 'span', function(){
-			$(this).toggleClass('highlight');
-			}); 
-	</script>
 
 <body>
 <div class="section">
@@ -130,124 +116,65 @@ $result = mysqli_query($con,$query);
 			<h5>You will hear a recording. Below is a transcription of the recording. Some words in the transcription differ from what the speaker(s) said. Please click on the words that are different.</h5>
 			<div style="color:red;">Remaining 
 				<span id="time"></span> 
-				<script src="../js/timer60_sec.js"></script>
 			</div>
+
+        <div class="row begin-countdown">
+          <div class="col-md-12 text-center">
+            <progress value="10" max="10" id="pageBeginCountdown"></progress></br></br>
+            <span id = "myText" style="color: red">Prepare</span>
+            <span id ="pageBeginCountdownText" style="color: red"> 10 </span></br></br>
+          </div>
+        </div>    
+      
 			
-			<?php
-$counter = 0;
-$incr1 = 0;
-while ($incr1 < mysqli_num_rows($result)) {
-$id = mysqli_fetch_row($result); //get first row data
-$idnum[$incr1]= $id[0];
-$incr1=($incr1+1);
-}
-$incr1=($incr1-1);
-$q= "SELECT * from l_hiw where hiw_id = '$idnum[0]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
+<?php
+      $query = "SELECT * FROM l_hiw";
+      $array = array();
 
-$line = mysqli_fetch_array($result2);
+      mysqli_query($con,$query) or die ('Error query database');
 
+      $result = mysqli_query($con,$query);
 
-if (!empty($_POST['button'])){
-switch ($_POST['button']){
-case 'button1':
-$counter = ($_POST['counter']);
+      while($row = mysqli_fetch_array($result)){
+        $array[] = $row; // store the database values in array
+      }
+      
+      $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$counter = $counter +1;
-if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "select * from l_hiw where hiw_id = '$idnum[$counter]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-break;
-case 'button2':
-$counter = ($_POST['counter']);
+          if(isset($_POST["next"])){
+            if ($counter < (count($array)-1)) {
+              $counter++;
+            } else {
+              $counter = (count($array)-1);
+            }
+            echo $counter;
+          }
 
-$counter = $counter -1;
-
-if ($counter < 0){ $counter =0;}
-$q= "select * from l_hiw where hiw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button3':
-// pressed first
-$counter = 0;
-
-$q= "select * from l_hiw where hiw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-case 'button4':
-//pressed last
-$counter = (count($idnum)-1) ;
-
-
-$q= "SELECT * FROM  l_hiw where hiw_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-
-break;
-
-default:
-$yes = 'yes default';
-break;
-}
-}
-else
-{
-//$inc = 0;
-}
-if ($line) {
-
-
-echo "\t<tr>\n";
-$column = mysqli_fetch_row($result2);
-echo "Question: \t\t<td>$column[0]</td>\n";
-echo "<br>";
-
-
-$array = array();
-
-mysqli_query($con,$query) or die ('Error query database');
-
-$result = mysqli_query($con,$query);
-while($row = mysqli_fetch_array($result)){
-  $array[] = $row; // store the database values in array
-}
+          if(isset($_POST["prev"])){
+            if($counter > 0) {
+              $counter--;
+            } else {
+              $counter = 0;
+            }
+            echo $counter;
+          }
+      }
 ?>
 <div align="center">
 <?php
 $audiomp3 = $array[$counter]['path'];
 $element = "";
-$element .="<audio  controls>";
+$element .="<audio id='player' controls>";
 $element .= "<source src= '$audiomp3' type = 'audio/mpeg'>";
 $element .= "Your browser does not support audio element.";
 $element .= "</audio>";
 
 echo $element . '<br/>';
-
 ?>
 </div>
-
-<?php
-
-echo "\t\t<td>$column[1]</td>\n";
-echo "<br>";
-echo "answer\t\t<td>$column[2]</td>\n";
-echo "\t</tr>\n";
-}
-else echo "Record not found.\n";
-mysqli_free_result($result2);
-mysqli_close($con);
-?>	
+<p class="sentence"> <?php echo $array[$counter]['hiw_paragraph'] ?> </p>
 	
-			
-					<audio autoplay id="player" controls style="padding-left: 320px">
-						<source src="hiw_audio/d61ea04b-05b4-4fbc-a0d4-5e7cad7fcf2c.mp3" type="audio/mpeg">
-					</audio></br>
-			
-			</br></br>
 
 
 			<input type="Submit" value="Submit" class="button"></input>
@@ -257,17 +184,20 @@ mysqli_close($con);
 
 <form action="hiw.php" method="post">
 <div style="padding-left: 300px">
-<button type="submit" name="button" value="button3" class="button">First</button>
-<button type="submit" name="button" value="button2"class="button">Previous</button>
-<button type="submit" name="button" value="button1" class="button">Next</button>
-<button type="submit" name="button" value="button4"class="button">Last</button>
-<input type="hidden" name="counter" value="<?php print $counter; ?>" />
+    <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
+    <button type="submit" class="button" name="next" value="next"> Next </button>
+    <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
 </form>					
 				
 </div>
 </div>	
-<script src="../js/popup.js"></script>
+
+  <script src="../js/popup.js"></script>
+  <script src="../js/highlight.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="../js/timer60_sec.js"></script>
+  <script src="../js/countdown.js"></script>
 
 <div class="footer">
 
