@@ -18,37 +18,46 @@ die("Can not connect: " . mysqli_error());
   <title>Reading&Writing:Fill in the blanks</title>
 
   <!-- Custom fonts for this theme -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
 
   <!-- Theme CSS -->
-  <link href="../../css/freelancer.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
-  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link href="../css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/my_style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body id="page-top">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Reading&Writing:Fill in the blanks</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
+      <div class="img">
+      <a href ="../index.php">
+        <img border="0" alt="homepage" src="../img/my_logo.jpeg" width="100" height="70">
+      </a>
+     </div>  
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">R&W:Fill in the blanks<a>
+          <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i> 
+          </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
             <div class="speakingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
-                <a href="../../Speaking/ra/ra.php">Read Aloud</a>
-                <a href="../../Speaking/di/di.php">Describe Image</a>
-                <a href="../../Speaking/rs/rs.php">Repeat Sentence</a>
-                <a href="../../Speaking/asq/asq.php">Answer Short Question</a>
-                <a href="../../Speaking/rl/rl.php">Re-tell Lecture</a>
+                <a href="../Speaking/ra.php">Read Aloud</a>
+                <a href="../Speaking/di.php">Describe Image</a>
+                <a href="../Speaking/rs.php">Repeat Sentence</a>
+                <a href="../Speaking/asq.php">Answer Short Question</a>
+                <a href="../Speaking/rl.php">Re-tell Lecture</a>
                 </div>
             </div>
           </li>
@@ -56,11 +65,11 @@ die("Can not connect: " . mysqli_error());
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../r_fib/fib.php">Reading:Fill in the blanks</a>
+              <a href="rfib.php">Reading:Fill in the blanks</a>
               <a>Reading&Writing:Fill in the blanks</a>
-              <a href="../rp/rp.php">Reorder Paragraph</a>
-              <a href="../r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="rp.php">Reorder Paragraph</a>
+              <a href="r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -68,14 +77,14 @@ die("Can not connect: " . mysqli_error());
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
-                <a href="../../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
-                <a href="../../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../../Listening/smw/smw.php">Select Missing Words</a>
-                <a href="../../Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="../../Listening/wfd/wfd.php">Write From Dictation</a>
+                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                <a href="../Listening/hcs.php">Highlight Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -83,181 +92,115 @@ die("Can not connect: " . mysqli_error());
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../../Writing/swt/swt.php">Summarize Written Text</a>
-                <a href="../../Writing/we/we.php">Write Essay</a>
+                <a href="../Writing/swt.php">Summarize Written Text</a>
+                <a href="../Writing/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
         </ul>
       </div>
     </div>
-  </nav>
-<body>
-<h3>Below is a text with blanks. Click on each blank, a list of choice will appear. Select the appropriate answer choice for each blank.</h3>
-
+	</nav>
+<div class="section">
+<div align="justify">
+<h5>Below is a text with blanks. Click on each blank, a list of choice will appear. Select the appropriate answer choice for each blank.</h5>
 
 <?php
-$query = "SELECT * FROM rw_fib";
+      $query = "SELECT * FROM rw_fib";
+      $squery = "SELECT * FROM rw_select";
 
-mysqli_query($con,$query) or die ('Error qury datab');
+      $array = array();
+      $sarray = array();
 
-$result = mysqli_query($con,$query);
+      mysqli_query($con,$squery) or die ("error query select database");
+      mysqli_query($con,$query) or die ('Error query database');
 
-$counter = 0;
-$incr1 = 0;
-while ($incr1 < mysqli_num_rows($result)) {
-$id = mysqli_fetch_row($result); //get first row data
-$idnum[$incr1]= $id[0];
-$incr1=($incr1+1);
-}
-$incr1=($incr1-1);
-$q= "SELECT * from rw_fib where rw_fib_id = '$idnum[0]'";
-$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
+      $result = mysqli_query($con,$query);
+      $sresult = mysqli_query($con,$squery);
 
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
+      while($row = mysqli_fetch_array($result)){
+        $array[] = $row; // store the database values in array
+      }
+      
+      while($srow = mysqli_fetch_array($sresult)) {
+        $sarray[] = $srow;
+      }
 
+      $counter = isset($_POST['counter']) ? $_POST['counter'] : 0;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$line = mysqli_fetch_array($result2);
-$sline = mysqli_fetch_array($selectresult);
+          if(isset($_POST["next"])){
+            if ($counter < (count($array)-1)) {
+              $counter++;
+            } else {
+              $counter = (count($array)-1);
+            }
+          }
 
-
-if (!empty($_POST['button'])){
-switch ($_POST['button']){
-case 'button1':
-$counter = ($_POST['counter']);
-
-$counter = $counter +1;
-if ($counter > (count($idnum)-1)) { $counter = ((count($idnum)-1));}
-$q= "SELECT * FROM rw_fib WHERE rw_fib_id = '$idnum[$counter]'";
-$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
-break;
-case 'button2':
-$counter = ($_POST['counter']);
-
-$counter = $counter -1;
-
-if ($counter < 0){ $counter =0;}
-$q= "select * from rw_fib where rw_fib_id = '$idnum[$counter]'";
-$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
-
-break;
-case 'button3':
-// pressed first
-$counter = 0;
-
-$q= "select * from rw_fib where rw_fib_id = '$idnum[$counter]'";
-$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
-
-break;
-case 'button4':
-//pressed last
-$counter = (count($idnum)-1) ;
-
-
-$q= "SELECT * FROM  rw_fib where rw_fib_id = '$idnum[$counter]'";
-$select = "SELECT * FROM rw_select WHERE rw_select_id = '$idnum[$counter]'";
-
-$result2 = mysqli_query($con,$q) or die('Query failed: ');
-$selectresult = mysqli_query($con,$select) or die ('Selection query failed');
-
-break;
-
-default:
-$yes = 'yes default';
-break;
-}
-}
-else
-{
-//$inc = 0;
-}
-
-
-if ($line) {
-echo "<p>Click next to start your practice </p>";
-echo "<table>\n";
-echo "\t<tr>\n";
-$column = mysqli_fetch_row($result2);
-$scolumn = mysqli_fetch_row($selectresult);
-echo "<th>$column[0] . $column[1]</th>";
-echo "<br>";
-echo "\t</tr>\n";
-echo "</table>\n";
-
-echo "\t\t<td>$column[2]</td>\n";
-
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[2]'>$scolumn[2]</option>";
-echo "<option value='$scolumn[3]'>$scolumn[3]</option>";
-echo "<option value='$scolumn[4]'>$scolumn[4]</option>";
-echo "<option value='$scolumn[5]'>$scolumn[5]</option>";
-echo "</select>";
-echo "\t\t<td>$column[3]</td>\n";
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[6]'>$scolumn[6]</option>";
-echo "<option value='$scolumn[7]'>$scolumn[7]</option>";
-echo "<option value='$scolumn[8]'>$scolumn[8]</option>";
-echo "<option value='$scolumn[9]'>$scolumn[9]</option>";
-echo "</select>";
-echo "\t\t<td>$column[4]</td>\n";
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[10]'>$scolumn[10]</option>";
-echo "<option value='$scolumn[11]'>$scolumn[11]</option>";
-echo "<option value='$scolumn[12]'>$scolumn[12]</option>";
-echo "<option value='$scolumn[13]'>$scolumn[13]</option>";
-echo "</select>";
-echo "\t\t<td>$column[5]</td>\n";
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[14]'>$scolumn[14]</option>";
-echo "<option value='$scolumn[15]'>$scolumn[15]</option>";
-echo "<option value='$scolumn[16]'>$scolumn[16]</option>";
-echo "<option value='$scolumn[17]'>$scolumn[17]</option>";
-echo "</select>";
-echo "\t\t<td>$column[6]</td>\n";
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[18]'>$scolumn[18]</option>";
-echo "<option value='$scolumn[19]'>$scolumn[19]</option>";
-echo "<option value='$scolumn[20]'>$scolumn[20]</option>";
-echo "<option value='$scolumn[21]'>$scolumn[21]</option>";
-echo "</select>";
-echo "\t\t<td>$column[7]</td>\n";
-echo "<select>";
-echo "<option value=''>&nbsp;</option>";
-echo "<option value='$scolumn[22]'>$scolumn[22]</option>";
-echo "<option value='$scolumn[23]'>$scolumn[23]</option>";
-echo "<option value='$scolumn[24]'>$scolumn[24]</option>";
-echo "<option value='$scolumn[25]'>$scolumn[25]</option>";
-echo "</select>";
-echo "\t\t<td>$column[8]</td>\n";
-echo "<br";
-echo "\t\t<td>$column[9]</td>\n";
-
-echo "<br";
-echo "<table>";
-echo "<tr>";
-echo "\t\t<td>$column[10]</td>\n";
-echo "<br>";
-echo "\t</tr>\n";
-echo "</table>";
-}
-else echo "Record not found.\n";
-mysqli_free_result($result2);
-mysqli_close($con);
+          if(isset($_POST["prev"])){
+            if($counter > 0) {
+              $counter--;
+            } else {
+              $counter = 0;
+            }
+          }
+      }
 ?>
+
+
+
+
+<td><?php echo $array[$counter]['rw_fib_part1'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select1'] ?>'><?php echo $sarray[$counter]['rw_select1'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select2'] ?>'><?php echo $sarray[$counter]['rw_select2'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select3'] ?>'><?php echo $sarray[$counter]['rw_select3'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select4'] ?>'><?php echo $sarray[$counter]['rw_select4'] ?></option>
+</select>
+
+<td><?php echo $array[$counter]['rw_fib_part2'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select5'] ?>'><?php echo $sarray[$counter]['rw_select_5'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select6'] ?>'><?php echo $sarray[$counter]['rw_select_6'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select7'] ?>'><?php echo $sarray[$counter]['rw_select_7'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select8'] ?>'><?php echo $sarray[$counter]['rw_select_8'] ?></option>
+</select>
+<td><?php echo $array[$counter]['rw_fib_part3'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select9'] ?>'><?php echo $sarray[$counter]['rw_select_9'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select10'] ?>'><?php echo $sarray[$counter]['rw_select_10'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select11'] ?>'><?php echo $sarray[$counter]['rw_select_11'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select12'] ?>'><?php echo $sarray[$counter]['rw_select_12'] ?></option>
+</select>
+<td><?php echo $array[$counter]['rw_fib_part4'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select13'] ?>'><?php echo $sarray[$counter]['rw_select_13'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select14'] ?>'><?php echo $sarray[$counter]['rw_select_14'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select15'] ?>'><?php echo $sarray[$counter]['rw_select_15'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select16'] ?>'><?php echo $sarray[$counter]['rw_select_16'] ?></option>
+</select>
+<td><?php echo $array[$counter]['rw_fib_part5'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select17'] ?>'><?php echo $sarray[$counter]['rw_select_17'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select18'] ?>'><?php echo $sarray[$counter]['rw_select_18'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select19'] ?>'><?php echo $sarray[$counter]['rw_select_19'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select20'] ?>'><?php echo $sarray[$counter]['rw_select_20'] ?></option>
+</select>
+<td><?php echo $array[$counter]['rw_fib_part6'] ?> </td>
+<select>
+  <option value =''>&nbsp;</option>
+  <option value ='<?php echo $array[$counter]['rw_select21'] ?>'><?php echo $sarray[$counter]['rw_select_21'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select22'] ?>'><?php echo $sarray[$counter]['rw_select_22'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select23'] ?>'><?php echo $sarray[$counter]['rw_select_23'] ?></option>
+  <option value ='<?php echo $array[$counter]['rw_select24'] ?>'><?php echo $sarray[$counter]['rw_select_24'] ?></option>
+</select>
+<td><?php echo $array[$counter]['rw_fib_part7'] ?> </td>
+
 
 
 
@@ -308,20 +251,36 @@ devastation of the recent earthquake in Haiti, researchers at Michigan Technolog
 
 
 
-<script src="../../js/popup.js"></script>
-<script src="../../js/drag.js"></script>
+<script src="../js/popup.js"></script>
+<script src="../js/drag.js"></script>
 
- <div class="popup" onclick="popupMsg()"> Answer <span class="popuptext" id="myPopup">1.heart-breaking<br>2.overlaps<br>3.crumbled<br>4.creating<br>5.characterstic</span>
+ <div class="popup" onclick="popupMsg()"> Answer <span class="popuptext" id="myPopup"><?php echo $array[$counter]['rw_fib_answer'] ?></span>
  </div>
 
-<form action="fib.php" method="post">
+<form action="rwfib.php" method="post">
 <div>
-<button type="submit" name="button" value="button2">Previous</button>
-<button type="submit" name="button" value="button1">Next</button>
-<button type="submit" name="button" value="button3">First</button>
-<button type="submit" name="button" value="button4">Last</button>
+<button type="submit" name="prev" value="prev" class="button">Previous</button>
+<button type="submit" name="next" value="next" class="button">Next</button>
 <input type="hidden" name="counter" value="<?php print $counter; ?>" />
 </div>
 </form>
+
+</div>
+</div>
+ <div class="footer">
+
+      <a href="https://www.mia.org.au/find-an-agent" target="_blank">
+        <img src="../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
+      </a>
+      <a href="https://www.mia.org.au/" target="_blank">
+        <img src="../img/mia.jpg" border="0" alt="mia" width="150" height="120">
+      </a>
+
+      <p>Contact us: <br>
+      SCVI Migration Pty Ltd <br>
+      COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
+
+    </div>
+
 </body>
 </html>

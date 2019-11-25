@@ -115,9 +115,9 @@ $result = mysqli_query($con,$query);
 
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="40" max="40" id="pageBeginCountdown"></progress></br></br>
+              <progress value="5" max="5" id="pageBeginCountdown"></progress></br></br>
                 <span id = "myText" style="color: red"> Prepare </span>
-                <span id ="pageBeginCountdownText" style="color: red"> 40 </span></br>
+                <span id ="pageBeginCountdownText" style="color: red"> 5 </span></br>
           </div>
         </div>
         
@@ -199,18 +199,11 @@ $result = mysqli_query($con,$query);
 </div>
 </div>
 
-<script type="text/javascript">
-  var aud = document.getElementById('player');
+   <script src="../js/recorder.js"></script>
+   <script src="../js/record2.js"></script>
+   <script src="../js/popup.js"></script>
+   <script src="../js/countrecord.js"></script>
 
-  aud.onended = function(){
-    startRecording();
-  }
-</script>
-
-<script src="../js/recorder.js"></script>
-<script src="../js/record.js"></script>
-<script src="../js/popup.js"></script>
-<script src="../js/countdown.js"></script>
 
 <div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">

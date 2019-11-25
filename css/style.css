@@ -27,7 +27,7 @@ p{
 }
 
 body{
-  background-color: white;
+  background-color: red;
   padding-top:  120px;
   margin: 0 0 100px;
 }
@@ -150,18 +150,18 @@ input, textarea {
   align-content: space-between;
 }
 
-.footer{
-  width: 100%;
-  height: 2.5rem;
-  padding: 14px 0;
-  position: absolute;
-  display: flex;
-  bottom: 0;
-  left:   0;
-  justify-content: space-around;
-  overflow: hidden; 
-}
 
+.footer{
+  position: fixed;
+  left: 0;
+  padding-bottom: 15px 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  text-align: center;
+}
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {

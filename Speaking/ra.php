@@ -70,11 +70,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -82,14 +82,14 @@ $result = mysqli_query($con,$query);
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../Listening/hiw/hiw.php">Highlight Incorrect Words</a>
-                <a href="../Listening/hcs/hcs.php">Highlight the Correct Summary</a>
-                <a href="../Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../Listening/smw/smw.php">Select Missing Words</a>
-                <a href="../Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd/wfd.php">Write From Dictation</a>
+                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -97,8 +97,8 @@ $result = mysqli_query($con,$query);
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a href="../Writing/swt/swt.php">Summarize Written Text</a>
-                <a href="../we/we.php">Write Essay</a>
+                <a href="../Writing/swt.php">Summarize Written Text</a>
+                <a href="../Writing/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -189,10 +189,10 @@ $para = $array[$counter]['ra_paragraph'];
 </div>
 </div>
 
-  	 <script src="../js/recorder.js"></script>
-  	 <script src="../js/progress_record.js"></script>
+   <script src="../js/recorder.js"></script>
+   <script src="../js/record2.js"></script>
 	 <script src="../js/popup.js"></script>
-	 <script src="../js/record_countdown.js"></script>
+	 <script src="../js/countrecord.js"></script>
 
 <div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">

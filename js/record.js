@@ -4,7 +4,6 @@ URL = window.URL || window.webkitURL;
 var gumStream; 						//stream from getUserMedia()
 var rec; 							//Recorder.js object
 var input; 							//MediaStreamAudioSourceNode we'll be recording
-var x = document.getElementById("pageBeginCountdown").value;
 
 // shim for AudioContext when it's not avb. 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -21,8 +20,6 @@ var pauseButton = document.getElementById("pauseButton");
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
 
-
-// THIS PART OF CODE HAVE NOT DONE YET !!!!!! PLEASE MODIFY ASAP !!!!!!!!!!!!!!!!
 
 aud.onended = function(){
 	startRecording();
