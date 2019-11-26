@@ -15,7 +15,7 @@ $query ="SELECT * FROM s_asq";
 mysqli_query($con,$query) or die ('Error query database'); 
 
 if(isset($_POST['update'])){
-$UpdateQuery = "UPDATE s_asq SET path ='$_POST[path]', asq_transcript='$_POST[transcript]', asq_answer='$_POST[answer]' WHERE asq_id='$_POST[hidden]'";               
+$UpdateQuery = "UPDATE s_asq SET asq_answer ='$_POST[answer]', asq_transcript='$_POST[transcript]', path='$_POST[path]' WHERE asq_id='$_POST[hidden]'";               
 mysqli_query($con,$UpdateQuery);
 };
 

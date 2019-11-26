@@ -27,7 +27,7 @@ p{
 }
 
 body{
-  background-color: red;
+  background-color: white;
   padding-top:  120px;
   margin: 0 0 100px;
 }
@@ -154,7 +154,7 @@ input, textarea {
 .footer{
   position: fixed;
   left: 0;
-  padding-bottom: 15px 0;
+  padding-bottom: 10px 0;
   bottom: 0;
   width: 100%;
   display: flex;

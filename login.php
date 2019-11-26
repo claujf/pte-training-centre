@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 */
 
 // database connection php
-require_once "config.php";
+include('config.php');
 $username = $password = "";
 $username_err = $password_err = "";
 
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	// validate filled details
 	if(empty($username_err) && empty($password_err)) {
 		// prepare a select statement
-		$sql = "SELECT id, name, password FROM accounts WHERE name = ?";
+		$sql = "SELECT id, name, password,webadmin FROM accounts WHERE name = ?";
 
 		if($stmt = mysqli_prepare($link,$sql)) {
 			// bind variables to the prepared statement as parameters
@@ -48,19 +48,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 				// if the username exists, verify password
 				if(mysqli_stmt_num_rows($stmt) == 1) {
-					mysqli_stmt_bind_result($stmt,$id,$username,$hashed_password);
+					mysqli_stmt_bind_result($stmt,$id,$username,$hashed_password,$role);
 
 				if(mysqli_stmt_fetch($stmt)) {
 					if(password_verify($password, $hashed_password)) {
 						session_start(); //start new session if the password is correct
 
+
 						// update and store data in this session 
 						$_SESSION["loggedin"] = true;
 						$_SESSION["id"] = $id;
+						$_SESSION["webadmin"] = $role;
 						$_SESSION["username"] = $username;
 
-						// redirect user to main page
-						header("location: index.php");
+						// redirect user to corresponding page
+						if($role == 0){
+							header("location: index.php");
+						} elseif ($role == 1) {
+							header("location: admin.php");
+						}
 					} else {
 						$password_err = "Incorrect password";
 					}
