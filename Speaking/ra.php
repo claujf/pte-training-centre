@@ -1,4 +1,5 @@
 <?php
+session_start();
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
@@ -48,67 +49,68 @@ $result = mysqli_query($con,$query);
       </a>
      </div>  
           <a class="navbar-brand js-scroll-trigger" href="#page-top">Read Aloud</a>
+          
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i> 
           </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="speakingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                <a>Read Aloud</a>
-                <a href="di.php">Describe Image</a>
-                <a href="rs.php">Repeat Sentence</a>
-                <a href="asq.php">Answer Short Question</a>
-                <a href="rl.php">Re-tell Lecture</a>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="speakingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                    <a href="ra.php">Read Aloud</a>
+                    <a href="di.php">Describe Image</a>
+                    <a href="rs.php">Repeat Sentence</a>
+                    <a href="asq.php">Answer Short Question</a>
+                    <a href="rl.php">Re-tell Lecture</a>
+                    </div>
                 </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="readingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="listeningdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
-                <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
-                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../Listening/smw.php">Select Missing Words</a>
-                <a href="../Listening/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd.php">Write From Dictation</a>
-              </div>
-            </div>
-          </li>
-          <li ckass="nav-item mx-0 mx-lg-1">
-            <div class="writingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="../Writing/swt.php">Summarize Written Text</a>
-                <a href="../Writing/we.php">Write Essay</a>
-              </div>
-            </div>
-          </li>  
-        </ul>
-      </div>
-    </div>
-	</nav>
-	
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="readingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                  <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+                  <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
+                  <a href="../Reading/rp.php">Reorder Paragraph</a>
+                  <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+                  <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="listeningdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                    <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                    <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
+                    <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                    <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                    <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                    <a href="../Listening/smw.php">Select Missing Words</a>
+                    <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                    <a href="../Listening/wfd.php">Write From Dictation</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="writingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                    <a href="../Writing/swt.php">Summarize Written Text</a>
+                    <a href="../Writing/we.php">Write Essay</a>
+                  </div>
+                </div>
+              </li>  
+            </ul>
+          </div>
+        </div>
+        <a href="../logout.php" class="button"> Sign Out </a>
+      </nav>
+</body>
 
-<body>
 
 <div class="section"> 
 <div align="justify">
@@ -116,9 +118,9 @@ $result = mysqli_query($con,$query);
 
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="5" max="5" id="pageBeginCountdown"></progress></br></br>
+              <progress value="40" max="40" id="pageBeginCountdown"></progress></br></br>
                 <span id = "myText" style="color: red"> Prepare </span>
-                  <span id ="pageBeginCountdownText" style="color: red"> 5 </span></br>
+                  <span id ="pageBeginCountdownText" style="color: red"> 40 </span></br>
           </div>
         </div>
 <div style="padding-bottom: 50px"> 
@@ -155,9 +157,9 @@ $result = mysqli_query($con,$query);
           }
       }
 $para = $array[$counter]['ra_paragraph'];
-?>
-			<p><?php echo $array[$counter]['ra_id'] . "." . $array[$counter]['ra_title'] ?></p> <br>
-      <p><?php echo $array[$counter]['ra_paragraph'] ?></p>
+?>			<div style="font-weight: bold; font-size: 20px">
+			<p>Question:<?php echo $array[$counter]['ra_id'] . "." . $array[$counter]['ra_title'] ?></p> <br></div>
+      <div style="font-size: 22px; word-spacing: 3px; height: 150px"><?php echo $array[$counter]['ra_paragraph'] ?></div> 
 </div>
 	      
 </br></br>
@@ -174,25 +176,23 @@ $para = $array[$counter]['ra_paragraph'];
 							</div>
 					</div></br>
 			
-			
-					<div id="formats" style="padding-left: 250px">Your Recording:</div>
-						<ol id="recordingsList"></ol>
-						
 					
 <form action="ra.php" method="post">
-<div style="padding-left: 300px">
+
         <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
         <button type="submit" class="button" name="next" value="next"> Next </button>
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
-</form>						
+
+</form>	</br>	
+<div id="formats" style="padding-left: 250px; height: 200px" >Your Recording:</div>
+						<ol id="recordingsList"></ol>	
 </div>
 </div>
 
-   <script src="../js/recorder.js"></script>
-   <script src="../js/record2.js"></script>
+  	 <script src="../js/recorder.js"></script>
+  	 <script src="../js/record.js"></script>
 	 <script src="../js/popup.js"></script>
-	 <script src="../js/countrecord.js"></script>
+	 <script src="../js/countdown.js"></script>
 
 <div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
@@ -206,5 +206,5 @@ $para = $array[$counter]['ra_paragraph'];
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
 
-</body>
+
 </html>

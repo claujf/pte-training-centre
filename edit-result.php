@@ -1,55 +1,35 @@
 <?php
-/*
 session_start();
 error_reporting(0);
-include('config.php');
+include('includes/config.php');
+if(strlen($_SESSION['alogin'])=="")
+    {   
+    header("Location: index.php"); 
+    }
+    else{
+
+$stid=intval($_GET['stid']);
 if(isset($_POST['submit']))
 {
-$name=$_POST['fullname'];
-$password=$POST['password'];
-$id=$_POST['id']; 
-$email=$_POST['email']; 
-$gender=$_POST['gender']; 
-$contactno=$_POST['contactno']; 
-$dob=$_POST['dob']; 
-$webadmin=0;
-$sql="INSERT INTO  accounts(id,name,password,email,gender,contactno,dob,webadmin) VALUES(:id,:name,:password,:email,:gender,:contactno,:dob,:webadmin)";
-$query = $link->prepare($sql);
-$query->bindParam(':id',$id,PDO::PARAM_STR);
-$query->bindParam(':name',$name,PDO::PARAM_STR);
-$query->bindParam(':password',$password,PDO::PARAM_STR);
-$query->bindParam(':email',$email,PDO::PARAM_STR);
-$query->bindParam(':gender',$gender,PDO::PARAM_STR);
-$query->bindParam(':contactno',$contactno,PDO::PARAM_STR);
-$query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':webadmin',$webadmin,PDO::PARAM_STR);
+
+$rowid=$_POST['id'];
+$marks=$_POST['marks']; 
+
+foreach($_POST['id'] as $count => $id){
+$mrks=$marks[$count];
+$iid=$rowid[$count];
+for($i=0;$i<=$count;$i++) {
+
+$sql="update tblresult  set marks=:mrks where id=:iid ";
+$query = $dbh->prepare($sql);
+$query->bindParam(':mrks',$mrks,PDO::PARAM_STR);
+$query->bindParam(':iid',$iid,PDO::PARAM_STR);
 $query->execute();
-$lastInsertId = $link->lastInsertId();
-if($lastInsertId)
-{
-$msg="Student info added successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
-}
 
+$msg="Result info updated successfully";
 }
-*/
-
-error_reporting(0);
-include('config.php');
-$query = "SELECT * FROM accounts";
-mysqli_query($link,$query) or die ('Error query account db');
-
-if(isset($_POST['submit'])) {
-    $addQuery = "INSERT INTO accounts (studentid,name,password,email,gender,contactno,dob,webadmin) VALUES ('$_POST[studentid]','$_POST[name]','$_POST[password]','$_POST[email]','$_POST[gender]','$_POST[contactno]','$_POST[dob]', '0')";
-    mysqli_query($link,$addQuery);
 }
-$last_id = mysqli_insert_id($link);
- if ($last_id) {
-    $msg = "Student info added successfully";
-} 
+}
 
 ?>
 <!DOCTYPE html>
@@ -58,11 +38,9 @@ $last_id = mysqli_insert_id($link);
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PTE Training Centre Admin| Student Admission< </title>
+        <title>SMS Admin|  Student result info < </title>
         <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
         <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
         <link rel="stylesheet" href="css/prism/prism.css" media="screen" >
@@ -74,13 +52,13 @@ $last_id = mysqli_insert_id($link);
         <div class="main-wrapper">
 
             <!-- ========== TOP NAVBAR ========== -->
-  <?php include('topbar.php');?> 
+  <?php include('includes/topbar.php');?> 
             <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
             <div class="content-wrapper">
                 <div class="content-container">
 
                     <!-- ========== LEFT SIDEBAR ========== -->
-                   <?php include('leftbar.php');?>  
+                   <?php include('includes/leftbar.php');?>  
                     <!-- /.left-sidebar -->
 
                     <div class="main-page">
@@ -88,7 +66,7 @@ $last_id = mysqli_insert_id($link);
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Admission</h2>
+                                    <h2 class="title">Student Result Info</h2>
                                 
                                 </div>
                                 
@@ -98,9 +76,9 @@ $last_id = mysqli_insert_id($link);
                             <div class="row breadcrumb-div">
                                 <div class="col-md-6">
                                     <ul class="breadcrumb">
-                                        <li><a href="admin.php"><i class="fa fa-home"></i> Home</a></li>
+                                        <li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Student Admission</li>
+                                        <li class="active">Result Info</li>
                                     </ul>
                                 </div>
                              
@@ -114,7 +92,7 @@ $last_id = mysqli_insert_id($link);
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
-                                                    <h5>Fill the Student info</h5>
+                                                    <h5>Update the Result info</h5>
                                                 </div>
                                             </div>
                                             <div class="panel-body">
@@ -127,63 +105,69 @@ else if($error){?>
                                             <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
                                         </div>
                                         <?php } ?>
-<form action=add-students.php class="form-horizontal" method="post">
+                                                <form class="form-horizontal" method="post">
 
+<?php 
+
+$ret = "SELECT tblstudents.StudentName,tblclasses.ClassName,tblclasses.Section from tblresult join tblstudents on tblresult.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid limit 1";
+$stmt = $dbh->prepare($ret);
+$stmt->bindParam(':stid',$stid,PDO::PARAM_STR);
+$stmt->execute();
+$result=$stmt->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($stmt->rowCount() > 0)
+{
+foreach($result as $row)
+{  ?>
+
+
+                                                    <div class="form-group">
+                                            <label for="default" class="col-sm-2 control-label">Class</label>
+                                                        <div class="col-sm-10">
+<?php echo htmlentities($row->ClassName)?>(<?php echo htmlentities($row->Section)?>)
+                                                        </div>
+                                                    </div>
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Full Name</label>
 <div class="col-sm-10">
-<input type="text" name="name" class="form-control" id="name" required="required" autocomplete="off">
+<?php echo htmlentities($row->StudentName);?>
 </div>
 </div>
+<?php } }?>
+
+
+
+<?php 
+$sql = "SELECT distinct tblstudents.StudentName,tblstudents.StudentId,tblclasses.ClassName,tblclasses.Section,tblsubjects.SubjectName,tblresult.marks,tblresult.id as resultid from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid ";
+$query = $dbh->prepare($sql);
+$query->bindParam(':stid',$stid,PDO::PARAM_STR);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{  ?>
+
+
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Password</label>
+<label for="default" class="col-sm-2 control-label"><?php echo htmlentities($result->SubjectName)?></label>
 <div class="col-sm-10">
-<input type="text" name="password" class="form-control" id="password" maxlength="16" required="required" autocomplete="off">
-</div>
-</div>
-
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Student ID</label>
-<div class="col-sm-10">
-<input type="text" name="studentid" class="form-control" id="studentid" maxlength="10" required="required" autocomplete="off">
-</div>
-</div>
-
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Email Address</label>
-<div class="col-sm-10">
-<input type="email" name="email" class="form-control" id="email" required="required" autocomplete="off">
-</div>
-</div>
-
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Contact Number</label>
-<div class="col-sm-10">
-<input type="text" name="contactno" class="form-control" id="contactno" maxlength="12" required="required" autocomplete="off">
+<input type="hidden" name="id[]" value="<?php echo htmlentities($result->resultid)?>">
+<input type="text" name="marks[]" class="form-control" id="marks" value="<?php echo htmlentities($result->marks)?>" maxlength="5" required="required" autocomplete="off">
 </div>
 </div>
 
 
-<div class="form-group">
-<label for="default" class="col-sm-2 control-label">Gender</label>
-<div class="col-sm-10">
-<input type="radio" name="gender" value="Male" required="required" checked="">Male <input type="radio" name="gender" value="Female" required="required">Female <input type="radio" name="gender" value="Other" required="required">Other
-</div>
-</div>
 
-<div class="form-group">
-                                                        <label for="date" class="col-sm-2 control-label">DOB</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="date"  name="dob" class="form-control" id="date">
-                                                        </div>
-                                                    </div>
-                                                    
+
+<?php }} ?>                                                    
 
                                                     
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
-                                                            <button type="submit" name="submit" class="btn btn-primary">Add</button>
+                                                            <button type="submit" name="submit" class="btn btn-primary">Update</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -221,4 +205,4 @@ else if($error){?>
         </script>
     </body>
 </html>
-
+<?PHP } ?>

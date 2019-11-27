@@ -69,8 +69,8 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -161,7 +161,15 @@ $result = mysqli_query($con,$query);
             echo $counter;
           }
       }
-
+?>
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+	</div>
+  </tr>
+</table>
+<?php
       $audiomp3 = $array[$counter]['path'];
 
       $element = "<div align='center'>";

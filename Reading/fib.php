@@ -31,9 +31,9 @@ $result = mysqli_query($con,$query);
   <script type="text/javascript" src="/js/jquery.min.js"></script>
 
   <!-- Theme CSS -->
-  <link href="../css/freelancer.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../css/my_style.css">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link href="../../css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
   
   <style type="text/css">
 /* draggable targets */
@@ -42,8 +42,8 @@ $result = mysqli_query($con,$query);
   list-style-type:none;
   display: inline-block;
   
-  width:140px;
-  height:30px;
+  width:160px;
+  height:40px;
 
   
   margin:0 0.5em 0.5em 0;
@@ -68,7 +68,7 @@ $result = mysqli_query($con,$query);
   
   border-radius:0.2em;
   line-height:1.3;
-  
+  word-spacing: 20px;
 }   
   </style>
 </head>
@@ -107,10 +107,10 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
               <a>Reading:Fill in the blanks</a>
-              <a href="rwfib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="rp.php">Reorder Paragraph</a>
-              <a href="r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rp.php">Reorder Paragraph</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -146,8 +146,11 @@ $result = mysqli_query($con,$query);
 <div class="section"> 
 <div align="justify">
 <h5>In the text below some words are missing. Drag words from the box below to the appropriate place in the text. To undo an answer choice, drag the word back to the box below the text.</h5>
-
-
+<div style="color:red;">Remaining 
+		<span id="time"></span> 
+		<script src="../../js/timer60_sec.js"></script>
+  </div>
+<div class="section1" style="line-height:2.5">
 <?php
       $query = "SELECT * FROM r_fib";
       $array = array();
@@ -180,6 +183,13 @@ $result = mysqli_query($con,$query);
           }
       }
 ?>
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['r_fib_id'] ?>  <?php echo $array[$counter]['r_fib_title']?> 
+	</div>
+  </tr>
+</table>
 
   <span class = "Sentence">  
   <?php echo $array[$counter]['r_fib_part1'] ?>
@@ -194,7 +204,7 @@ $result = mysqli_query($con,$query);
   <div data-draggable='target'><div data-draggable='item'></div></div>
     <?php echo $array[$counter]['r_fib_part6'] ?>
   <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part7'] ?> 
+    <?php echo $array[$counter]['r_fib_part7'] ?>
   <div data-draggable='target'><div data-draggable='item'></div></div>
     <?php echo $array[$counter]['r_fib_part8'] ?>
   <div data-draggable='target'><div data-draggable='item'></div></div>
@@ -203,6 +213,22 @@ $result = mysqli_query($con,$query);
     <?php echo $array[$counter]['r_fib_part10'] ?>
   <div data-draggable='target'><div data-draggable='item'></div></div>
 
+ <div data-draggable='target' style="width: 1000px; height: 50px"><div data-draggable='item' style="width: 1000px">
+	<span id="routine" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word1'] ?></span>
+	<span id="identify" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word2'] ?></span>
+	<span id="find" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word3'] ?></span>
+	<span id="findings" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word4'] ?></span>
+	<span id="journey" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word5'] ?></span>
+	<span id="became" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word6'] ?></span>
+	<span id="predict" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word7'] ?></span>
+	<span id="determine" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word8'] ?></span>
+	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word9'] ?></span>
+	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word10'] ?></span>
+	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word11'] ?></span>
+	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word12'] ?></span>
+</div>
+ </div>  </div> 
+<!--------------------------------
 <div data-draggable='target'><div data-draggable='item'><?php echo $array[$counter]['r_fib_word1'] ?></div></div>
 <div data-draggable='target'><div data-draggable='item'><?php echo $array[$counter]['r_fib_word2'] ?></div></div>
 <div data-draggable='target'><div data-draggable='item'><?php echo $array[$counter]['r_fib_word3'] ?></div></div>
@@ -217,6 +243,8 @@ $result = mysqli_query($con,$query);
 <div data-draggable='target'><div data-draggable='item'><?php echo $array[$counter]['r_fib_word12'] ?></div></div>
 
 
+
+--------------------------------!>
 
 <!----------------------------------------------------------------------------------------------------
 
@@ -257,16 +285,8 @@ their positions in the sky. <br><br>
 <br>
 ----------------------------------------------------------------------------------------------------->
 
-<div class="popup" onclick="popupMsg()"> Answer 
-									<span class="popuptext" id="myPopup">
-										<?php echo "\t\t<td>$column[24]</td>\n";
-										?>
-									</span>
-							</div>	
 
-<br><br>
-
-<script src="../js/popup.js"></script>
+<script src="../../js/popup.js"></script>
 <script type="text/javascript">
 (function()
 {
@@ -350,24 +370,30 @@ their positions in the sky. <br><br>
   
 </script>
 
-
-<form action="rfib.php" method="post">
+</br></br>
+<form action="fib.php" method="post">
 <div>
 <button type="submit" name="prev" value="prev" class="button">Previous</button>
 <button type="submit" name="next" value="next" class="button">Next</button>
+<input type="Submit" value="Submit" class="button"></input>
 <input type="hidden" name="counter" value="<?php print $counter; ?>" />
+<div class="popup" onclick="popupMsg()"> Answer 
+<span class="popuptext" id="myPopup">
+<?php echo $array[$counter]['r_fib_answer']?></span>
+</div>	
 </div>
 </form>
+
 </div> 
-</div>
+</div></br></br></br>
 
 <div class="footer">
 
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
-        <img src="../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
+        <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
       </a>
       <a href="https://www.mia.org.au/" target="_blank">
-        <img src="../img/mia.jpg" border="0" alt="mia" width="150" height="120">
+        <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
       </a>
 
       <p>Contact us: <br>

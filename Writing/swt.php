@@ -68,8 +68,8 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -104,14 +104,14 @@ $result = mysqli_query($con,$query);
       </div>
     </div>
 	</nav>
-  
-<body>
+ 
+
 
 <div class="section"> 
 <div align="justify">
 
 	<h5>Read the passage below and summarize it using one sentence. Type your response in the box at the bottom of the screen. You have 10 minutes to finish this task. Your response will be judged on the quality of your writing and on how well your response presents the key points in the passage.</h5>
-
+<div class="section2">
 <?php
       $query = "SELECT * FROM w_swt";
       $array = array();
@@ -144,34 +144,38 @@ $result = mysqli_query($con,$query);
           }
       }
 ?>
-
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['swt_id'] ?>  <?php echo $array[$counter]['swt_title']?> 
+	</div>
+  </tr>
+</table></br>
     <p> <?php echo $array[$counter]['swt_paragraph'] ?> </p>
 	
 	<!--  action page is where the input going to be send to  -->
-		<form action ="/action_page.php">
+		<form action ="/action_page.php" style="height: 100px">
 			Answer: 
-			<span style="color:red; padding-left: 790px;">Remain:</span>
+			<span style="color:red; padding-left: 930px;">Remain:</span>
 			<span id ="time" style="color:red"></span>
 			<script src="../js/start.js"></script>
 			<script src="../js/countdown.js"></script>
-			<textarea id="text" id="text" style="width:960px;height:250px"></textarea>
+			<textarea id="text" id="text" style="width:1100px;height:150px; font-size:20px;"></textarea>
 			<span id="wordCount">0</span> Character
 			<script src="../js/word_count.js"></script>
-			<span style="padding-left: 300px"></span>
-			<input type="Submit" value="Submit" class="button"></input>
-			<span style="padding-left: 300px"></span>
 		</form>
-</br>
-
+</div>
 <form action="swt.php" method="post">
-<div style="padding-left: 300px">
+	<span style="padding-left:360px">
     <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
     <button type="submit" class="button" name="next" value="next"> Next </button>
     <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
+	<input type="Submit" value="Submit" class="button"></input>
+	</span>
 </form>	
+
 </div>		
-</div>
+</div></br></br></br>
 
 <div class="footer">
 
@@ -187,5 +191,5 @@ $result = mysqli_query($con,$query);
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
 
-</body>
+</head>
 </html>

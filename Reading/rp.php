@@ -23,9 +23,9 @@ $result = mysqli_query($con,$query);
 
   <!-- Theme CSS -->
   <link href="../../css/freelancer.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../css/my_style.css">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel="stylesheet" href="../css/reorder.css">
+  <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/reorder.css">
 
   <!-- Custom fonts for this theme -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,11 +70,11 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="rfib.php">Reading:Fill in the blanks</a>
-              <a href="rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a>Reorder Paragraph</a>
-              <a href="r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
               </div>
             </div>
           </li>
@@ -113,11 +113,10 @@ $result = mysqli_query($con,$query);
   <!-- Timer -->
 		<div style="color:red ; padding-right:200px">Remaining 
 				<span id="time"></span> 
-				<script src="../js/timer60_sec.js"></script>
+				<script src="../../js/timer60_sec.js"></script>
 		</div>
-		</br></br>
-
-
+		</br>
+<div class="section2">		
 <?php
   $query = "SELECT * FROM r_reorder";
 
@@ -150,9 +149,15 @@ $result = mysqli_query($con,$query);
     }
   }
 ?>
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['ro_id'] ?>  <?php echo $array[$counter]['ro_title']?> 
+	</div>
+  </tr>
+</table></br>
 
-
-<div class="r_container" style="padding-bottom: 100px">
+<div class="r_container">
 			<div class="row">
 				<div class="column">
 					<ul class="connected-sortable droppable-area1">
@@ -193,41 +198,36 @@ echo "<br>";
 				</div>
 			</div>
 		</div>	
-	
-<input type="Submit" value="Submit" class="button"></input>
-
-						<div class="popup" onclick="popupMsg()"> Answer 
-									<span class="popuptext" id="myPopup">
-										<?php echo $array[$counter]['ro_answer']
-										?>
-									</span>
-							</div>	
-		
-</br></br>
-
-
+</div>
 <form action="rp.php" method="post">
 <div>
 <button type="submit" name="prev" value="prev" class="button">Previous</button>
 <button type="submit" name="next" value="next" class="button">Next</button>
+<input type="Submit" value="Submit" class="button"></input>
 <input type="hidden" name="counter" value="<?php print $counter; ?>" />
+<div class="popup" onclick="popupMsg()"> Answer 
+<span class="popuptext" id="myPopup">
+<?php echo $array[$counter]['ro_answer']?></span>
+</div>	
 </div>
-</form>
+</form>			
+</br></br>
+
 				
 </div>
 </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-<script src="../js/reorder.js"></script>
-<script src="../js/popup.js"></script>
+<script src="../../js/reorder.js"></script>
+<script src="../../js/popup.js"></script>
 				
 <div class="footer">
 
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
-        <img src="../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
+        <img src="../../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
       </a>
       <a href="https://www.mia.org.au/" target="_blank">
-        <img src="../img/mia.jpg" border="0" alt="mia" width="150" height="120">
+        <img src="../../img/mia.jpg" border="0" alt="mia" width="150" height="120">
       </a>
 
       <p>Contact us: <br>

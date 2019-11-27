@@ -69,8 +69,8 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -118,9 +118,9 @@ $result = mysqli_query($con,$query);
 
 <div class="row begin-countdown">
   <div class="col-md-12 text-center">
-      <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
-      <span id = "myText"> Audio starts in </span>
-      <span id ="pageBeginCountdownText"> 5 </span>
+      <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
+      <span id = "myText" style="color: red"> Audio starts in </span>
+      <span id ="pageBeginCountdownText" style="color: red">3</span>
   </div>
 </div>
 
@@ -145,7 +145,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+           
           }
 
           if(isset($_POST["prev"])){
@@ -154,10 +154,18 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
-
+?>
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+	</div>
+  </tr>
+</table>
+<?php
       $audiomp3 = $array[$counter]['path'];
 
       $element = "<div align='center'>";
@@ -174,33 +182,31 @@ $result = mysqli_query($con,$query);
   
   <!-- User input box -->
   <form action="/sstdata.php">
-  <textarea id="myText" style="width:900px;height:60px" ></textarea>
-  </br> </br>
+  <textarea id="myText" style="width:900px;height:60px; font-size: 18px" ></textarea>
+  </br> 
  
   <!-- Word Count -->
   <span id="wordCount">0</span> Character
  <script src="../js/countdown.js"></script>
- <br>
- <input type="Submit" value="Submit" class="button"></input>
-  </form>
+ <span style="padding-left: 300px"><input type="Submit" value="Submit" class="button"></input></span>		
+  </form> </br>
   
- 
+	</div>
 
 
-				<div class="popup" onclick="popupAns()"> Transcript 
-					<span class="popuptext" id="mySecondPopup"> <?php echo $array[$counter]['wfd_answer'] ?>
-					</span>
-				</div></br></br>
-				
+					
 <form action="wfd.php" method="post">
-<div style="padding-left: 300px">
+
         <button class="button" type="submit" name ="prev" value="prev"> Previous </button>
         <button class="button" type="submit" name="next" value="next"> Next </button>
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
-</form>					
-</div>
-</div>
+	<div class="popup" onclick="popupAns()"> Transcript 
+					<span class="popuptext" id="mySecondPopup"style="height:35px; width:600px; text-align:center"> <?php echo $array[$counter]['wfd_answer'] ?>
+					</span>
+				</div>
+
+	</form>							
+</div> </br></br></br></br></br>
 
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>

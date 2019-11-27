@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
@@ -40,7 +40,7 @@ $result = mysqli_query($con,$query);
 <body id="page-top">
 
   <!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <div class="img">
       <a href ="../index.php">
@@ -48,77 +48,80 @@ $result = mysqli_query($con,$query);
       </a>
      </div>  
           <a class="navbar-brand js-scroll-trigger" href="#page-top">Retell Lecture</a>
+          
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i> 
           </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="speakingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                <a href="ra.php">Read Aloud</a>
-                <a href="di.php">Describe Image</a>
-                <a href="rs.php">Repeat Sentence</a>
-                <a href="asq.php">Answer Short Question</a>
-                <a>Re-tell Lecture</a>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="speakingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                    <a href="ra.php">Read Aloud</a>
+                    <a href="di.php">Describe Image</a>
+                    <a href="rs.php">Repeat Sentence</a>
+                    <a href="asq.php">Answer Short Question</a>
+                    <a href="rl.php">Re-tell Lecture</a>
+                    </div>
                 </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="readingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="../Reading/rp.php">Reorder Paragraph</a>
-              <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="listeningdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
-                <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
-                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="../Listening/smw.php">Select Missing Words</a>
-                <a href="../Listening/sst.php">Summarize Spoken Text</a>
-                <a href="../Listening/wfd.php">Write From Dictation</a>
-              </div>
-            </div>
-          </li>
-          <li ckass="nav-item mx-0 mx-lg-1">
-            <div class="writingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="../Writing/swt.php">Summarize Written Text</a>
-                <a href="../Writing/we.php">Write Essay</a>
-              </div>
-            </div>
-          </li>  
-        </ul>
-      </div>
-    </div>
-</nav>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="readingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                  <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+                  <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
+                  <a href="../Reading/rp.php">Reorder Paragraph</a>
+                  <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
+                  <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="listeningdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                    <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                    <a href="../Listening/hcs.php">Highlight the Correct Summary</a>
+                    <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                    <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                    <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                    <a href="../Listening/smw.php">Select Missing Words</a>
+                    <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                    <a href="../Listening/wfd.php">Write From Dictation</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <div class="writingdd">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                    <a href="../Writing/swt.php">Summarize Written Text</a>
+                    <a href="../Writing/we.php">Write Essay</a>
+                  </div>
+                </div>
+              </li>  
+            </ul>
+          </div>
+        </div>
+        <a href="../logout.php" class="button"> Sign Out </a>
+      </nav>
 <body>
 
 <div class="section">
-<div align="center">
+
 	<h5 align="justify">You will hear a lecture. After listening to the lecture, in 5 seconds, please speak into the microphone and retell what you have just heard from the lecture in your own words. You will have 40 seconds to give your response.</h5>
 
 		
-			
+		<div class="Center">
+			<div class="content">
 				<div class="row begin-countdown">
 					<div class="col-md-12 text-center">
 						<progress value="5" max="5" id="pageBeginCountdown"></progress></br></br>
 						<span id = "myText" style="color: red">Prepare</span>
-						<span id ="pageBeginCountdownText" style="color: red"> 5 </span></br></br>
+						<span id ="pageBeginCountdownText" style="color: red"> 5 </span></br>
 					</div>
 				</div>		
 			
@@ -143,7 +146,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+            
           }
 
           if(isset($_POST["prev"])){
@@ -152,11 +155,19 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
-
-
+?>
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['retell_id'] ?>  <?php echo $array[$counter]['re_tell_title']?> 
+	</div>
+  </tr>
+</table>
+<?php
+		echo '<br/>';
       $audiomp3 = $array[$counter]['audio_name'];
 
       $element = "";
@@ -167,37 +178,52 @@ $result = mysqli_query($con,$query);
 
       echo $element . '<br/>';
     
-?>  				
-				<div id="controls" align="justify">
-						<button id="recordButton" style="display:none;" >Record</button>
-						<button id="pauseButton" disabled class="button">Pause</button>
-						<button id="stopButton" disabled class="button">Stop</button>
-						<div class="popup" onclick="popupMsg()">Transcript
-								<span class="popuptext" id="myPopup"style="height:200px; width:600px; text-align:left"> <?php echo $array[$counter]['transcript']?></span>
-							</div>
-							<div class="popup" onclick="popupAns()">Hint
-								<span class="popuptext" id="mySecondPopup"  style="height:200px; width:600px; text-align:left"><?php echo $array[$counter]['hint'] ?> </p>							
-								</span>
-							</div>
-					</div>
+?>  	
+			
+				<div id="controls">
+					<button id="recordButton" style="display:none;" >Start</button>
+					<button id="pauseButton" disabled class="button">Pause</button>
+					<button id="stopButton" disabled class="button">Stop</button>
+				</div>
+  
+    
+</div>
+</div>
+
+    <div class="main">
+		<div class="left">
+				<div class="popup" onclick="popupMsg()">Transcipt
+					<span class="popuptext" id="myPopup"style="height:350px; width:900px; text-align:justify"> <?php echo $array[$counter]['transcript']; ?></span>
+				</div>
+				<div class="popup" onclick="popupAns()">Hint
+					<span class="popuptext" id="mySecondPopup"style="height:200px; width:600px; text-align:left"><?php echo $array[$counter]['hint']; ?></span>
+				</div>
+		</div>
+       
+		<div class="right">		
+			<form action="rl.php" method="POST">
+				<div>
+					<button type="submit" class="button" name ="prev" value="prev"> Previous </button>
+					<button type="submit" class="button" name="next" value="next"> Next </button>
+					<input type="hidden" name="counter" value="<?php print $counter; ?>"/>
+				</div>
+			</form>
+		</div>
+	</div>
+	 
 	
-					<div id="formats">Your Recording:</div>
-						<ol id="recordingsList"></ol>
-					</div>
+	<div id="formats">Your Recording:</div>
+						<ol id="recordingsList"></ol>	
+   
+	
+					
   	<script src="../js/recorder.js"></script>
-  	<script src="../js/40sec_record.js"></script>
+  	<script src="../js/record.js"></script>
 	<script src="../js/popup.js"></script>
 	<script src="../js/countdown.js"></script>
 
-<form action="rl.php" method="post">
-<div>
-        <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
-        <button type="submit" class="button" name="next" value="next"> Next </button>
-        <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
-</form>
-</div>
-</div>
+</div></br></br></br></br></br></br></br></br>
+
 
 <div class="footer">
 

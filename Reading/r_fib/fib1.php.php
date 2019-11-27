@@ -14,6 +14,7 @@ $result = mysqli_query($con,$query);
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -21,22 +22,16 @@ $result = mysqli_query($con,$query);
 
   <title>Reading:Fill in the blanks</title>
 
+  <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
   <!-- Theme CSS -->
   <link href="../../css/freelancer.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../css/my_style.css">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <link rel="stylesheet" type="text/css" href="../../css/drag.css">
-   
-
-
-  <!-- Custom fonts for this theme -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
-  
   <style type="text/css">
 /* draggable targets */
 [data-draggable="target"]
@@ -76,6 +71,8 @@ $result = mysqli_query($con,$query);
 </head>
 
 <body id="page-top">
+
+  <!-- Navigation -->
   <!-- Navigation -->
  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
@@ -130,7 +127,7 @@ $result = mysqli_query($con,$query);
               </div>
             </div>
           </li>
-          <li ckass="nav-item mx-0 mx-lg-1">
+          <li class="nav-item mx-0 mx-lg-1">
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
@@ -143,15 +140,11 @@ $result = mysqli_query($con,$query);
       </div>
     </div>
 	</nav>
-
-<div class="section">
+<body>
+<div class="section"> 
 <div align="justify">
 <h5>In the text below some words are missing. Drag words from the box below to the appropriate place in the text. To undo an answer choice, drag the word back to the box below the text.</h5>
 
-<div style="color:red ; padding-right:200px">Remaining 
-		<span id="time"></span> 
-		<script src="../../js/timer60_sec.js"></script>
-</div>
 
 <?php
 $query = "SELECT * FROM r_fib";
@@ -289,9 +282,46 @@ mysqli_close($con);
 ?>
 
 
-				
-						<input type="Submit" value="Submit" class="button"></input>
-							<div class="popup" onclick="popupMsg()"> Answer 
+<!----------------------------------------------------------------------------------------------------
+
+From the time of the very earliest civilisations man has wondered about the world he lives in, about how it was created and about how it will end. In these distant times the sun was seen to make its daily 
+	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="word1" draggable="true" ondragstart="drag(event)"></span> 
+	</div>
+across the sky. At night the moon appeared. Every new night the moon waxed or waned a little and on a few nights it did not appear at all. At night the great dome of the heavens was dotted with tiny specks of light. They 
+
+	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="word2" draggable="true" ondragstart="drag(event)"></span> </div>
+
+known as the stars. It was thought that every star in the heavens had its own purpose and that the 
+	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="word3" draggable="true" ondragstart="drag(event)"></span></div> 
+
+of the universe could be discovered by making a study of them. In was well know that there were wandering stars, they appeared in different nightly positions against their neighbours and they became known as planets. It took centuries, in fact it took millennia, for man to 
+	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="word4" draggable="true" ondragstart="drag(event)"></span> 
+	</div>
+the true nature of these wandering stars and to evolve a model of the world to accommodate them and to
+	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="word5" draggable="true" ondragstart="drag(event)"></span> 
+	</div>
+their positions in the sky. <br><br>
+
+<div class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<span id="routine" draggable="true" ondragstart="drag(event)">routine</span>
+	<span id="identify" draggable="true" ondragstart="drag(event)">identify</span>
+	<span id="find" draggable="true" ondragstart="drag(event)">find</span>
+	<span id="findings" draggable="true" ondragstart="drag(event)">findings</span>
+	<span id="journey" draggable="true" ondragstart="drag(event)">journey</span>
+	<span id="became" draggable="true" ondragstart="drag(event)">became</span>
+	<span id="predict" draggable="true" ondragstart="drag(event)">predict</span>
+	<span id="determine" draggable="true" ondragstart="drag(event)">determine</span>
+	<span id="secrets" draggable="true" ondragstart="drag(event)">secrets</span>
+</div>
+<br>
+----------------------------------------------------------------------------------------------------->
+
+<div class="popup" onclick="popupMsg()"> Answer 
 									<span class="popuptext" id="myPopup">
 										<?php echo "\t\t<td>$column[24]</td>\n";
 										?>
@@ -299,6 +329,8 @@ mysqli_close($con);
 							</div>	
 
 <br><br>
+
+<script src="../../js/popup.js"></script>
 <script type="text/javascript">
 (function()
 {
@@ -389,12 +421,9 @@ mysqli_close($con);
 <button type="submit" name="button" value="button1" class="button">Next</button>
 <input type="hidden" name="counter" value="<?php print $counter; ?>" />
 </div>
-</form>		
+</form>
+</div> 
 </div>
-</div>
-
-<script src="../../js/popup.js"></script>
-<script src="../../js/drag.js"></script>
 
 <div class="footer">
 
@@ -409,4 +438,5 @@ mysqli_close($con);
       SCVI Migration Pty Ltd <br>
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
+</body>
 </html>

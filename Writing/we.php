@@ -70,7 +70,7 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
               <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/fib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -106,11 +106,10 @@ $result = mysqli_query($con,$query);
     </div>
   </nav>
 </body>
-<body>
 <div class="section">
 <div align="justify">
 	<h5>You will have 20 minutes to plan, write and revise an essay about the topic below. Your response will be judged on how well you develop a position, organize your ideas, present supporting details, and control the elements of standard written English. You should write 200-300 words.</h5>
-
+<div class="section1">
 <?php
       $query = "SELECT * FROM w_essay";
       $array = array();
@@ -144,32 +143,30 @@ $result = mysqli_query($con,$query);
       }
 ?>
 
-<p class ="Sentence"><?php echo $array[$counter]['essay_title'] ?></p>
+<p class ="Sentence" style="font-weight: bold; font-size: 20px">Question: <?php echo $array[$counter]['essay_id'] ?></br><?php echo $array[$counter]['essay_title'] ?></p>
 
 	<!-- action page is where the user input will be sent to -->
 	<form action="/action.php">
 		Answer:
-		<span style="color:red; padding-left: 790px;">Remain:</span>
+		<span style="color:red; padding-left: 900px;">Remain:</span>
 		<span id ="time" style="color:red"></span>
 		<script src="../js/timer20_min"></script>
-		<textarea id="text" style="width:960px;height: 250px"></textarea>
+		<textarea id="text" style="width:1100px;height: 500px; font-size:20px;"></textarea>
 		<span id="wordCount">0</span> Characters
 		<script src="../js/word_count.js"></script>
-		<span style="padding-left: 300px"></span>
-		<input type="Submit" value="Submit" class="button"></input>
-		<span style="padding-left: 300px"></span>
 	</form>	
-	</br></br>
+	
 			
 <form action="we.php" method="post">
-<div style="padding-left: 300px">
-    <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
+	<span style="padding-left:360px">
+    <button type="submit" class="button" name ="prev" value="prev" > Previous </button>
     <button type="submit" class="button" name="next" value="next"> Next </button>
+	<input type="Submit" value="Submit" class="button"></input>
     <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
-</form>			
+	</span>
+</form>		
 	
-	
+</div>	</br></br></br>	</br></br></br>
 </div>
 </div>
 
@@ -186,5 +183,5 @@ $result = mysqli_query($con,$query);
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
 
-</body> 
+
 </html>

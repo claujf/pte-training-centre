@@ -70,7 +70,7 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
               <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/fib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -82,13 +82,13 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <a>Highlight Incorrect Words</a>
-                <a href="hcs.php">Highlight Correct Summary</a>
-                <a href="l_fib.php">Listening:Fill in the blanks</a>
-                <a href="l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="smw.php">Select Missing Words</a>
-                <a href="sst.php">Summarize Spoken Text</a>
-                <a href="wfd.php">Write From Dictation</a>
+                <a href="../Listening/hcs.php">Highlight Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -149,7 +149,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+            
           }
 
           if(isset($_POST["prev"])){
@@ -158,12 +158,18 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
 ?>
 
-
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+	</div>
+  </tr>
+</table>
 <div align="center">
 <?php
 $audiomp3 = $array[$counter]['path'];
@@ -208,7 +214,7 @@ echo $element . '<br/>';
 </div>
 </form>	 
 </div>
-</div>
+</div></br></br>
 
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>

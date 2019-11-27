@@ -91,7 +91,7 @@ $result = mysqli_query($con,$query);
               </div>
             </div>
           </li>
-          <li ckass="nav-item mx-0 mx-lg-1">
+          <li class="nav-item mx-0 mx-lg-1">
             <div class="writingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
@@ -116,7 +116,7 @@ $result = mysqli_query($con,$query);
   </div>
 	<br>
   <!-- questions -->
-
+<div class="section1">
 <?php
   $query = "SELECT * FROM r_mcma";
 
@@ -151,9 +151,12 @@ $result = mysqli_query($con,$query);
 ?>
 <table>
   <tr>
-    Question:<?php echo $array[$counter]['mcma_id'] ?> <td><?php echo $array[$counter]['mcma_para'] ?></td>
+    <div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['mcma_id']?>  <?php echo $array[$counter]['mcma_title']?> 
+	</div>
+	<td><?php echo $array[$counter]['mcma_para'] ?></td>
   </tr>
-</table>
+</table></br>
 
 <label for="Option1">
 <input type="checkbox" name="Option1" id = "Option1" value="Option1">
@@ -185,31 +188,35 @@ $result = mysqli_query($con,$query);
 <td><?php echo $array[$counter]['mcma_option6'] ?><br></td>
 </label>
 <br>
+</div>
 
-
+<form action="r_mcma.php" method="post">
+<div>
+<button type="submit" name="prev" value="prev" class="button">Previous</button>
+<button type="submit" name="next" value="next" class="button">Next</button>
 <input type="Submit" value="Submit" class="button"></input>
+<input type="hidden" name="counter" value="<?php print $counter; ?>" />
 <div class="popup" onclick="popupMsg()"> Answer 
 <span class="popuptext" id="myPopup">
 <?php
 echo $array[$counter]['mcma_answer']
 ?>
 </span>
-</div></br></br>
+</div>
+
+	
+</div>
+</form>
+
 
   <!-- options -->
   
 
-<form action="r_mcma.php" method="post">
-<div>
-<button type="submit" name="prev" value="prev" class="button">Previous</button>
-<button type="submit" name="next" value="next" class="button">Next</button>
-<input type="hidden" name="counter" value="<?php print $counter; ?>" />
-</div>
-</form>		
+		
 
-				
+			
  </div>
- </div>
+ </div> </br></br></br>
  
 <script src="../js/popup.js"></script> 
  

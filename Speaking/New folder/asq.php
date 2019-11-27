@@ -1,8 +1,6 @@
 <?php
- session_start();
  $db = mysqli_connect('localhost','root','root','pte_db')
  or die('Error connecting to MySQL server.');
-
 ?>
 
 
@@ -43,11 +41,11 @@
       </a>
      </div>  
           <a class="navbar-brand js-scroll-trigger" href="#page-top">Answer Short Question</a>
-          
+          <!--
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i> 
-          </button>
+          </button>-->
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item mx-0 mx-lg-1">
@@ -66,8 +64,8 @@
                 <div class="readingdd">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
-                  <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
-                  <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
+                  <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
+                  <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
                   <a href="../Reading/rp.php">Reorder Paragraph</a>
                   <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
                   <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -101,15 +99,16 @@
             </ul>
           </div>
         </div>
-        <a href="../logout.php" class="button"> Sign Out </a>
       </nav>
+
+
 
 
 
     <div class="section">
 
-    <h5>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</h5><br>
-    <h5> Your student ID is: <b><?php echo htmlspecialchars($_SESSION["id"]); ?> </b>. </h5>
+    <p>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</p><br>
+
 
 
     <br>
@@ -117,9 +116,9 @@
       <div class="content">
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
-                <span id = "myText"style="color: red"> Audio starts in </span>
-                  <span id ="pageBeginCountdownText" style="color: red"> 3 </span>
+              <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+                <span id = "myText"> Audio starts in </span>
+                  <span id ="pageBeginCountdownText"> 5 </span>
           </div>
         </div>
            
@@ -145,7 +144,7 @@
             } else {
               $counter = (count($array)-1);
             }
-            
+            echo $counter;
           }
 
           if(isset($_POST["prev"])){
@@ -154,19 +153,10 @@
             } else {
               $counter = 0;
             }
-            
+            echo $counter;
           }
       }
-	  ?>
-<table>
-  <tr>
-	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['asq_id'] ?>  
-	</div>
-  </tr>
-</table>
-<?php
-		echo '<br/>';
+
       $audiomp3 = $array[$counter]['path'];
 
       $element = "";
@@ -182,91 +172,38 @@
 
      <div id="controls">
        <button id="recordButton" style="display:none;" >Start</button>
-       <button id="pauseButton" disabled class="button">Pause</button>
-       <button id="stopButton" disabled class="button">Stop</button>
+       <button id="pauseButton" disabled>Pause</button>
+       <button id="stopButton" disabled>Stop</button>
      </div>
   
-    
+    <div id="formats">Your Recording:</div>
+    <ol id="recordingsList"></ol>
   </div>
 </div>
 
     <div class="main">
-		<div class="left">
-				<div class="popup" onclick="popupMsg()">Transcipt
-					<span class="popuptext" id="myPopup"style="height:35px; width:600px; text-align:center"> <?php echo $array[$counter]['asq_transcript']; ?></span>
-				</div>
-				<div class="popup" onclick="popupAns()">Answer
-					<span class="popuptext" id="mySecondPopup"><?php echo $array[$counter]['asq_answer']; ?></span>
-				</div>
-		</div>
-       
-		<div class="right">		
-			<form action="asq.php" method="POST">
-				<div>
-					<button type="submit" class="button" name ="prev" value="prev"> Previous </button>
-					<button type="submit" class="button" name="next" value="next"> Next </button>
-					<input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-				</div>
-			</form>
-		</div>
-	</div>
-
-<?php 
-/*
-  $id = $_SESSION["id"];
-  $name = $_SESSION["username"];
-  
-if(isset($_POST['submit'])) {
-  $add = "INSERT INTO results (studentid,name,sectionid,submission ) VALUES ('$id', '$name', 'asq','$_POST[record]')";
-  mysqli_query($db,$add);
-} 
----------------------------------------------------------------------------------------
-if(isset($_POST['Submit']))
-{
-$file_name = $_FILES['audio_file']['name'];
-
-if($_FILES['audio_file']['type']=='audio/mpeg' || $_FILES['audio_file']['type']=='audio/mpeg3' || $_FILES['audio_file']['type']=='audio/x-mpeg3' || $_FILES['audio_file']['type']=='audio/mp3' || $_FILES['audio_file']['type']=='audio/x-wav' || $_FILES['audio_file']['type']=='audio/wav')
-{ 
- $new_file_name=$_FILES['audio_file']['name'];
-
- // Where the file is going to be placed
- $target_path = "audio/".$new_file_name;
- 
- //target path where u want to store file.
-
- //following function will move uploaded file to audios folder. 
-if(move_uploaded_file($_FILES['audio_file']['tmp_name'], $target_path)) {
-
- //insert query if u want to insert file
-}
-}
-}
-*/
+      <div class="left">
+        <div class="popup" onclick="popupMsg()"> Show transcipt.
+         <span class="popuptext" id="myPopup"> <?php echo $array[$counter]['asq_transcript']; ?></span>
+        </div>
+        <div class="popup" onclick="popupAns()">Show answer.
+         <span class="popuptext" id="mySecondPopup"><?php echo $array[$counter]['asq_answer']; ?></span>
+        </div>
+      </div>
+        <div class="right">
+    <form action="asq.php" method="POST">
+      <div>
+        <button type="submit" name ="prev" value="prev"> Previous </button>
+        <button type="submit" name="next" value="next"> Next </button>
+        <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
+      </div>
+    </form>
+           <br>
+        </div>
+    </div>
 
 
-if(isset($_FILES['file'])){
-  $audio = file_get_contents($_FILES['file']['tmp_name']);
- 
-  require_once __DIR__ . "/db.php";
-  $sql = $dbh->prepare("INSERT INTO `uploads` (`audio`) VALUES(?)");
-  $sql->execute(array($audio));
- 
-  $sql = $dbh->query("SELECT `id` FROM `uploads` ORDER BY `id` DESC LIMIT 1");
-  $id = $sql->fetchColumn();
- 
-  echo "play.php?id=$id";
-}
 
-?> 
-
-
-<form action="" method="POST" name="audio_form" id="audio_form" enctype="multipart/form-data">
-
-	<div id="formats">Your Recording:</div>
-						<ol name="record" id="recordingsList"></ol>	
-
-  <button type="submit" name="submit" value="submit">Submit</button>
-</form>
 
 <script src="../js/recorder.js"></script>
 <script src="../js/record.js"></script>

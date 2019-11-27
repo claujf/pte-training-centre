@@ -68,8 +68,8 @@ $result = mysqli_query($con,$query);
             <div class="readingdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-              <a href="../Reading/rfib.php">Reading:Fill in the blanks</a>
-              <a href="../Reading/rwfib.php">Reading&Writing:Fill in the blanks</a>
+              <a href="../Reading/fib.php">Reading:Fill in the blanks</a>
+              <a href="../Reading/rw_fib.php">Reading&Writing:Fill in the blanks</a>
               <a href="../Reading/rp.php">Reorder Paragraph</a>
               <a href="../Reading/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
               <a href="../Reading/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
@@ -81,13 +81,13 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <a>Highlight Incorrect Words</a>
-                <a href="hcs.php">Highlight Correct Summary</a>
-                <a href="l_fib.php">Listening:Fill in the blanks</a>
-                <a href="l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="smw.php">Select Missing Words</a>
-                <a href="sst.php">Summarize Spoken Text</a>
-                <a href="wfd.php">Write From Dictation</a>
+                <a href="../Listening/hcs.php">Highlight Correct Summary</a>
+                <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
+                <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
+                <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
+                <a href="../Listening/smw.php">Select Missing Words</a>
+                <a href="../Listening/sst.php">Summarize Spoken Text</a>
+                <a href="../Listening/wfd.php">Write From Dictation</a>
               </div>
             </div>
           </li>
@@ -96,7 +96,7 @@ $result = mysqli_query($con,$query);
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <a href="../Writing/swt.php">Summarize Written Text</a>
-                <a href="../we.php">Write Essay</a>
+                <a href="../Writing/we.php">Write Essay</a>
               </div>
             </div>
           </li>  
@@ -109,7 +109,7 @@ $result = mysqli_query($con,$query);
 	<link rel="stylesheet" href="../css/style.css">
 
 
-
+</body>
 <body>
 <div class="section">
 <div align="justify">
@@ -161,6 +161,15 @@ $result = mysqli_query($con,$query);
           }
       }
 ?>
+
+<table>
+  <tr>
+	<div style="font-weight: bold; font-size: 20px">
+    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+	</div>
+  </tr>
+</table>
+
 <div align="center">
 <?php
 $audiomp3 = $array[$counter]['path'];
@@ -186,7 +195,11 @@ echo $element . '<br/>';
 <div style="padding-left: 300px">
     <button type="submit" class="button" name ="prev" value="prev"> Previous </button>
     <button type="submit" class="button" name="next" value="next"> Next </button>
-    <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
+	<input  type="hidden" name="counter" value="<?php print $counter; ?>"/>
+	 <!----------------Building Connection with Database </select>
+    <option  class="button" name="counter" value="
+	<?php print $counter; ?>"/><?php echo $counter ?></option>
+	<select>----------------------------->
 </div>
 </form>					
 				

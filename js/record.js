@@ -116,7 +116,11 @@ function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
 	var au = document.createElement('audio');
+	au.setAttribute("name","record");
+	au.setAttribute("id","record");
 	var li = document.createElement('li');
+	li.setAttribute("name","record");
+	li.setAttribute("id","record");
 	var replaceli = document.getElementById('recordingsList');
 	var link = document.createElement('a');
 
@@ -137,17 +141,16 @@ function createDownloadLink(blob) {
 	li.appendChild(au);
 	
 	//add the filename to the li
-	li.appendChild(document.createTextNode(filename+".wav "))
+	//li.appendChild(document.createTextNode(filename+".wav "))
 
 	//add the save to disk link to li
 	li.appendChild(link);
 
-/*****************************************************************************************************	
-***********************************THIS PART OF CODE NOT NEEDED****************************************
+
 	//upload link
 	var upload = document.createElement('a');
 	upload.href="#";
-//	upload.innerHTML = "Upload";
+	upload.innerHTML = "Upload";
 	upload.addEventListener("click", function(event){
 		  var xhr=new XMLHttpRequest();
 		  xhr.onload=function(e) {
@@ -157,17 +160,16 @@ function createDownloadLink(blob) {
 		  };
 		  var fd=new FormData();
 		  fd.append("audio_data",blob, filename);
-		  xhr.open("POST","upload.php",true);
+		  xhr.open("POST","../upload.php",true);
 		  xhr.send(fd);
 	})
 	li.appendChild(document.createTextNode (" "))//add a space in between
 	li.appendChild(upload)//add the upload link to li
-****************************************************************************************************
-*****************************************************************************************************/
+
 
 
 	//add the li element to the ol
-;
+
 	recordingsList.appendChild(li);  
 	replaceli.replaceChild(li,replaceli.childNodes[0])
 }
