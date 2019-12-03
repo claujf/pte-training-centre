@@ -111,7 +111,7 @@ $result = mysqli_query($con,$query);
         </div>
         <a href="../logout.php" class="button"> Sign Out </a>
       </nav>
-<body>
+</body>
 
 <div class="section">
 
@@ -246,5 +246,5 @@ $result = mysqli_query($con,$query);
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
 
-</body>
+
 </html>	

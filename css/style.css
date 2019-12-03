@@ -41,7 +41,8 @@ body{
   padding-top:  120px;
   margin: 0 0 100px;
   min-height: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
+  clear:both;
 }
 
 input, textarea {
@@ -164,6 +165,7 @@ input, textarea {
 
 .footer{
 /*	position: fixed; */
+   position: absolute;
    left: 0;
     padding: 10px 0;  
    bottom: 0;

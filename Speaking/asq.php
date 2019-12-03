@@ -249,19 +249,6 @@ if(move_uploaded_file($_FILES['audio_file']['tmp_name'], $target_path)) {
 }
 */
 
-if(isset($_FILES['file'])) {
-  $audio = file_get_contents($_FILES['file']['tmp_name']);
-
-  require_once __DIR__ . "/db.php";
-  $sql = $dbh->prepare("INSERT INTO 'results' ('audio') VALUES (?)");
-  sql->execite(array($audio));
-
-  $sql = $dbh->query("SELECT 'id' FROM 'results' ORDER BY 'id' DESC LIMIT 1");
-  $id = $$sql->fetchColumn();
-
-  echo "play.php?id=$id";
-}
-
 
 ?> 
 
