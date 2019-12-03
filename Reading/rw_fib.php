@@ -192,6 +192,8 @@ die("Can not connect: " . mysqli_error());
   <option value ='<?php echo $array[$counter]['rw_select16'] ?>'><?php echo $sarray[$counter]['rw_select_16'] ?></option>
 </select>
 <td><?php echo $array[$counter]['rw_fib_part5'] ?> </td>
+
+<?php if($array[$counter]['rw_fib_part6'] == NULL){echo ' ';}else{?>
 <select>
   <option value =''>&nbsp;</option>
   <option value ='<?php echo $array[$counter]['rw_select17'] ?>'><?php echo $sarray[$counter]['rw_select_17'] ?></option>
@@ -199,7 +201,9 @@ die("Can not connect: " . mysqli_error());
   <option value ='<?php echo $array[$counter]['rw_select19'] ?>'><?php echo $sarray[$counter]['rw_select_19'] ?></option>
   <option value ='<?php echo $array[$counter]['rw_select20'] ?>'><?php echo $sarray[$counter]['rw_select_20'] ?></option>
 </select>
-<td><?php echo $array[$counter]['rw_fib_part6'] ?> </td>
+<td><?php echo $array[$counter]['rw_fib_part6'];} ?> </td>
+
+<?php if($array[$counter]['rw_fib_part7'] == NULL){echo ' ';}else{?>
 <select>
   <option value =''>&nbsp;</option>
   <option value ='<?php echo $array[$counter]['rw_select21'] ?>'><?php echo $sarray[$counter]['rw_select_21'] ?></option>
@@ -207,7 +211,7 @@ die("Can not connect: " . mysqli_error());
   <option value ='<?php echo $array[$counter]['rw_select23'] ?>'><?php echo $sarray[$counter]['rw_select_23'] ?></option>
   <option value ='<?php echo $array[$counter]['rw_select24'] ?>'><?php echo $sarray[$counter]['rw_select_24'] ?></option>
 </select>
-<td><?php echo $array[$counter]['rw_fib_part7'] ?> </td>
+<td><?php echo $array[$counter]['rw_fib_part7'];} ?> </td>
 </div>
 
 <!-------------------------------------------------------------------------------

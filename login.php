@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /*
 // if the user is logged in, redirect to main page

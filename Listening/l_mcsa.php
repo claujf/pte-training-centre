@@ -115,9 +115,9 @@ $result = mysqli_query($con,$query);
 
 <div class="row begin-countdown">
   <div class="col-md-12 text-center">
-      <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+      <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
         <span id = "myText"> Audio starts in </span>
-          <span id ="pageBeginCountdownText"> 5 </span>
+          <span id ="pageBeginCountdownText"> 3 </span>
   </div>
 </div>
  
@@ -149,7 +149,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+            
           }
 
           if(isset($_POST["prev"])){
@@ -158,17 +158,17 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
 ?>
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['l_mcsa_id'] ?>  <?php echo $array[$counter]['l_mcsa_question'] ?>
 	</div>
   </tr>
-</table>
+</table></br>
 <?php
       $audiomp3 = $array[$counter]['path'];
 
@@ -178,28 +178,45 @@ $result = mysqli_query($con,$query);
       $element .= "Your browser does not support audio element.";
       $element .= "</audio>";
       $element .= "</br>";
-      $element .= $array[$counter]['l_mcsa_question'];
+      
       $element .= "</div></br>";
 
       echo $element . '<br/>';
 ?>		
-			
+		<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>	
+	 
+	 
+	 
   <form action="/sstdata.php">
-         <input type="radio" name="question1" value="option1"><?php echo $array[$counter]['l_mcsa_option1'] ?>
+  <div style="font-size: 20px; height: 150px">
+        <label>
+         <input type="radio" name="question1" value="option1">A) <?php echo $array[$counter]['l_mcsa_option1'] ?>
+         </label>
          <br>
-         <input type="radio" name="question1" value="option2"><?php echo $array[$counter]['l_mcsa_option2'] ?>
+         <label>
+         <input type="radio" name="question1" value="option2">B) <?php echo $array[$counter]['l_mcsa_option2'] ?>
+         </label>
          <br>
-         <input type="radio" name="question1" value="option3"><?php echo $array[$counter]['l_mcsa_option3'] ?>
+         <label>
+         <input type="radio" name="question1" value="option3">C) <?php echo $array[$counter]['l_mcsa_option3'] ?>
+         </label>
          <br>
-		     <input type="radio" name="question1" value="option4"><?php echo $array[$counter]['l_mcsa_option4'] ?>
+         <label>
+		 <input type="radio" name="question1" value="option4">D) <?php echo $array[$counter]['l_mcsa_option4'] ?>
+         </label>
          <br>
+		 </div>
   </form>
   <br><br>
 
  
   <!-- Submit, next, previous button -->
 			
-
+				<input type="Submit" value="Submit" class="button"></input>
 				<div class="popup" onclick="popupMsg()"> Answer 
 						<span class="popuptext" id="myPopup"><?php echo $array[$counter]['l_mcsa_answer'] ?></span>
 				</div>
@@ -213,11 +230,12 @@ $result = mysqli_query($con,$query);
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
 </form>	
+<script src="../js/record.js"></script>
    <script src="../js/popup.js"></script>
    <script src="../js/countdown.js"></script>
  </div>
 </div>
- </div>
+ </div></br></br>
 <div class="footer">
 
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">

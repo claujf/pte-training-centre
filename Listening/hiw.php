@@ -148,7 +148,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+            
           }
 
           if(isset($_POST["prev"])){
@@ -157,7 +157,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
 ?>
@@ -165,7 +165,7 @@ $result = mysqli_query($con,$query);
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['hiw_id'] ?>  
 	</div>
   </tr>
 </table>
@@ -180,15 +180,20 @@ $element .= "Your browser does not support audio element.";
 $element .= "</audio>";
 
 echo $element . '<br/>';
-?>
+?></br>
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
 </div>
-<p class="sentence"> <?php echo $array[$counter]['hiw_paragraph'] ?> </p>
+<div class="sentence" style="height:400px; font-size: 20px; line-height: 1.6;"> <?php echo $array[$counter]['hiw_paragraph'] ?> </div>
 	
 
 
 			<input type="Submit" value="Submit" class="button"></input>
-				<div class="popup" onclick="popupMsg()"> Answer 
-						<span class="popuptext" id="myPopup">1.mostly<br>2.greater<br>3.packet<br>4.price<br>5.about</span>
+				<div class="popup" onclick="popupMsg()" > Answer 
+						<span class="popuptext" id="myPopup" style="height:150px; width:400px; text-align:center"><?php echo $array[$counter]['hiw_answer'] ?></span>
 				</div></br></br>
 
 <form action="hiw.php" method="post">
@@ -204,8 +209,8 @@ echo $element . '<br/>';
 </form>					
 				
 </div>
-</div>	
-
+</div>	</br></br>
+<script src="../js/record.js"></script>
   <script src="../js/popup.js"></script>
   <script src="../js/highlight.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

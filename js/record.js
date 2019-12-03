@@ -10,6 +10,7 @@ var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
 
 var aud = document.getElementById("player");
+var beep = document.getElementById("beep");
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var pauseButton = document.getElementById("pauseButton");
@@ -20,8 +21,10 @@ var pauseButton = document.getElementById("pauseButton");
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
 
-
 aud.onended = function(){
+	beep.play();
+
+beep.onended = function(){
 	startRecording();
 
 	document.querySelector("#myText").innerHTML = "Recording...";
@@ -32,7 +35,7 @@ aud.onended = function(){
 		document.querySelector("#myText").innerHTML = "Finished recording .";
 	}, x*1000);
 } 
-
+}
 
 
 navigator.mediaDevices.getUserMedia({audio:true})

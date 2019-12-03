@@ -120,7 +120,7 @@ $result = mysqli_query($con,$query);
 </div>
 
 <?php
-      $query = "SELECT * FROM l_smw";
+      $query = "SELECT * FROM l_sst";
       $array = array();
 
       mysqli_query($con,$query) or die ('Error query database');
@@ -156,7 +156,7 @@ $result = mysqli_query($con,$query);
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['sst_id'] ?>  <?php echo $array[$counter]['sst_title'] ?>  
 	</div>
   </tr>
 </table>
@@ -169,38 +169,42 @@ $result = mysqli_query($con,$query);
       $element .= "Your browser does not support audio element.";
       $element .= "</audio>";
       $element .= "</br>";
-
-      echo $element . '<br/>';
+	  echo $element . '<br/>';
 ?>
-</div></br>
+</div>
   
-
-  <br>
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
+  
+  
   <!-- User input box -->
   <form action ="/action_page.php">
 			Answer: 
-			<span style="color:red; padding-left: 790px;">Remain:</span>
+			<span style="color:red; padding-left: 900px;">Remain:</span>
 			<span id ="time" style="color:red"></span>
 			<script src="../js/start.js"></script>
-			<script src="../js/countdown.js"></script>
-			<textarea id="text" id="text" style="width:960px;height:250px"></textarea>
+			<textarea id="text" id="text" style="width:1100px;height:250px"></textarea>
 			<span id="wordCount">0</span> Character
 			<script src="../js/word_count.js"></script>
 			<span style="padding-left: 300px"></span>
 			<input type="Submit" value="Submit" class="button"></input>
-			<span style="padding-left: 300px"></span>
+			
 	</form>
 
 <form action="sst.php" method="post">
-<div style="padding-left: 300px">
+
         <button class="button" type="submit" name ="prev" value="prev"> Previous </button>
         <button class="button" type="submit" name="next" value="next"> Next </button>
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
-</div>
-</form>	
+
+</form></br></br>
  </div>
  </div>
- 
+
+<script src="../js/record.js"></script>
 <script src="../js/popup.js"></script> 
 <script src="../js/countdown.js"></script>
  

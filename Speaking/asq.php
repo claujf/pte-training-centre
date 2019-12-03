@@ -1,5 +1,8 @@
 <?php
- session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
  $db = mysqli_connect('localhost','root','root','pte_db')
  or die('Error connecting to MySQL server.');
 
@@ -103,10 +106,11 @@
         </div>
         <a href="../logout.php" class="button"> Sign Out </a>
       </nav>
+</body>
 
-
-
+<div id = "page-container">
     <div class="section">
+
 
     <h5>You will hear a question. Please give a simple and short answer. Often just one or a few words is enough.</h5><br>
     <h5> Your student ID is: <b><?php echo htmlspecialchars($_SESSION["id"]); ?> </b>. </h5>
@@ -117,9 +121,9 @@
       <div class="content">
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
+              <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
                 <span id = "myText"style="color: red"> Audio starts in </span>
-                  <span id ="pageBeginCountdownText" style="color: red"> 3 </span>
+                  <span id ="pageBeginCountdownText" style="color: red"> 5 </span>
           </div>
         </div>
            
@@ -177,7 +181,9 @@
 
       echo $element . '<br/>';
       ?>
-
+<audio id = "beep">
+  <source src="beep-07.wav">
+</audio>
 
 
      <div id="controls">
@@ -243,19 +249,19 @@ if(move_uploaded_file($_FILES['audio_file']['tmp_name'], $target_path)) {
 }
 */
 
-
-if(isset($_FILES['file'])){
+if(isset($_FILES['file'])) {
   $audio = file_get_contents($_FILES['file']['tmp_name']);
- 
+
   require_once __DIR__ . "/db.php";
-  $sql = $dbh->prepare("INSERT INTO `uploads` (`audio`) VALUES(?)");
-  $sql->execute(array($audio));
- 
-  $sql = $dbh->query("SELECT `id` FROM `uploads` ORDER BY `id` DESC LIMIT 1");
-  $id = $sql->fetchColumn();
- 
+  $sql = $dbh->prepare("INSERT INTO 'results' ('audio') VALUES (?)");
+  sql->execite(array($audio));
+
+  $sql = $dbh->query("SELECT 'id' FROM 'results' ORDER BY 'id' DESC LIMIT 1");
+  $id = $$sql->fetchColumn();
+
   echo "play.php?id=$id";
 }
+
 
 ?> 
 
@@ -265,8 +271,9 @@ if(isset($_FILES['file'])){
 	<div id="formats">Your Recording:</div>
 						<ol name="record" id="recordingsList"></ol>	
 
-  <button type="submit" name="submit" value="submit">Submit</button>
+<!--  <button type="submit" name="submit" value="submit">Submit</button>  -->
 </form>
+
 
 <script src="../js/recorder.js"></script>
 <script src="../js/record.js"></script>
@@ -274,21 +281,19 @@ if(isset($_FILES['file'])){
 <script src="../js/countdown.js"></script>
 
 </div>
+</div>
 
-    <div class="footer">
-
+<div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
         <img src="../img/mara.png" border="0" alt="find-an-agent" width="150" height="120">
       </a>
       <a href="https://www.mia.org.au/" target="_blank">
         <img src="../img/mia.jpg" border="0" alt="mia" width="150" height="120">
       </a>
-
       <p>Contact us: <br>
       SCVI Migration Pty Ltd <br>
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
+</div>
 
-    </div>
-
-    </body>
-    </html>
+</div>
+</html>

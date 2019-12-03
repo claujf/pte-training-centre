@@ -1,5 +1,8 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
@@ -161,8 +164,11 @@ $para = $array[$counter]['ra_paragraph'];
 			<p>Question:<?php echo $array[$counter]['ra_id'] . "." . $array[$counter]['ra_title'] ?></p> <br></div>
       <div style="font-size: 22px; word-spacing: 3px; height: 150px"><?php echo $array[$counter]['ra_paragraph'] ?></div> 
 </div>
-	      
-</br></br>
+	      <audio id = "beep" >
+  <source src="beep-07.wav">
+</audio>
+
+
 					<div id="controls">
 						<button id="recordButton" style="display:none;" >Record</button>
 						<button id="pauseButton" disabled class="button">Pause</button>
@@ -190,9 +196,9 @@ $para = $array[$counter]['ra_paragraph'];
 </div>
 
   	 <script src="../js/recorder.js"></script>
-  	 <script src="../js/record.js"></script>
+  	 <script src="../js/record2.js"></script>
 	 <script src="../js/popup.js"></script>
-	 <script src="../js/countdown.js"></script>
+	 <script src="../js/countrecord.js"></script>
 
 <div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">

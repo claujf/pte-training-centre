@@ -1,8 +1,8 @@
 
+var audio = document.getElementById("beep");
 var x = document.getElementById("pageBeginCountdown").value;
-var time = 40;
 
-ProgressCountdown(x, 'pageBeginCountdown', 'pageBeginCountdownText').then(value => record());
+ProgressCountdown(x, 'pageBeginCountdown', 'pageBeginCountdownText').then(value => audio.play());
 
 function ProgressCountdown(timeleft, bar, text) {
   return new Promise((resolve, reject) => {
@@ -18,17 +18,6 @@ function ProgressCountdown(timeleft, bar, text) {
       }
     }, 1000);
   });
-}
-
-function record() {
-  startRecording();
-  document.querySelector("#myText").innerHTML = "Recording..";
-  document.querySelector("#pageBeginCountdownText").innerHTML = "";
-
-  setTimeout(function() {
-    stopRecording();
-    document.querySelector("#myText").innerHTML = "Recording finished";
-  }, x*1000);
 }
 
 /* PLAN B 

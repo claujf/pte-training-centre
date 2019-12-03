@@ -110,15 +110,15 @@ $result = mysqli_query($con,$query);
 
 <div class="section">
 <div align="justify">
-	
+<div id="content-wrap">		
 <h5>Listen to the recording and answer the question by selecting all the correct responses. You will need to select more than one response.</h5>
   <!-- # Item number and item Title -->
  <!-- Timer -->
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+              <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
                 <span id = "myText"> Audio starts in </span>
-                  <span id ="pageBeginCountdownText"> 5 </span>
+                  <span id ="pageBeginCountdownText"> 3 </span>
           </div>
         </div>
 
@@ -161,45 +161,66 @@ $result = mysqli_query($con,$query);
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['L_mcma_id'] ?> <?php echo $array[$counter]['L_mcma_title'] ?>  </br>
+	<?php echo $array[$counter]['L_mcma_question'] ?>
 	</div>
   </tr>
 </table>
 <?php
       $audiomp3 = $array[$counter]['path'];
 
-      $element = "";
+      $element = "<div align='center'>";
       $element .= "<audio id = 'player' controls>";
       $element .= "<source src= '$audiomp3' type = 'audio/mpeg'>";
       $element .= "Your browser does not support audio element.";
       $element .= "</audio>";
-
+	  $element .= "</br>";
+      
+      $element .= "</div></br>";
       echo $element . '<br/>';
       ?>
-</div></br>		
+	  <div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
+
    
   <form action="/sstdata.php">
-         <input type="checkbox" name="Option1" value="Option1">a) <?php echo $array[$counter]['L_mcma_option1'] ?>
+  <div style="font-size: 20px; height: 200px">
+       <label>
+         <input type="checkbox" name="Option1" value="Option1">A) <?php echo $array[$counter]['L_mcma_option1'] ?>
+       </label>
          <br>
-         <input type="checkbox" name="Option2" value="Option2">b) <?php echo $array[$counter]['L_mcma_option2'] ?>
+         <label>
+         <input type="checkbox" name="Option2" value="Option2">B) <?php echo $array[$counter]['L_mcma_option2'] ?>
+       </label>
          <br>
-         <input type="checkbox" name="Option3" value="Option3">c) <?php echo $array[$counter]['L_mcma_option3'] ?>
+         <label>
+         <input type="checkbox" name="Option3" value="Option3">C) <?php echo $array[$counter]['L_mcma_option3'] ?>
+       </label>
          <br>
-		     <input type="checkbox" name="Option4" value="Option4">d) <?php echo $array[$counter]['L_mcma_option4'] ?>
+         <label>
+		 <input type="checkbox" name="Option4" value="Option4">D) <?php echo $array[$counter]['L_mcma_option4'] ?>
+    </label>
          <br>
-         <input type="checkbox" name="Option5" value="Option5">e) <?php echo $array[$counter]['L_mcma_option5'] ?>
+         <label>
+		 <?php if($array[$counter]['L_mcma_option5'] == NULL){echo ' ';}else{?>
+         <input type="checkbox" name="Option5" value="Option5">E) <?php echo $array[$counter]['L_mcma_option5'];} ?>
+       </label>
          <br>
-         <input type="checkbox" name="Option6" value="Option6">f) <?php echo $array[$counter]['L_mcma_option6'] ?>
-  </form>
+         <label>
+		 <?php if($array[$counter]['L_mcma_option5'] == NULL){echo ' ';}else{?>
+         <input type="checkbox" name="Option6" value="Option6">F) <?php echo $array[$counter]['L_mcma_option6'];} ?>
+       </label>
+  </div>
+  </form><br><br>
 
-   <br><br>
+   
   
- 
- 
   <!-- Submit, next, previous button -->
-  
 			
-
+			<input type="Submit" value="Submit" class="button"></input>
 				<div class="popup" onclick="popupMsg()"> Answer 
 						<span class="popuptext" id="myPopup"><?php echo $array[$counter]['L_mcma_Answer'] ?></span>
 				</div>
@@ -207,16 +228,18 @@ $result = mysqli_query($con,$query);
 				
 <form action="l_mcma.php" method="post">
 <div style="padding-left: 300px">
-        <button type="submit" name ="prev" value="prev"> Previous </button>
-        <button type="submit" name="next" value="next"> Next </button>
+        <button class="button" type="submit" name ="prev" value="prev"> Previous </button>
+        <button class="button" type="submit" name="next" value="next"> Next </button>
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
-</form>					
+</form>				
 
- 
+ <script src="../js/record.js"></script>
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>
- 
+ </div>
+</div>
+ </div></br></br>
 <div class="footer">
 
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">
@@ -230,6 +253,6 @@ $result = mysqli_query($con,$query);
       SCVI Migration Pty Ltd <br>
       COPYRIGHT <i class="fa fa-copyright"></i> 2019 ALL RIGHTS RESERVED @ SCVI Migration</p>
 </div>
- 
+ </div>
 </body>
 </html>

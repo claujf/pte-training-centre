@@ -171,9 +171,10 @@ $result = mysqli_query($con,$query);
 <?php echo $array[$counter]['mcsa_option3']; ?>
 </label>
 <br>
+<?php if($array[$counter]['mcsa_option4'] == NULL){echo ' ';}else{?>
 <label for="Option4">
 <input type="radio" name="question1" id="Option4" value="Option4">
-<?php echo $array[$counter]['mcsa_option4']; ?>
+<?php echo $array[$counter]['mcsa_option4']; }?>
 </label>
 <br>
 </div>

@@ -1,5 +1,8 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
@@ -179,6 +182,10 @@ $result = mysqli_query($con,$query);
       echo $element . '<br/>';
     
 ?>  	
+<audio id = "beep">
+  <source src="beep-07.wav">
+</audio>
+
 			
 				<div id="controls">
 					<button id="recordButton" style="display:none;" >Start</button>

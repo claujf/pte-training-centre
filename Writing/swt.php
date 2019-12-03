@@ -1,5 +1,8 @@
 <?php
-
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());

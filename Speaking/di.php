@@ -1,5 +1,8 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $con = mysqli_connect("localhost","root","root","pte_db");
 if (!$con){
 die("Can not connect: " . mysqli_error());
@@ -176,7 +179,10 @@ $result = mysqli_query($con,$query);
       echo $element . '<br/>';
     
 ?>              
-			
+<audio id = "beep">
+  <source src="beep-07.wav">
+</audio>
+
 	        <div id="controls">
 					<button id="recordButton" style="display:none;" >Record</button>
 					<button id="pauseButton" disabled class="button">Pause</button>
@@ -208,17 +214,12 @@ $result = mysqli_query($con,$query);
 </div>
 </div>
 
-<script type="text/javascript">
-  var aud = document.getElementById('player');
 
-  aud.onended = function(){
-    startRecording();
-  }
-</script>
 
 <script src="../js/recorder.js"></script>
-<script src="../js/record.js"></script>
+<script src="../js/record2.js"></script>
 <script src="../js/popup.js"></script>
+<script src="../js/countrecord.js"></script>
 
 <div class="footer">
       <a href="https://www.mia.org.au/find-an-agent" target="_blank">

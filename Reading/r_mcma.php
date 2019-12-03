@@ -178,14 +178,18 @@ $result = mysqli_query($con,$query);
 <td><?php echo $array[$counter]['mcma_option4'] ?><br></td>
 </label>
 <br>
+
+<?php if($array[$counter]['mcma_option5'] == NULL){echo ' ';}else{?>
 <label for="Option5">
 <input type="checkbox" name="Option5" id = "Option5" value="Option5">
-<td><?php echo $array[$counter]['mcma_option5'] ?><br></td>
+<td><?php echo $array[$counter]['mcma_option5'];} ?><br></td>
 </label>
 <br>
+
+<?php if($array[$counter]['mcma_option6'] == NULL){echo ' ';}else{?>
 <label for="Option6">
 <input type="checkbox" name="Option6" id = "Option6" value="Option6">
-<td><?php echo $array[$counter]['mcma_option6'] ?><br></td>
+<td><?php echo $array[$counter]['mcma_option6'];} ?><br></td>
 </label>
 <br>
 </div>
@@ -202,18 +206,13 @@ $result = mysqli_query($con,$query);
 echo $array[$counter]['mcma_answer']
 ?>
 </span>
-</div>
-
-	
+</div>	
 </div>
 </form>
 
 
   <!-- options -->
   
-
-		
-
 			
  </div>
  </div> </br></br></br>

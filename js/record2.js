@@ -8,6 +8,7 @@ var input; 							//MediaStreamAudioSourceNode we'll be recording
 // shim for AudioContext when it's not avb. 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
+var beep = document.getElementById("beep");
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
@@ -17,6 +18,18 @@ var pauseButton = document.getElementById("pauseButton");
 //recordButton.addEventListener("click", startRecording); //calling startRecording() function from index.html onclick event , so this line of code is not needed anymore
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
+
+beep.onended = function(){
+	startRecording();
+
+	document.querySelector("#myText").innerHTML = "Recording...";
+	document.querySelector("#pageBeginCountdownText").innerHTML = "";
+	
+	setTimeout(function(){
+		stopRecording();
+		document.querySelector("#myText").innerHTML = "Finished recording .";
+	}, x*1000);
+}
 
 function startRecording() {
 	console.log("recordButton clicked");
@@ -137,7 +150,7 @@ function createDownloadLink(blob) {
 	li.appendChild(au);
 	
 	//add the filename to the li
-	li.appendChild(document.createTextNode(filename+".wav "))
+	//li.appendChild(document.createTextNode(filename+".wav "))
 
 	//add the save to disk link to li
 	li.appendChild(link);

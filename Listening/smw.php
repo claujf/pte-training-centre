@@ -119,9 +119,9 @@ $result = mysqli_query($con,$query);
 
 <div class="row begin-countdown">
   <div class="col-md-12 text-center">
-      <progress value="5" max="5" id="pageBeginCountdown"></progress><br>
+      <progress value="3" max="3" id="pageBeginCountdown"></progress><br>
       <span id = "myText"> Audio starts in </span>
-      <span id ="pageBeginCountdownText"> 5 </span>
+      <span id ="pageBeginCountdownText"> 3 </span>
   </div>
 </div>
 
@@ -147,7 +147,7 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = (count($array)-1);
             }
-            echo $counter;
+           
           }
 
           if(isset($_POST["prev"])){
@@ -156,14 +156,14 @@ $result = mysqli_query($con,$query);
             } else {
               $counter = 0;
             }
-            echo $counter;
+            
           }
       }
 ?>
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['smw_id'] ?>  
 	</div>
   </tr>
 </table>
@@ -179,28 +179,45 @@ $result = mysqli_query($con,$query);
 
       echo $element . '<br/>';
 ?>
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
 </div></br>
 
  
   <!-- options -->
   <form action="/sstdata.php">
-         <input type="radio" name="question1" value="option1"><?php echo $array[$counter]['smw_option1'] ?>
+  <div style="font-size: 20px; height: 150px">
+         <label>
+         <input type="radio" name="question1" value="option1">A) <?php echo $array[$counter]['smw_option1'] ?>
+         </label> 
          <br>
-         <input type="radio" name="question1" value="option2"><?php echo $array[$counter]['smw_option2'] ?>
+         <label>
+         <input type="radio" name="question1" value="option2">B) <?php echo $array[$counter]['smw_option2'] ?>
+         </label>
          <br>
-         <input type="radio" name="question1" value="option3"><?php echo $array[$counter]['smw_option3'] ?>
+         <label>
+         <input type="radio" name="question1" value="option3">C) <?php echo $array[$counter]['smw_option3'] ?>
+         </label>
          <br>
-		     <input type="radio" name="question1" value="option4"><?php echo $array[$counter]['smw_option4'] ?>
+         <label>
+		     <input type="radio" name="question1" value="option4">D) <?php echo $array[$counter]['smw_option4'] ?>
+       </label>
          <br>
-		     <input type="radio" name="question1" value="option5"><?php echo $array[$counter]['smw_option5'] ?>
+         <label>
+		     <input type="radio" name="question1" value="option5">E) <?php echo $array[$counter]['smw_option5'] ?>
+         </label>
          <br>
+		 </div>
   </form>
   <br><br>
 
  
   <!-- Submit, next, previous button -->
   
-			
+				<input type="Submit" value="Submit" class="button"></input>
 				<div class="popup" onclick="popupMsg()"> Answer 
 						<span class="popuptext" id="myPopup"><?php echo $array[$counter]['smw_answer'] ?></span>
 				</div>
@@ -215,8 +232,8 @@ $result = mysqli_query($con,$query);
 </div>
 </form>			
  </div>
- </div>
- 
+ </div></br></br>
+ <script src="../js/record.js"></script>
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script> 
  

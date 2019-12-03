@@ -81,8 +81,8 @@ $result = mysqli_query($con,$query);
             <div class="listeningdd">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
-                <a>Highlight Incorrect Words</a>
-                <a href="../Listening/hcs.php">Highlight Correct Summary</a>
+                <a href="../Listening/hiw.php">Highlight Incorrect Words</a>
+                <a>Highlight Correct Summary</a>
                 <a href="../Listening/l_fib.php">Listening:Fill in the blanks</a>
                 <a href="../Listening/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
                 <a href="../Listening/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
@@ -121,9 +121,9 @@ $result = mysqli_query($con,$query);
 
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-            <progress value="10" max="10" id="pageBeginCountdown"></progress></br></br>
+            <progress value="3" max="3" id="pageBeginCountdown"></progress></br></br>
             <span id = "myText" style="color: red">Prepare</span>
-            <span id ="pageBeginCountdownText" style="color: red"> 10 </span></br></br>
+            <span id ="pageBeginCountdownText" style="color: red"> 3 </span></br></br>
           </div>
         </div>    
       
@@ -166,7 +166,7 @@ $result = mysqli_query($con,$query);
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['hcs_id'] ?>  <?php echo $array[$counter]['hcs_title'] ?> 
 	</div>
   </tr>
 </table>
@@ -182,28 +182,45 @@ $element .= "</audio>";
 echo $element . '<br/>';
 
 ?>
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
 </div></br>
 
 
-<form action="hcs.php" style="padding-bottom: 50px;"> 
-		<input type="radio" name="question1">
+<form action="hcs.php"> 
+<div style="font-size: 20px; height: 250px">
+  <label>
+		<input type="radio" name="question1">A)
+		 <!-- <div style="align: right; padding-left:80px"> -->
 			<?php	echo $array[$counter]['hcs_option1']?> <br>
-        <input type="radio" name="question1">	
+    </label>
+    <label>
+        <input type="radio" name="question1">B)	
 			<?php  echo $array[$counter]['hcs_option2']?> <br>
-		<input type="radio" name="question1">
+    </label>
+    <label>
+		<input type="radio" name="question1">C)
 			<?php  echo $array[$counter]['hcs_option3']?> <br>
-		<input type="radio" name="question1">
-			<?php  echo $array[$counter]['hcs_option4']?> <br>
-			<input type="Submit" value="Submit" class="button"></input>
+    </label>
+    <label>
+		<?php if($array[$counter]['hcs_option4'] == NULL){echo ' ';}else{?>
+		<input type="radio" name="question1">D)
+		<?php  echo $array[$counter]['hcs_option4'];}?> <br>
+  </label>
+			
+</div>
 </form>			
 				
   
  
   <!-- Submit, next, previous button    -->
 		
-			
+			<input type="Submit" value="Submit" class="button"></input>
 			<div class="popup" onclick="popupMsg()"> Answer 
-						<span class="popuptext" id="myPopup">A</span>
+						<span class="popuptext" id="myPopup"><?php echo $array[$counter]['hcs_answer'] ?></span>
 			</div></br></br>
 
  <form action="hcs.php" method="post">
@@ -215,7 +232,7 @@ echo $element . '<br/>';
 </form>	 
 </div>
 </div></br></br>
-
+<script src="../js/record.js"></script>
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>
 

@@ -3,7 +3,7 @@
 }
 
 html {
-  position:   relative; ;
+  position:   relative;
   min-height:   100%;
 }
 
@@ -40,6 +40,8 @@ body{
   background-color: white;
   padding-top:  120px;
   margin: 0 0 100px;
+  min-height: 100%;
+  margin-bottom: 0px;
 }
 
 input, textarea {
@@ -161,7 +163,7 @@ input, textarea {
 }
 
 .footer{
-	position: fixed;
+/*	position: fixed; */
    left: 0;
     padding: 10px 0;  
    bottom: 0;

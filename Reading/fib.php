@@ -150,7 +150,7 @@ $result = mysqli_query($con,$query);
 		<span id="time"></span> 
 		<script src="../../js/timer60_sec.js"></script>
   </div>
-<div class="section1" style="line-height:2.5">
+<div class="section2" style="line-height:2.5">
 <?php
       $query = "SELECT * FROM r_fib";
       $array = array();
@@ -199,33 +199,48 @@ $result = mysqli_query($con,$query);
     <?php echo $array[$counter]['r_fib_part3'] ?>
   <div data-draggable='target'><div data-draggable='item'></div></div>
     <?php echo $array[$counter]['r_fib_part4'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part5'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part6'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part7'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part8'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part9'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
-    <?php echo $array[$counter]['r_fib_part10'] ?>
-  <div data-draggable='target'><div data-draggable='item'></div></div>
 
- <div data-draggable='target' style="width: 1000px; height: 50px"><div data-draggable='item' style="width: 1000px">
-	<span id="routine" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word1'] ?></span>
-	<span id="identify" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word2'] ?></span>
-	<span id="find" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word3'] ?></span>
-	<span id="findings" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word4'] ?></span>
-	<span id="journey" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word5'] ?></span>
-	<span id="became" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word6'] ?></span>
-	<span id="predict" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word7'] ?></span>
-	<span id="determine" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word8'] ?></span>
-	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word9'] ?></span>
-	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word10'] ?></span>
-	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word11'] ?></span>
-	<span id="secrets" draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word12'] ?></span>
+  <?php if($array[$counter]['r_fib_part5'] == NULL){echo ' ';}else{?> 	
+  <div data-draggable='target'><div data-draggable='item'></div></div>
+  <?php echo $array[$counter]['r_fib_part5'];} ?>
+   
+  <?php if($array[$counter]['r_fib_part6'] == NULL){echo ' ';}else{?> 
+  <div data-draggable='target'><div data-draggable='item'></div></div> 
+  <?php echo $array[$counter]['r_fib_part6']; }?>
+	
+  <?php if($array[$counter]['r_fib_part7'] == NULL){echo ' ';}else{?>	
+  <div data-draggable='target'><div data-draggable='item'></div></div>
+  <?php echo $array[$counter]['r_fib_part7'];} ?>
+	
+   <?php if($array[$counter]['r_fib_part8'] == NULL){echo ' ';}else{?>	
+  <div data-draggable='target'><div data-draggable='item'></div></div>
+   <?php echo $array[$counter]['r_fib_part8'];} ?>
+	
+  <?php if($array[$counter]['r_fib_part9'] == NULL){echo ' ';}else{?>	
+  <div data-draggable='target'><div data-draggable='item'></div></div>
+  <?php echo $array[$counter]['r_fib_part9'];} ?>
+	
+  <?php if($array[$counter]['r_fib_part10'] == NULL){echo ' ';}else{?>
+  <div data-draggable='target'><div data-draggable='item'></div></div>
+  <?php echo $array[$counter]['r_fib_part10'];} ?>
+  <br>
+  
+	
+  </span>
+
+ <div data-draggable='target' style="width: 1000px; height: 80px"><div data-draggable='item' style="width: 1000px">
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word1'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word2'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word3'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word4'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word5'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word6'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word7'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word8'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word9'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word10'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word11'] ?></span>
+	<span draggable="true" ondragstart="drag(event)"><?php echo $array[$counter]['r_fib_word12'] ?></span>
 </div>
  </div>  </div> 
 <!--------------------------------
@@ -244,9 +259,7 @@ $result = mysqli_query($con,$query);
 
 
 
---------------------------------!>
-
-<!----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
 From the time of the very earliest civilisations man has wondered about the world he lives in, about how it was created and about how it will end. In these distant times the sun was seen to make its daily 
 	<div class='ans_container' ondrop="drop(event)" ondragover="allowDrop(event)">

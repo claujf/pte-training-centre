@@ -111,7 +111,7 @@ $result = mysqli_query($con,$query);
 <div align="justify">
 <h5>You will hear a sentence. Type the sentence in the box below exactly as you hear it. Write as much of the sentence as you can. You will hear the sentence only once.</h5>
   <!-- Timer -->
-  <div style="color:red ;">Remaining 
+  <div  style="color:red ;">Remaining 
 		<span id="time"></span> 
 		<script src="../js/timer60_sec.js"></script>
   </div>
@@ -177,6 +177,11 @@ $result = mysqli_query($con,$query);
 
       echo $element . '<br/>';
 ?>
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
 </div></br>
 	  
   
@@ -185,8 +190,7 @@ $result = mysqli_query($con,$query);
   <textarea id="myText" style="width:900px;height:60px; font-size: 18px" ></textarea>
   </br> 
  
-  <!-- Word Count -->
-  <span id="wordCount">0</span> Character
+
  <script src="../js/countdown.js"></script>
  <span style="padding-left: 300px"><input type="Submit" value="Submit" class="button"></input></span>		
   </form> </br>
@@ -207,9 +211,10 @@ $result = mysqli_query($con,$query);
 
 	</form>							
 </div> </br></br></br></br></br>
-
+<script src="../js/record.js"></script>
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>
+<script src="../js/word_count.js"></script>
 
 <div class="footer">
 

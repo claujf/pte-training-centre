@@ -121,9 +121,9 @@ $result = mysqli_query($con,$query);
 
         <div class="row begin-countdown">
           <div class="col-md-12 text-center">
-              <progress value="40" max="40" id="pageBeginCountdown"></progress></br></br>
+              <progress value="3" max="3" id="pageBeginCountdown"></progress></br></br>
                 <span id = "myText" style="color: red"> Prepare </span>
-                  <span id ="pageBeginCountdownText" style="color: red"> 40 </span></br>
+                  <span id ="pageBeginCountdownText" style="color: red"> 3 </span></br>
           </div>
         </div>
 <div style="padding-bottom: 50px"> 
@@ -164,7 +164,7 @@ $result = mysqli_query($con,$query);
 <table>
   <tr>
 	<div style="font-weight: bold; font-size: 20px">
-    Question:<?php echo $array[$counter]['wfd_id'] ?>  
+    Question:<?php echo $array[$counter]['l_fib_id'] ?>  <?php echo $array[$counter]['l_fib_title'] ?> 
 	</div>
   </tr>
 </table>
@@ -191,8 +191,13 @@ $element .= "</audio>";
 
 echo $element . '<br/>';
 ?>
-</div>
-<div style="padding-bottom: 100px">  
+<div id="controls">
+       <button id="recordButton" style="display:none;" >Start</button>
+       <button id="pauseButton" style="display:none;">Pause</button>
+       <button id="stopButton" style="display:none;">Stop</button>
+     </div>
+</div></br>
+<div style="height:300px; font-size: 20px; line-height: 1.6;">  
   <!-- questions --> 
   <span class="Sentence">
     <?php echo $array[$counter]['l_fib_part_1'] ?> 
@@ -205,27 +210,32 @@ echo $element . '<br/>';
     <input id="input003" size="15" />
     <text class="button002" id="check002"></text>
     <?php echo $array[$counter]['l_fib_part_4'] ?>
-    <input id="input004" size="15" />
+    
+	<?php if($array[$counter]['l_fib_part_6'] == NULL){echo ' ';}else{?>
+	<input id="input004" size="15" />
     <text class="button002" id="check002"></text>
-    <?php echo $array[$counter]['l_fib_part_5'] ?>
-    <input id="input005" size="15" />
+    <?php echo $array[$counter]['l_fib_part_5'];} ?>
+	
+	<?php if($array[$counter]['l_fib_part_6'] == NULL){echo ' ';}else{?>
+    <input id="input005" size="15"/>
     <text class="button002" id="check002"></text>
-    <?php echo $array[$counter]['l_fib_part_6'] ?>
+	<?php echo $array[$counter]['l_fib_part_6'];}?>
+	
+	<?php if($array[$counter]['l_fib_part_7'] == NULL){echo ' ';}else{?>
     <input id="input006" size="15" />
     <text class="button002" id="check002"></text>
-    <?php echo $array[$counter]['l_fib_part_7'] ?>      
+    <?php echo $array[$counter]['l_fib_part_7'];}?>      
 
+</div>
 
-</br></br>
-<
 
   <!-- Submit, next, previous button -->
 
-
+		<input type="Submit" value="Submit" class="button"></input>
 		<div class="popup" onclick="popupMsg()"> Answer 
-		<span class="popuptext" id="myPopup"><?php echo $array[$counter]['l_fib_answer'] ?></span>
+		<span class="popuptext" id="myPopup" style="height:150px; width:400px; text-align:center"><?php echo $array[$counter]['l_fib_answer'] ?></span>
 		</div>
-</div>
+
 	
 <form action="l_fib.php" method="post">
 <div style="padding-left: 300px">
@@ -233,10 +243,10 @@ echo $element . '<br/>';
         <button type="submit" class="button" name="next" value="next"> Next </button>
         <input type="hidden" name="counter" value="<?php print $counter; ?>"/>
 </div>
-</form>	
+</form>	</br></br>
 </div>
 </div>
-
+<script src="../js/record.js"></script>
 <script src="../js/popup.js"></script>
 <script src="../js/countdown.js"></script>
 
