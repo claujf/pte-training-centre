@@ -1,5 +1,8 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
@@ -32,71 +35,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body id="page-top">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Training Centre</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="speakingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#speaking">Speaking <i class="fa fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                <a href="Speaking/ra/ra.php">Read Aloud</a>
-                <a href="Speaking/di/di.php">Describe Image</a>
-                <a href="Speaking/rs/rs.php">Repeat Sentence</a>
-                <a href="Speaking/asq/asq.php">Answer Short Question</a>
-                <a href="Speaking/rl/rl.php">Re-tell Lecture</a>
-                </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="readingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#reading">Reading <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-              <a href="Reading/r_fib/fib.php">Reading:Fill in the blanks</a>
-              <a href="Reading/rw_fib/fib.php">Reading&Writing:Fill in the blanks</a>
-              <a href="Reading/rp/rp.php">Reorder Paragraph</a>
-              <a href="Reading/r_mcma/r_mcma.php">Reading:Multiple Choice Multiple Answers</a>
-              <a href="Reading/r_mcsa/r_mcsa.php">Reading:Multiple Choice Single Answer</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="listeningdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#listening">Listening <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="Listening/hiw/hiw.php">Highlight Incorrect Words</a>
-                <a href="Listening/hcs/hcs.php">Highlight the Correct Summary</a>
-                <a href="Listening/l_fib/l_fib.php">Listening:Fill in the blanks</a>
-                <a href="Listening/l_mcma/l_mcma.php">Listening:Multiple Choice Multiple Answers</a>
-                <a href="Listening/l_mcsa/l_mcsa.php">Listening:Multiple Choice Single Answer</a>
-                <a href="Listening/smw/smw.php">Select Missing Words</a>
-                <a href="Listening/sst/sst.php">Summarize Spoken Text</a>
-                <a href="Listening/wfd/wfd.php">Write From Dictation</a>
-              </div>
-            </div>
-          </li>
-          <li ckass="nav-item mx-0 mx-lg-1">
-            <div class="writingdd">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#writing">Writing <i class="fa fa-caret-down"></i></a>
-              <div class="dropdown-content">
-                <a href="Writing/swt/swt.php">Summarize Written Text</a>
-                <a href="Writing/we/we.php">Write Essay</a>
-              </div>
-            </div>
-          </li>  
-        </ul>
-      </div>
-    </div>
-  </nav>
+<?php include('includes/navbar.php') ?>
 <br>
   <h1> Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?> </b>. Welcome to pte training centre. </h1>
 
-  <a href="logout.php" class="button"> Sign Out </a>
 
   <!-- Masthead -->
   <header class="masthead bg-primary text-white text-center">
@@ -239,18 +181,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <!-- About Section Content -->
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+          <p class="lead">First column add text here</p>
         </div>
         <div class="col-lg-4 mr-auto">
-          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+          <p class="lead">Second column add tet here</p>
         </div>
       </div>
 
       <!-- About Section Button -->
       <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
+        <a class="btn btn-xl btn-outline-light" href="#"> <!-- replace the # with a link you wish them to dowload -->
           <i class="fas fa-download mr-2"></i>
-          Free Download!
+          Check this out ! 
         </a>
       </div>
 
@@ -334,11 +276,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">2215 John Daniel Drive
-            <br>Clark, MO 65243</p>
+          <p class="lead mb-0">SpringCity
+            <br>Address</p>
         </div>
 
         <!-- Footer Social Icons -->
+        <!-- replace the # icons below with the social media links -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Around the Web</h4>
           <a class="btn btn-outline-light btn-social mx-1" href="#">
@@ -357,9 +300,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <!-- Footer About Text -->
         <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          <h4 class="text-uppercase mb-4">About PTE</h4>
+          <p class="lead mb-0">Introduction about the pte training </p>
         </div>
 
       </div>
@@ -369,7 +311,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
+      <small>Copyright &copy; PTE Training Centre 2019</small>
     </div>
   </section>
 

@@ -1,0 +1,174 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  position:   relative; ;
+  min-height:   100%;
+}
+
+p{
+  margin:2px;
+  font-size: 18px;
+  display: inline;
+}
+
+.highlight{
+  background: yellow;
+}
+
+body{
+  background-color: white;
+  padding-top:  120px;
+  margin: 0 0 100px;
+}
+
+input, textarea {
+  width:  100px;
+  font:   normal 10pt verdana;
+}
+
+.button{
+  background-color: #6F2E21;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
+  left:40%;
+  cursor: pointer;
+  padding: 5px 15px;
+  color: white;
+  background-color: #6F2E21;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.section{
+  margin: 0 auto; /* this line will center the page */
+  width: 960px;
+  text-align: center;
+  background:white;
+  padding-top: 20px;
+  top: 10%;
+  bottom: 10%
+  height:80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Center { 
+  height:100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  height:70px;
+  padding: 20px;
+}
+
+.left{
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.right{
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+
+.content{
+  width: 300px;
+  height: 250px;
+  align-content: space-between;
+}
+
+.footer{
+  width: 100%;
+  padding: 14px 0;
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left:   0;
+  justify-content: space-around;
+  overflow: hidden; 
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 979px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+  body{
+    padding-top:  0px;
+  }
+}
